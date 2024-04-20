@@ -30,7 +30,7 @@ int main()
     string password;
     string splitted_strings[2];
    fstream myfile;
-   myfile.open("yarayoyo.txt",ios::in); //reading from file
+   myfile.open("register.txt",ios::in); //reading from file
    if (myfile.is_open())
    {
        string line;
