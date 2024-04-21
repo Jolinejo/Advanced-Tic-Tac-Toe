@@ -17,27 +17,24 @@ Player grid[3][3] = { { Player::None, Player::None, Player::None },
 
 bool checkWin(Player player)
 {
-    // Check rows
-    for (int row = 0; row < 3; ++row) {
-        if (grid[row][0] == player && grid[row][1] == player && grid[row][2] == player)
+    // Check rows and columns
+    for (int i = 0; i < 3; ++i) {
+        // Check rows
+        if (grid[i][0] == player && grid[i][1] == player && grid[i][2] == player)
             return true;
-    }
-
-    // Check columns
-    for (int col = 0; col < 3; ++col) {
-        if (grid[0][col] == player && grid[1][col] == player && grid[2][col] == player)
+        // Check columns
+        if (grid[0][i] == player && grid[1][i] == player && grid[2][i] == player)
             return true;
     }
 
     // Check diagonals
-    if (grid[0][0] == player && grid[1][1] == player && grid[2][2] == player)
-        return true;
-
-    if (grid[0][2] == player && grid[1][1] == player && grid[2][0] == player)
+    if ((grid[0][0] == player && grid[1][1] == player && grid[2][2] == player) ||
+        (grid[0][2] == player && grid[1][1] == player && grid[2][0] == player))
         return true;
 
     return false;
 }
+
 
 void handleButtonClick(int row, int col, QPushButton* button)
 {
