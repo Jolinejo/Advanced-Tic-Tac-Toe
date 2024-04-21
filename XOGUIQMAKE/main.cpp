@@ -34,6 +34,16 @@ bool checkWin(Player player)
 
     return false;
 }
+bool checkTie()
+{
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++)
+            if (grid[i][j] == Player::None)
+                return false;
+    }
+    return true;
+}
+
 
 
 void handleButtonClick(int row, int col, QPushButton* button)
@@ -49,6 +59,9 @@ void handleButtonClick(int row, int col, QPushButton* button)
 
     if (checkWin(currentPlayer)) {
         QMessageBox::information(nullptr, "Game Over", QString("%1 wins!").arg(currentPlayer == Player::X ? "X" : "O"));
+        QApplication::quit();
+    } else if (checkTie()) {
+        QMessageBox::information(nullptr, "Game Over", QString("tie!"));
         QApplication::quit();
     } else {
         // Switch to the other player's turn
