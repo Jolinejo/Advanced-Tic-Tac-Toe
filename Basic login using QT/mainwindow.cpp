@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QMessageBox>
+#include "dialog.h"
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -13,6 +15,97 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+enum class Player {
+    None,
+    X,
+    O
+};
+
+Player currentPlayer = Player::X;
+Player grid[3][3] = { { Player::None, Player::None, Player::None },
+                     { Player::None, Player::None, Player::None },
+                     { Player::None, Player::None, Player::None } };
+
+bool checkWin(Player player)
+{
+    // Check rows and columns
+    for (int i = 0; i < 3; ++i) {
+        // Check rows
+        if (grid[i][0] == player && grid[i][1] == player && grid[i][2] == player)
+            return true;
+        // Check columns
+        if (grid[0][i] == player && grid[1][i] == player && grid[2][i] == player)
+            return true;
+    }
+
+    // Check diagonals
+    if ((grid[0][0] == player && grid[1][1] == player && grid[2][2] == player) ||
+        (grid[0][2] == player && grid[1][1] == player && grid[2][0] == player))
+        return true;
+
+    return false;
+}
+
+bool checkTie()
+{
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++)
+            if (grid[i][j] == Player::None)
+                return false;
+    }
+    return true;
+}
+
+void handleButtonClick(int row, int col, QPushButton* button)
+{
+    if (grid[row][col] != Player::None) {
+        // The button has already been clicked, ignore it
+        return;
+    }
+
+    grid[row][col] = currentPlayer;
+    button->setText(currentPlayer == Player::X ? "X" : "O");
+    button->setEnabled(false);
+
+    if (checkWin(currentPlayer)) {
+        QMessageBox::information(nullptr, "Game Over", QString("%1 wins!").arg(currentPlayer == Player::X ? "X" : "O"));
+        QApplication::quit();
+    } else if (checkTie()) {
+        QMessageBox::information(nullptr, "Game Over", QString("Tie!"));
+        QApplication::quit();
+    } else {
+        // Switch to the other player's turn
+        currentPlayer = (currentPlayer == Player::X) ? Player::O : Player::X;
+    }
+}
+
+void executeGame() {
+
+    QWidget* window2 = new QWidget;
+    QGridLayout* layout = new QGridLayout(window2);
+
+    const int gridSize = 3;
+    QPushButton* buttons[gridSize][gridSize];
+
+    for (int row = 0; row < gridSize; ++row) {
+        for (int col = 0; col < gridSize; ++col) {
+            QPushButton* button = new QPushButton(window2);
+            button->setFixedSize(100, 100); // Adjust the button size as needed
+            layout->addWidget(button, row, col);
+            buttons[row][col] = button;
+
+            QAbstractButton::connect(button, &QPushButton::clicked, [=]() {
+                handleButtonClick(row, col, button);
+            });
+        }
+    }
+
+    window2->setLayout(layout);
+    window2->setWindowTitle("Tic Tac Toe");
+    window2->show();
+
+}
+
 void MainWindow::on_pushButton_clicked()
 {
     QString username = ui->lineEdit->text();
@@ -20,7 +113,8 @@ void MainWindow::on_pushButton_clicked()
     QString password = ui->lineEdit_2->text();
     std::string myString2 = password.toStdString();
     std::string text = get_name(myString, myString2);
-    QString qtString = QString::fromStdString(text);
-    QMessageBox::information(this, "toz fek", qtString);
+    if (text == "Correct email and password!"){
+        hide();
+        executeGame();
+    }
 }
-
