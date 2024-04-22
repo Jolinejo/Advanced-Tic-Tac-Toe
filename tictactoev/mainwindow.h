@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include"signin.h"
+using namespace  std;
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -27,4 +28,7 @@ private:
 
 
 };
+
+int checkValid(string username, string password);
+int registerUser(string username, string password);
 #endif // MAINWINDOW_H

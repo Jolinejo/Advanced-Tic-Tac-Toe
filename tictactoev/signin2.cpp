@@ -1,6 +1,7 @@
 #include "signin2.h"
 #include "ui_signin2.h"
 #include "QMessageBox"
+#include "mainwindow.h"
 
 signin2::signin2(QWidget *parent)
     : QDialog(parent)
@@ -18,7 +19,7 @@ void signin2::on_pushButton_login2_clicked()
 {
     QString username2 = ui->lineEdit_username2->text();
     QString password2 = ui->lineEdit_password2->text();
-    if (username2 == "mariam" && password2 == "ibrahim") {
+    if (checkValid(username2.toStdString(), password2.toStdString())) {
         QMessageBox ::information(this, "login", "username and password is correct");
         hide();
         dialog= new Dialog(this);
@@ -31,7 +32,6 @@ void signin2::on_pushButton_login2_clicked()
 
 void signin2::on_pushButton_signup2_clicked()
 {
-    hide();
     signup = new Signup(this);
     signup->show();
 }
