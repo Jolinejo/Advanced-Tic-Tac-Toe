@@ -8,14 +8,14 @@ using namespace std;
 
 void split_after_star(const string& s, string(&result)[2]);
 
-int main()
+string get_name(string username, string password)
 {
     vector<string> users;
     string username;
     string password;
     string splitted_strings[2];
     fstream myfile;
-    myfile.open("yarayoyo.txt", ios::in); // reading from file
+    myfile.open("register.txt", ios::in); // reading from file
 
     if (myfile.is_open())
     {
@@ -27,36 +27,35 @@ int main()
 
         myfile.close(); // close the file once we have read all the lines
 
-        bool opened = false;
-        while (!opened)
+    }
+    split_after_star(line, splitted_strings);
+    if (username == splitted_strings[0] && password == splitted_strings[1])
+    {
+        return "Correct email and password!";
+    }
+    else {
+
+        return "invalid email or password please try again";
+
+
+    }
+
+        for (const string& user : users)
         {
-            cout << "--------enter username--------" << endl;
-            cin >> username;
-            cout << "--------enter password--------" << endl;
-            cin >> password;
-
-            for (const string& user : users)
+            split_after_star(user, splitted_strings);
+            if (username == splitted_strings[0] && password == splitted_strings[1])
             {
-                split_after_star(user, splitted_strings);
-                if (username == splitted_strings[0] && password == splitted_strings[1])
-                {
-                    cout << "Correct username and password!" << endl;
-                    opened = true;
-                    break;
-                }
-            }
-
-            if (!opened)
-            {
-                cout << "Invalid username or password. Please try again." << endl;
+                cout << "Correct username and password!" << endl;
+                opened = true;
+                break;
             }
         }
-    }
-    else
-    {
-        cout << "Failed to open the file." << endl;
-    }
 
+        if (!opened)
+        {
+            cout << "Invalid username or password. Please try again." << endl;
+        }
+    }
     return 0;
 }
 
