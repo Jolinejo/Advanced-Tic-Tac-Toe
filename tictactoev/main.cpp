@@ -53,7 +53,7 @@ int registerUser(const string username, const string password) {
 
     // Save users to file
     QString basePath = QApplication::applicationDirPath();
-    int buildIndex = basePath.indexOf("/build");
+    int buildIndex = basePath.indexOf("/debug");
     QString truncatedPath = basePath.left(buildIndex);
     QString path = truncatedPath + "/register.txt";
     ofstream outfile(path.toStdString(), ios::out);
@@ -69,7 +69,7 @@ int registerUser(const string username, const string password) {
 void loadUsers() {
     ifstream myfile;
     QString basePath = QApplication::applicationDirPath();
-    int buildIndex = basePath.indexOf("/build");
+    int buildIndex = basePath.indexOf("/debug");
     QString truncatedPath = basePath.left(buildIndex);
     QString path = truncatedPath + "/register.txt";
     myfile.open(path.toStdString(), ios::in);
@@ -101,7 +101,7 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     QString basePath = QApplication::applicationDirPath();
-    int buildIndex = basePath.indexOf("/build");
+    int buildIndex = basePath.indexOf("/debug");
     QString truncatedPath = basePath.left(buildIndex);
     QString path = truncatedPath + "/Wstartpage.qss";
     QFile file(path);
