@@ -28,6 +28,16 @@ public:
 
 vector<User> users; // Vector to store registered users
 
+QString getPath(QString filePath) {
+    QString basePath = QApplication::applicationDirPath();
+    int buildIndex = basePath.indexOf("/debug");
+    if (buildIndex == -1)
+        buildIndex = basePath.indexOf("/build");
+    QString truncatedPath = basePath.left(buildIndex);
+    QString path = truncatedPath + filePath;
+    return path;
+}
+
 void split_after_star(const string& s, string (&result)[2]) {
     size_t index = s.find('*');
     if (index != string::npos) {
@@ -52,11 +62,7 @@ int registerUser(const string username, const string password) {
     users.push_back(newUser);
 
     // Save users to file
-    QString basePath = QApplication::applicationDirPath();
-    int buildIndex = basePath.indexOf("/debug");
-    QString truncatedPath = basePath.left(buildIndex);
-    QString path = truncatedPath + "/register.txt";
-    ofstream outfile(path.toStdString(), ios::out);
+    ofstream outfile(getPath("/register.txt").toStdString(), ios::out);
 
     for (const auto& user : users) {
         outfile << user.getUsername() << "*" << user.getPassword() << endl;
@@ -68,11 +74,7 @@ int registerUser(const string username, const string password) {
 
 void loadUsers() {
     ifstream myfile;
-    QString basePath = QApplication::applicationDirPath();
-    int buildIndex = basePath.indexOf("/debug");
-    QString truncatedPath = basePath.left(buildIndex);
-    QString path = truncatedPath + "/register.txt";
-    myfile.open(path.toStdString(), ios::in);
+    myfile.open(getPath("/register.txt").toStdString(), ios::in);
 
     if (myfile.is_open()) {
         string line;
@@ -100,11 +102,7 @@ int checkValid(const string username, const string password) {
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    QString basePath = QApplication::applicationDirPath();
-    int buildIndex = basePath.indexOf("/debug");
-    QString truncatedPath = basePath.left(buildIndex);
-    QString path = truncatedPath + "/Wstartpage.qss";
-    QFile file(path);
+    QFile file(getPath("/Wstartpage.qss"));
 
     if (!file.open(QFile::ReadOnly)) {
         qDebug() << "Failed to open file:" << file.errorString();
