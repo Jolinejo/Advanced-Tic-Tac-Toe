@@ -7,6 +7,7 @@ Signup::Signup(QWidget *parent)
     , ui(new Ui::Signup)
 {
     ui->setupUi(this);
+    ui->lineEdit_3->setEchoMode(QLineEdit::Password);
 }
 
 Signup::~Signup()

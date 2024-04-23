@@ -8,6 +8,7 @@ signin::signin(QWidget *parent)
     , ui(new Ui::signin)
 {
     ui->setupUi(this);
+    ui->lineEdit_password->setEchoMode(QLineEdit::Password);
 }
 
 signin::~signin()
