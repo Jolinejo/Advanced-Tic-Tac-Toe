@@ -6,7 +6,7 @@
 #include <fstream>
 #include <string>
 #include <vector>
-
+#include <QFile>
 using namespace std;
 
 class User {
@@ -100,6 +100,19 @@ int checkValid(const string username, const string password) {
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+    QString basePath = QApplication::applicationDirPath();
+    int buildIndex = basePath.indexOf("/build");
+    QString truncatedPath = basePath.left(buildIndex);
+    QString path = truncatedPath + "/Wstartpage.qss";
+    QFile file(path);
+
+    if (!file.open(QFile::ReadOnly)) {
+        qDebug() << "Failed to open file:" << file.errorString();
+    } else {
+        QString styleSheet = QLatin1String(file.readAll());
+        qApp->setStyleSheet(styleSheet);
+    }
+
     loadUsers();
     MainWindow w;
     w.show();
