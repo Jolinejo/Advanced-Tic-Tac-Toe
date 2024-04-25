@@ -100,13 +100,12 @@ QCheckBox::indicator
 }
 
 
-QCheckBox::indicator:checked
-{
-    image:url("./ressources/check.png"); /*To replace*/
-	background-color: #1f2b2b;
+QCheckBox::indicator:checked {
+    image: url("./ressources/check.png");
+    background-color: #87CEFA; /* Baby blue color */
     border: 1px solid #8b50ff;
-
 }
+
 
 
 QCheckBox::indicator:unchecked:hover
