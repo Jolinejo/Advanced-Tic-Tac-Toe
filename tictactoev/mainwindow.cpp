@@ -27,3 +27,4 @@ void MainWindow::on_pushButton_AI_clicked()
     sign = new signin(this, "2");
     sign ->show();
 }
+

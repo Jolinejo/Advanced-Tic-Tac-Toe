@@ -4,6 +4,8 @@
 #include <QDialog>
 #include"dialog.h"
 #include"signup.h"
+#include <string>
+using namespace std;
 
 namespace Ui {
 class signin2;
@@ -14,7 +16,7 @@ class signin2 : public QDialog
     Q_OBJECT
 
 public:
-    explicit signin2(QWidget *parent = nullptr);
+    explicit signin2(QWidget *parent = nullptr, string firstplayer = "");
     ~signin2();
 
 private slots:
@@ -28,6 +30,7 @@ private:
     Ui::signin2 *ui;
     Dialog* dialog;
     Signup* signup;
+    string firstplayer;
 };
 
 #endif // SIGNIN2_H

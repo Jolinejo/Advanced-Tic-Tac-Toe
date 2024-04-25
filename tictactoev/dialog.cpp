@@ -1,14 +1,20 @@
 #include "dialog.h"
 #include "ui_dialog.h"
-#include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QMessageBox>
 #include <iostream>
+#include <vector>
+#include "mainwindow.h"
+#include <ctime>
+#include <fstream>
 
-Dialog::Dialog(QWidget *parent, int mode)
+
+Dialog::Dialog(QWidget *parent, int mode, string p1, string p2)
     : QDialog(parent)
     , ui(new Ui::Dialog)
     , gameMode(mode)
+    , player1(p1)
+    , player2(p2)
 {
     ui->setupUi(this);
 }
@@ -29,6 +35,11 @@ Player currentPlayer = Player::X;
 Player grid[3][3] = { { Player::None, Player::None, Player::None },
                      { Player::None, Player::None, Player::None },
                      { Player::None, Player::None, Player::None } };
+
+vector<string> gameMoves;
+
+string firstplayer;
+string secondplayer;
 
 bool checkWin(Player player)
 {
@@ -60,6 +71,29 @@ bool checkTie()
     return true;
 }
 
+
+void saveGame(){
+
+    time_t now = time(0);
+    tm* timeinfo = localtime(&now);
+    char timestamp[80];
+    strftime(timestamp, sizeof(timestamp), "%Y-%m-%d %H:%M:%S", timeinfo);
+    string concatenatedString = string(timestamp) + "*" + firstplayer + "*" + secondplayer;
+    for (const auto& move : gameMoves) {
+        concatenatedString = concatenatedString + "*" + move;
+    }
+    if (ifstream(getPath("/history.txt").toStdString())) {
+        ofstream file(getPath("/history.txt").toStdString(), ios::app);
+        file << concatenatedString << endl;
+        file.close();
+    } else {
+        ofstream file(getPath("/history.txt").toStdString());
+        file << concatenatedString << endl;
+        file.close();
+    }
+
+}
+
 void handleButtonClick(int row, int col, QPushButton* button)
 {
     if (grid[row][col] != Player::None) {
@@ -68,14 +102,18 @@ void handleButtonClick(int row, int col, QPushButton* button)
     }
 
     grid[row][col] = currentPlayer;
-    button->setText(currentPlayer == Player::X ? "X" : "O");
+    string text = currentPlayer == Player::X ? "X" : "O";
+    button->setText(QString::fromStdString(text));
     button->setEnabled(false);
+    gameMoves.push_back(text + to_string(row) + to_string(col));
 
     if (checkWin(currentPlayer)) {
         QMessageBox::information(nullptr, "Game Over", QString("%1 wins!").arg(currentPlayer == Player::X ? "X" : "O"));
+        saveGame();
         QApplication::quit();
     } else if (checkTie()) {
         QMessageBox::information(nullptr, "Game Over", QString("Tie!"));
+        saveGame();
         QApplication::quit();
     } else {
         // Switch to the other player's turn
@@ -113,10 +151,12 @@ void executeGame() {
 void Dialog::on_pushButton_clicked()
 {
     hide();
+    firstplayer = player1;
+    secondplayer = player2;
     if (gameMode == 1)
         executeGame();
     else {
-        executeAi();
+        executeAi(player1);
         std::cout<<"here";
     }
 }

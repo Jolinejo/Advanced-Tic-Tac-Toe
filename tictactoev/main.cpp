@@ -9,24 +9,11 @@
 #include <QFile>
 using namespace std;
 
-class User {
-private:
-    string username;
-    string password;
-
-public:
-    User(const string name, const string pass) : username(name), password(pass) {}
-
-    string getUsername() const {
-        return username;
-    }
-
-    string getPassword() const {
-        return password;
-    }
-};
 
 vector<User> users; // Vector to store registered users
+
+User *player1 = nullptr;
+User *player2 = nullptr;
 
 QString getPath(QString filePath) {
     QString basePath = QApplication::applicationDirPath();
@@ -91,6 +78,12 @@ void loadUsers() {
 int checkValid(const string username, const string password) {
     for (const auto& user : users) {
         if (username == user.getUsername() && password == user.getPassword()) {
+            if (player1 == nullptr)
+                player1 = new User(username, password);
+            else if (username == player1->getUsername())
+                return 2;
+            else
+                player2 = new User(username, password);
             return 1; // Valid user
         }
     }

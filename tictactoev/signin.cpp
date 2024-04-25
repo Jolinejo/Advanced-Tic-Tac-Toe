@@ -24,15 +24,15 @@ void signin::on_pushButton_login_clicked()
 
     QString username = ui->lineEdit_username->text();
     QString password = ui->lineEdit_password->text();
-    if (checkValid(username.toStdString(), password.toStdString())) {
+    if (checkValid(username.toStdString(), password.toStdString()) == 1) {
         QMessageBox ::information(this, "login", "username and password is correct");
         if (m_variable == "1") {
             hide();
-            sign2 = new signin2(this);
+            sign2 = new signin2(this, username.toStdString());
             sign2->show();
         } else {
             hide();
-            dialog= new Dialog(this, 2);
+            dialog= new Dialog(this, 2, username.toStdString());
             dialog->show();
         }
     } else {

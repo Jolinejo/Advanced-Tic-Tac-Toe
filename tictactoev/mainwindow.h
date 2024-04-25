@@ -31,6 +31,25 @@ private:
 
 };
 
+class User {
+private:
+    string username;
+    string password;
+
+public:
+    User(const string name, const string pass) : username(name), password(pass) {}
+
+    string getUsername() const {
+        return username;
+    }
+
+    string getPassword() const {
+        return password;
+    }
+
+};
+
 int checkValid(string username, string password);
 int registerUser(string username, string password);
+QString getPath(QString filePath);
 #endif // MAINWINDOW_H
