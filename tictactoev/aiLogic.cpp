@@ -1,12 +1,16 @@
 #include <iostream>
-
-
+#include <chrono>
+#include <thread>
+#include <string>
 #include <QApplication>
 #include <QPushButton>
 #include <QGridLayout>
 #include <QMessageBox>
 #include <vector>
 #include <climits>
+#include "mainwindow.h"
+#include <ctime>
+#include <fstream>
 
 using namespace std;
 
@@ -16,17 +20,11 @@ const char PLAYER_X = 'X';
 const char PLAYER_O = 'O';
 
 
-vector<vector<char>> board(BOARD_SIZE, vector<char>(BOARD_SIZE, EMPTY_CELL));
+string onlyplayer;
+vector<string> gameMoves2;
 
-// Function to display the Tic-Tac-Toe board
-void displayBoard(QGridLayout *layout, QPushButton* buttons[BOARD_SIZE][BOARD_SIZE]) {
-    for (int i = 0; i < BOARD_SIZE; ++i) {
-        for (int j = 0; j < BOARD_SIZE; ++j) {
-            buttons[i][j]->setText(QString(board[i][j]));
-            buttons[i][j]->setEnabled(board[i][j] == EMPTY_CELL);
-        }
-    }
-}
+
+vector<vector<char>> board(BOARD_SIZE, vector<char>(BOARD_SIZE, EMPTY_CELL));
 
 // Function to check if the board is full
 bool isBoardFull() {
@@ -125,6 +123,29 @@ pair<int, int> aiMove() {
     return move;
 }
 
+void saveGame2(){
+
+    time_t now = time(0);
+    tm* timeinfo = localtime(&now);
+    char timestamp[80];
+    strftime(timestamp, sizeof(timestamp), "%Y-%m-%d %H:%M:%S", timeinfo);
+    string concatenatedString = string(timestamp) + "*" + onlyplayer + "*" + "AI";
+    for (const auto& move : gameMoves2) {
+        concatenatedString = concatenatedString + "*" + move;
+        cout << "hi";
+    }
+    if (ifstream(getPath("/history.txt").toStdString())) {
+        ofstream file(getPath("/history.txt").toStdString(), ios::app);
+        file << concatenatedString << endl;
+        file.close();
+    } else {
+        ofstream file(getPath("/history.txt").toStdString());
+        file << concatenatedString << endl;
+        file.close();
+    }
+
+}
+
 // Function to handle button clicks
 void handleButtonClick(int row, int col, QPushButton* button, QGridLayout *layout) {
     if (board[row][col] != EMPTY_CELL) {
@@ -135,27 +156,34 @@ void handleButtonClick(int row, int col, QPushButton* button, QGridLayout *layou
     board[row][col] = PLAYER_O;
     button->setText(QString(PLAYER_O));
     button->setEnabled(false);
+    gameMoves2.push_back("O" + to_string(row) + to_string(col));
+
 
     if (isWinner(PLAYER_O)) {
         QMessageBox::information(nullptr, "Game Over", "Player O wins!");
+        saveGame2();
         QApplication::quit();
     } else if (isBoardFull()) {
         QMessageBox::information(nullptr, "Game Over", "It's a draw!");
+        saveGame2();
         QApplication::quit();
     } else {
         // AI's turn
+
         pair<int, int> aiMoveCoords = aiMove();
         board[aiMoveCoords.first][aiMoveCoords.second] = PLAYER_X;
         // Find the corresponding button
+        gameMoves2.push_back("X" + to_string(aiMoveCoords.first) + to_string(aiMoveCoords.second));
         QPushButton* aiButton = dynamic_cast<QPushButton*>(layout->itemAtPosition(aiMoveCoords.first, aiMoveCoords.second)->widget());
         aiButton->setText(QString(PLAYER_X));
         aiButton->setEnabled(false);
-
         if (isWinner(PLAYER_X)) {
             QMessageBox::information(nullptr, "Game Over", "Player X wins!");
+            saveGame2();
             QApplication::quit();
         } else if (isBoardFull()) {
             QMessageBox::information(nullptr, "Game Over", "It's a draw!");
+            saveGame2();
             QApplication::quit();
         }
     }
@@ -163,7 +191,8 @@ void handleButtonClick(int row, int col, QPushButton* button, QGridLayout *layou
 
 
 
-void executeAi() {
+void executeAi(string playername) {
+    onlyplayer = playername;
     QWidget* window2 = new QWidget;
     QGridLayout* layout = new QGridLayout(window2);
 
@@ -181,7 +210,6 @@ void executeAi() {
             });
         }
     }
-
     window2->setLayout(layout);
     window2->setWindowTitle("Tic Tac Toe");
     window2->show();
