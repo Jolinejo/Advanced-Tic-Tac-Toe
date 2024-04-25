@@ -3,11 +3,12 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QMessageBox>
+#include <iostream>
 
-
-Dialog::Dialog(QWidget *parent)
+Dialog::Dialog(QWidget *parent, int mode)
     : QDialog(parent)
     , ui(new Ui::Dialog)
+    , gameMode(mode)
 {
     ui->setupUi(this);
 }
@@ -112,6 +113,10 @@ void executeGame() {
 void Dialog::on_pushButton_clicked()
 {
     hide();
-    executeGame();
+    if (gameMode == 1)
+        executeGame();
+    else {
+        executeAi();
+        std::cout<<"here";
+    }
 }
-

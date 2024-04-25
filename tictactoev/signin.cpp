@@ -2,9 +2,11 @@
 #include "ui_signin.h"
 #include"QMessageBox"
 #include "mainwindow.h"
-
-signin::signin(QWidget *parent)
+#include <string>
+using namespace std;
+signin::signin(QWidget *parent, string variable)
     : QDialog(parent)
+    , m_variable(variable)
     , ui(new Ui::signin)
 {
     ui->setupUi(this);
@@ -20,16 +22,22 @@ signin::~signin()
 void signin::on_pushButton_login_clicked()
 {
 
-        QString username = ui->lineEdit_username->text();
-        QString password = ui->lineEdit_password->text();
-        if (checkValid(username.toStdString(), password.toStdString())) {
-            QMessageBox ::information(this, "login", "username and password is correct");
+    QString username = ui->lineEdit_username->text();
+    QString password = ui->lineEdit_password->text();
+    if (checkValid(username.toStdString(), password.toStdString())) {
+        QMessageBox ::information(this, "login", "username and password is correct");
+        if (m_variable == "1") {
             hide();
             sign2 = new signin2(this);
             sign2->show();
         } else {
-            QMessageBox ::warning(this, "login", "username or password is invalid");
+            hide();
+            dialog= new Dialog(this, 2);
+            dialog->show();
         }
+    } else {
+        QMessageBox ::warning(this, "login", "username or password is invalid");
+    }
 
 
 }

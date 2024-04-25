@@ -22,6 +22,8 @@ public:
 private slots:
     void on_pushButton_playerxplayer_clicked();
 
+    void on_pushButton_AI_clicked();
+
 private:
     Ui::MainWindow *ui;
     signin * sign;

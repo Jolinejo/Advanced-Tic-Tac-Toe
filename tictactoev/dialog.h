@@ -12,7 +12,7 @@ class Dialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit Dialog(QWidget *parent = nullptr);
+    explicit Dialog(QWidget *parent = nullptr, int mode = 1);
     ~Dialog();
 
 private slots:
@@ -20,6 +20,8 @@ private slots:
 
 private:
     Ui::Dialog *ui;
+    int gameMode;
 };
 
+void executeAi();
 #endif // DIALOG_H
