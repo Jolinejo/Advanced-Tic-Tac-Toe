@@ -22,6 +22,8 @@ private slots:
 
     void on_pushButton_signup1_clicked();
 
+    void on_checkBox_showpassword_stateChanged(int arg1);
+
 private:
     Ui::signin *ui;
     signin2 * sign2;

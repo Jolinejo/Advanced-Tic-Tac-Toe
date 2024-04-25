@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QCheckBox>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
@@ -34,6 +35,7 @@ public:
     QLabel *label_2;
     QLineEdit *lineEdit_password2;
     QPushButton *pushButton_login2;
+    QCheckBox *checkBox_showpassword;
     QLabel *label_3;
     QPushButton *pushButton_signup2;
 
@@ -87,6 +89,11 @@ public:
 
         verticalLayout_2->addWidget(pushButton_login2);
 
+        checkBox_showpassword = new QCheckBox(groupBox);
+        checkBox_showpassword->setObjectName("checkBox_showpassword");
+
+        verticalLayout_2->addWidget(checkBox_showpassword);
+
         label_3 = new QLabel(groupBox);
         label_3->setObjectName("label_3");
 
@@ -110,6 +117,7 @@ public:
         label->setText(QCoreApplication::translate("signin2", "User Name", nullptr));
         label_2->setText(QCoreApplication::translate("signin2", "Password", nullptr));
         pushButton_login2->setText(QCoreApplication::translate("signin2", "Login", nullptr));
+        checkBox_showpassword->setText(QCoreApplication::translate("signin2", "show password", nullptr));
         label_3->setText(QCoreApplication::translate("signin2", "Don't have account!", nullptr));
         pushButton_signup2->setText(QCoreApplication::translate("signin2", "Sin up", nullptr));
     } // retranslateUi

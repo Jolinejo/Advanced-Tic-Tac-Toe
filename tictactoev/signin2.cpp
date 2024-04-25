@@ -9,6 +9,7 @@ signin2::signin2(QWidget *parent)
 {
     ui->setupUi(this);
     ui->lineEdit_password2->setEchoMode(QLineEdit::Password);
+     connect(ui->checkBox_showpassword, &QCheckBox::stateChanged, this, &signin2::on_checkBox_showpassword_stateChanged);
 }
 
 signin2::~signin2()
@@ -35,5 +36,15 @@ void signin2::on_pushButton_signup2_clicked()
 {
     signup = new Signup(this);
     signup->show();
+}
+
+
+void signin2::on_checkBox_showpassword_stateChanged(int arg1)
+{
+    if (arg1 == Qt::Checked) {
+        ui->lineEdit_password2->setEchoMode(QLineEdit::Normal); // Show password
+    } else {
+        ui->lineEdit_password2->setEchoMode(QLineEdit::Password); // Hide password
+    }
 }
 

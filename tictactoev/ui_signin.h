@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QCheckBox>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
@@ -34,6 +35,7 @@ public:
     QLabel *label_2;
     QLineEdit *lineEdit_password;
     QPushButton *pushButton_login;
+    QCheckBox *checkBox_showpassword;
     QLabel *label_3;
     QPushButton *pushButton_signup1;
 
@@ -73,6 +75,7 @@ public:
 
         lineEdit_password = new QLineEdit(groupBox);
         lineEdit_password->setObjectName("lineEdit_password");
+        lineEdit_password->setEchoMode(QLineEdit::Normal);
 
         horizontalLayout->addWidget(lineEdit_password);
 
@@ -86,6 +89,11 @@ public:
         pushButton_login->setObjectName("pushButton_login");
 
         verticalLayout_2->addWidget(pushButton_login);
+
+        checkBox_showpassword = new QCheckBox(groupBox);
+        checkBox_showpassword->setObjectName("checkBox_showpassword");
+
+        verticalLayout_2->addWidget(checkBox_showpassword);
 
         label_3 = new QLabel(groupBox);
         label_3->setObjectName("label_3");
@@ -110,6 +118,7 @@ public:
         label->setText(QCoreApplication::translate("signin", "User Name", nullptr));
         label_2->setText(QCoreApplication::translate("signin", "Password", nullptr));
         pushButton_login->setText(QCoreApplication::translate("signin", "Login", nullptr));
+        checkBox_showpassword->setText(QCoreApplication::translate("signin", "show password", nullptr));
         label_3->setText(QCoreApplication::translate("signin", "Dont't have account!", nullptr));
         pushButton_signup1->setText(QCoreApplication::translate("signin", "sign up", nullptr));
     } // retranslateUi
