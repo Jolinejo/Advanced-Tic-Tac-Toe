@@ -30,11 +30,9 @@ vector<User> users; // Vector to store registered users
 
 QString getPath(QString filePath) {
     QString basePath = QApplication::applicationDirPath();
-    int buildIndex = basePath.indexOf("/debug");
-    if (buildIndex == -1)
-        buildIndex = basePath.indexOf("/build");
+    int buildIndex = basePath.indexOf("/tictactoev");
     QString truncatedPath = basePath.left(buildIndex);
-    QString path = truncatedPath + filePath;
+    QString path = truncatedPath + "/tictactoev" + filePath;
     return path;
 }
 
