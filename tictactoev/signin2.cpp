@@ -24,7 +24,7 @@ void signin2::on_pushButton_login2_clicked()
     QString password2 = ui->lineEdit_password2->text();
     if (checkValid(username2.toStdString(), password2.toStdString()) == 1) {
         QMessageBox ::information(this, "login", "username and password is correct");
-        hide();
+        hide ();
         dialog= new Dialog(this, 1, firstplayer, username2.toStdString());
         dialog->show();
     } else if (checkValid(username2.toStdString(), password2.toStdString()) == 0) {
