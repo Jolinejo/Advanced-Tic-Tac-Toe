@@ -62,7 +62,7 @@ gameHistory::~gameHistory()
 int moveIndex = 0; // Index of the next move to be displayed
 
 // Slot function for handling button click
-void gameHistory::on_pushButton_clicked()
+void gameHistory::on_pushButton_play_clicked()
 {
     // Check if there are any moves left to display
     if (!moveQueue.empty()) {
@@ -86,11 +86,11 @@ void gameHistory::on_pushButton_clicked()
 
         // Check if the queue is empty after popping to disable the button if no more moves are left
         if (moveQueue.empty()) {
-            ui->pushButton->setEnabled(false);
+            ui->pushButton_play->setEnabled(false);
         }
     } else {
         // If no moves left, disable the button
-        ui->pushButton->setEnabled(false);
+        ui->pushButton_play->setEnabled(false);
     }
 }
 
