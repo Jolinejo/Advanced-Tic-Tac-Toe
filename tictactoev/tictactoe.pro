@@ -16,7 +16,8 @@ SOURCES += \
     mainwindow.cpp \
     signin.cpp \
     signin2.cpp \
-    signup.cpp
+    signup.cpp \
+    gamehistory.cpp
 
 HEADERS += \
     dialog.h \
@@ -24,7 +25,8 @@ HEADERS += \
     mainwindow.h \
     signin.h \
     signin2.h \
-    signup.h
+    signup.h \
+    gamehistory.h
 
 FORMS += \
     dialog.ui \
@@ -32,7 +34,8 @@ FORMS += \
     mainwindow.ui \
     signin.ui \
     signin2.ui \
-    signup.ui
+    signup.ui \
+    gamehistory.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

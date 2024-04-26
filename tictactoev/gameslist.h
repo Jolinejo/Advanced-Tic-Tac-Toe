@@ -1,6 +1,6 @@
 #ifndef GAMESLIST_H
 #define GAMESLIST_H
-
+#include "gamehistory.h"
 #include <QDialog>
 #include <string>
 
@@ -18,9 +18,13 @@ public:
     explicit gamesList(QWidget *parent = nullptr, string player = "");
     ~gamesList();
 
+private slots:
+    void on_pushButton_clicked();
+
 private:
     Ui::gamesList *ui;
     string player;
+    gameHistory *gamehis;
 };
 
 #endif // GAMESLIST_H

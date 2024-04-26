@@ -7,7 +7,10 @@
 #include <queue>
 #include <vector>
 #include <string>
+#include <map>
 
+
+map<string, string> mapOfGames;
 // Function to split string by delimiter
 
 QString getPath2(QString filePath) {
@@ -22,13 +25,22 @@ vector<string> split(const string& s, char delimiter) {
     vector<string> tokens;
     string token;
     size_t start = 0, end;
+    int count = 0; // Counter for the number of splits
 
     while ((end = s.find(delimiter, start)) != string::npos) {
         token = s.substr(start, end - start);
         tokens.push_back(token);
         start = end + 1;
+        count++; // Increment the split count
+
+        // After collecting the first three elements, stop splitting and take the rest as one token
+        if (count == 3) {
+            break;
+        }
     }
-    tokens.push_back(s.substr(start)); // Get the last token
+
+    // Add the remainder of the string as the last token
+    tokens.push_back(s.substr(start));
     return tokens;
 }
 
@@ -45,6 +57,8 @@ queue<vector<string>> filterNames(const string& name) {
     string line;
     while (getline(file, line)) {
         vector<string> parts = split(line, '*');
+        string text = parts[0] + ": " + parts[1] + " VS " + parts[2];
+        mapOfGames[text] = parts[3];
 
         if (name == parts[1] || name == parts[2]) {
             resultQueue.push(parts);
@@ -78,3 +92,11 @@ gamesList::~gamesList()
 {
     delete ui;
 }
+
+void gamesList::on_pushButton_clicked()
+{
+    string key = ui->listWidget->currentItem()->text().toStdString();
+    gamehis = new gameHistory(this, mapOfGames[key]);
+    gamehis->show();
+}
+

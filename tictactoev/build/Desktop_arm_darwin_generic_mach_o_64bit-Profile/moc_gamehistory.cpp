@@ -1,12 +1,12 @@
 /****************************************************************************
-** Meta object code from reading C++ file 'gameslist.h'
+** Meta object code from reading C++ file 'gamehistory.h'
 **
 ** Created by: The Qt Meta Object Compiler version 68 (Qt 6.7.0)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../../gameslist.h"
+#include "../../gamehistory.h"
 #include <QtCore/qmetatype.h>
 
 #include <QtCore/qtmochelpers.h>
@@ -16,7 +16,7 @@
 
 #include <QtCore/qxptype_traits.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
-#error "The header file 'gameslist.h' doesn't include <QObject>."
+#error "The header file 'gamehistory.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 68
 #error "This file was generated using the moc from 6.7.0. It"
 #error "cannot be used with the include files from this version of Qt."
@@ -33,9 +33,9 @@ QT_WARNING_DISABLE_GCC("-Wuseless-cast")
 namespace {
 
 #ifdef QT_MOC_HAS_STRINGDATA
-struct qt_meta_stringdata_CLASSgamesListENDCLASS_t {};
-constexpr auto qt_meta_stringdata_CLASSgamesListENDCLASS = QtMocHelpers::stringData(
-    "gamesList",
+struct qt_meta_stringdata_CLASSgameHistoryENDCLASS_t {};
+constexpr auto qt_meta_stringdata_CLASSgameHistoryENDCLASS = QtMocHelpers::stringData(
+    "gameHistory",
     "on_pushButton_clicked",
     ""
 );
@@ -44,7 +44,7 @@ constexpr auto qt_meta_stringdata_CLASSgamesListENDCLASS = QtMocHelpers::stringD
 #endif // !QT_MOC_HAS_STRINGDATA
 } // unnamed namespace
 
-Q_CONSTINIT static const uint qt_meta_data_CLASSgamesListENDCLASS[] = {
+Q_CONSTINIT static const uint qt_meta_data_CLASSgameHistoryENDCLASS[] = {
 
  // content:
       12,       // revision
@@ -66,25 +66,25 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSgamesListENDCLASS[] = {
        0        // eod
 };
 
-Q_CONSTINIT const QMetaObject gamesList::staticMetaObject = { {
+Q_CONSTINIT const QMetaObject gameHistory::staticMetaObject = { {
     QMetaObject::SuperData::link<QDialog::staticMetaObject>(),
-    qt_meta_stringdata_CLASSgamesListENDCLASS.offsetsAndSizes,
-    qt_meta_data_CLASSgamesListENDCLASS,
+    qt_meta_stringdata_CLASSgameHistoryENDCLASS.offsetsAndSizes,
+    qt_meta_data_CLASSgameHistoryENDCLASS,
     qt_static_metacall,
     nullptr,
-    qt_incomplete_metaTypeArray<qt_meta_stringdata_CLASSgamesListENDCLASS_t,
+    qt_incomplete_metaTypeArray<qt_meta_stringdata_CLASSgameHistoryENDCLASS_t,
         // Q_OBJECT / Q_GADGET
-        QtPrivate::TypeAndForceComplete<gamesList, std::true_type>,
+        QtPrivate::TypeAndForceComplete<gameHistory, std::true_type>,
         // method 'on_pushButton_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
 } };
 
-void gamesList::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void gameHistory::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
-        auto *_t = static_cast<gamesList *>(_o);
+        auto *_t = static_cast<gameHistory *>(_o);
         (void)_t;
         switch (_id) {
         case 0: _t->on_pushButton_clicked(); break;
@@ -94,20 +94,20 @@ void gamesList::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
     (void)_a;
 }
 
-const QMetaObject *gamesList::metaObject() const
+const QMetaObject *gameHistory::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
-void *gamesList::qt_metacast(const char *_clname)
+void *gameHistory::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
-    if (!strcmp(_clname, qt_meta_stringdata_CLASSgamesListENDCLASS.stringdata0))
+    if (!strcmp(_clname, qt_meta_stringdata_CLASSgameHistoryENDCLASS.stringdata0))
         return static_cast<void*>(this);
     return QDialog::qt_metacast(_clname);
 }
 
-int gamesList::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int gameHistory::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QDialog::qt_metacall(_c, _id, _a);
     if (_id < 0)
