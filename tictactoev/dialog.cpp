@@ -160,3 +160,10 @@ void Dialog::on_pushButton_clicked()
         std::cout<<"here";
     }
 }
+
+void Dialog::on_pushButton_2_clicked()
+{
+    gamehis = new gameHistory(this, gameMode);
+    gamehis->show();
+}
+

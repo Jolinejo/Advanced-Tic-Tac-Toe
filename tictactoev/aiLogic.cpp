@@ -69,8 +69,8 @@ int minimax(bool isMaximizer) {
     int score = evaluateBoard();
 
     // Base cases
-    if (score == 10) return score; // If PLAYER_X wins
-    if (score == -10) return score; // If PLAYER_O wins
+    if (score == 5) return score; // If PLAYER_X wins
+    if (score == -5) return score; // If PLAYER_O wins
     if (isBoardFull()) return 0; // If it's a draw
 
     // If it's the maximizer's turn
