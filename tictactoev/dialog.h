@@ -2,7 +2,6 @@
 #define DIALOG_H
 #include <QDialog>
 #include <string>
-#include "gamehistory.h"
 using namespace std;
 
 namespace Ui {
@@ -20,14 +19,12 @@ public:
 private slots:
     void on_pushButton_clicked();
 
-    void on_pushButton_2_clicked();
 
 private:
     Ui::Dialog *ui;
     int gameMode;
     string player1;
     string player2;
-    gameHistory *gamehis;
 };
 
 void executeAi(string player);

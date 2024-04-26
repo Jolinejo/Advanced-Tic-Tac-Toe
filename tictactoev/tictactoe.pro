@@ -11,7 +11,6 @@ CONFIG += c++17
 SOURCES += \
     aiLogic.cpp \
     dialog.cpp \
-    gamehistory.cpp \
     main.cpp \
     mainwindow.cpp \
     signin.cpp \
@@ -20,7 +19,6 @@ SOURCES += \
 
 HEADERS += \
     dialog.h \
-    gamehistory.h \
     mainwindow.h \
     signin.h \
     signin2.h \
@@ -28,7 +26,6 @@ HEADERS += \
 
 FORMS += \
     dialog.ui \
-    gamehistory.ui \
     mainwindow.ui \
     signin.ui \
     signin2.ui \

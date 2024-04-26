@@ -7,6 +7,7 @@
 #include "mainwindow.h"
 #include <ctime>
 #include <fstream>
+#include <QPushButton>
 
 
 Dialog::Dialog(QWidget *parent, int mode, string p1, string p2)
@@ -17,6 +18,18 @@ Dialog::Dialog(QWidget *parent, int mode, string p1, string p2)
     , player2(p2)
 {
     ui->setupUi(this);
+
+    // Assuming firstplayer is a QString containing the first player's name
+    ui->setupUi(this);
+    ui->pushButton_display1->setText(QString::fromStdString(player1) + "'s history");
+
+    if (gameMode == 2) {
+        ui->pushButton_display2->hide(); // Hide the whole button
+    } else {
+        ui->pushButton_display2->setText(QString::fromStdString(player2) + "'s history");
+    }
+
+
 }
 
 Dialog::~Dialog()
@@ -161,9 +174,4 @@ void Dialog::on_pushButton_clicked()
     }
 }
 
-void Dialog::on_pushButton_2_clicked()
-{
-    gamehis = new gameHistory(this, gameMode);
-    gamehis->show();
-}
 

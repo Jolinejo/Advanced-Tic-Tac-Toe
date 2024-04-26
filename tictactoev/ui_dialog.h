@@ -20,7 +20,8 @@ class Ui_Dialog
 {
 public:
     QPushButton *pushButton;
-    QPushButton *pushButton_2;
+    QPushButton *pushButton_display1;
+    QPushButton *pushButton_display2;
 
     void setupUi(QDialog *Dialog)
     {
@@ -30,9 +31,12 @@ public:
         pushButton = new QPushButton(Dialog);
         pushButton->setObjectName("pushButton");
         pushButton->setGeometry(QRect(110, 110, 181, 31));
-        pushButton_2 = new QPushButton(Dialog);
-        pushButton_2->setObjectName("pushButton_2");
-        pushButton_2->setGeometry(QRect(110, 160, 181, 31));
+        pushButton_display1 = new QPushButton(Dialog);
+        pushButton_display1->setObjectName("pushButton_display1");
+        pushButton_display1->setGeometry(QRect(109, 150, 181, 31));
+        pushButton_display2 = new QPushButton(Dialog);
+        pushButton_display2->setObjectName("pushButton_display2");
+        pushButton_display2->setGeometry(QRect(110, 190, 181, 31));
 
         retranslateUi(Dialog);
 
@@ -43,7 +47,8 @@ public:
     {
         Dialog->setWindowTitle(QCoreApplication::translate("Dialog", "Dialog", nullptr));
         pushButton->setText(QCoreApplication::translate("Dialog", "start the game !", nullptr));
-        pushButton_2->setText(QCoreApplication::translate("Dialog", "check game history", nullptr));
+        pushButton_display1->setText(QCoreApplication::translate("Dialog", "PushButton", nullptr));
+        pushButton_display2->setText(QCoreApplication::translate("Dialog", "PushButton", nullptr));
     } // retranslateUi
 
 };
