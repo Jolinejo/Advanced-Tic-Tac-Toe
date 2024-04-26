@@ -54,23 +54,27 @@ OBJECTS_DIR   = ./
 
 SOURCES       = ../../aiLogic.cpp \
 		../../dialog.cpp \
+		../../gameslist.cpp \
 		../../main.cpp \
 		../../mainwindow.cpp \
 		../../signin.cpp \
 		../../signin2.cpp \
 		../../signup.cpp moc_dialog.cpp \
+		moc_gameslist.cpp \
 		moc_mainwindow.cpp \
 		moc_signin.cpp \
 		moc_signin2.cpp \
 		moc_signup.cpp
 OBJECTS       = aiLogic.o \
 		dialog.o \
+		gameslist.o \
 		main.o \
 		mainwindow.o \
 		signin.o \
 		signin2.o \
 		signup.o \
 		moc_dialog.o \
+		moc_gameslist.o \
 		moc_mainwindow.o \
 		moc_signin.o \
 		moc_signin2.o \
@@ -275,6 +279,7 @@ DIST          = /Users/Qt/6.7.0/macos/mkspecs/features/spec_pre.prf \
 		/Users/Qt/6.7.0/macos/mkspecs/features/qt_config.prf \
 		/Users/Qt/6.7.0/macos/mkspecs/macx-clang/qmake.conf \
 		/Users/Qt/6.7.0/macos/mkspecs/features/spec_post.prf \
+		../../.qmake.stash \
 		/Users/Qt/6.7.0/macos/mkspecs/features/exclusive_builds.prf \
 		/Users/Qt/6.7.0/macos/mkspecs/features/mac/sdk.prf \
 		/Users/Qt/6.7.0/macos/mkspecs/features/toolchain.prf \
@@ -305,11 +310,13 @@ DIST          = /Users/Qt/6.7.0/macos/mkspecs/features/spec_pre.prf \
 		/Users/Qt/6.7.0/macos/mkspecs/features/yacc.prf \
 		/Users/Qt/6.7.0/macos/mkspecs/features/lex.prf \
 		../../../../tictactoe.pro ../../dialog.h \
+		../../gameslist.h \
 		../../mainwindow.h \
 		../../signin.h \
 		../../signin2.h \
 		../../signup.h ../../aiLogic.cpp \
 		../../dialog.cpp \
+		../../gameslist.cpp \
 		../../main.cpp \
 		../../mainwindow.cpp \
 		../../signin.cpp \
@@ -323,7 +330,7 @@ TARGET        = tictactoe.app/Contents/MacOS/tictactoe
 EXPORT_QMAKE_MAC_SDK = macosx
 EXPORT_QMAKE_MAC_SDK_VERSION = 14.4
 EXPORT_QMAKE_XCODE_DEVELOPER_PATH = /Applications/Xcode.app/Contents/Developer
-EXPORT__QMAKE_STASH_ = 
+EXPORT__QMAKE_STASH_ = /Users/marypeko/Developer/Advanced-Tic-Tac-Toe/tictactoev/build/Desktop_arm_darwin_generic_mach_o_64bit-Debug/.qmake.stash
 EXPORT_VALID_ARCHS = x86_64 arm64
 EXPORT_DEFAULT_ARCHS = arm64
 EXPORT_ARCHS = $(filter $(EXPORT_VALID_ARCHS), $(if $(ARCHS), $(ARCHS), $(if $(EXPORT_DEFAULT_ARCHS), $(EXPORT_DEFAULT_ARCHS), $(EXPORT_VALID_ARCHS))))
@@ -335,7 +342,7 @@ include /Users/marypeko/Developer/Qt/6.7.0/macos/mkspecs/features/mac/sdk.mk
 first: all
 ####### Build rules
 
-tictactoe.app/Contents/MacOS/tictactoe: ui_dialog.h ui_mainwindow.h ui_signin.h ui_signin2.h ui_signup.h $(OBJECTS)  
+tictactoe.app/Contents/MacOS/tictactoe: ui_dialog.h ui_gameslist.h ui_mainwindow.h ui_signin.h ui_signin2.h ui_signup.h $(OBJECTS)  
 	@test -d tictactoe.app/Contents/MacOS/ || mkdir -p tictactoe.app/Contents/MacOS/
 	$(LINK) $(LFLAGS) -o $(TARGET)  $(OBJECTS) $(OBJCOMP) $(LIBS)
 
@@ -539,6 +546,7 @@ Makefile: ../../tictactoe.pro ../../../../Qt/6.7.0/macos/mkspecs/features/spec_p
 		../../../../Qt/6.7.0/macos/mkspecs/features/qt_config.prf \
 		../../../../Qt/6.7.0/macos/mkspecs/macx-clang/qmake.conf \
 		../../../../Qt/6.7.0/macos/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../../../Qt/6.7.0/macos/mkspecs/features/exclusive_builds.prf \
 		../../../../Qt/6.7.0/macos/mkspecs/features/mac/sdk.prf \
 		../../../../Qt/6.7.0/macos/mkspecs/features/toolchain.prf \
@@ -773,6 +781,7 @@ Makefile: ../../tictactoe.pro ../../../../Qt/6.7.0/macos/mkspecs/features/spec_p
 ../../../../Qt/6.7.0/macos/mkspecs/features/qt_config.prf:
 ../../../../Qt/6.7.0/macos/mkspecs/macx-clang/qmake.conf:
 ../../../../Qt/6.7.0/macos/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../../../../Qt/6.7.0/macos/mkspecs/features/exclusive_builds.prf:
 ../../../../Qt/6.7.0/macos/mkspecs/features/mac/sdk.prf:
 ../../../../Qt/6.7.0/macos/mkspecs/features/toolchain.prf:
@@ -830,9 +839,9 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../../dialog.h ../../mainwindow.h ../../signin.h ../../signin2.h ../../signup.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../../aiLogic.cpp ../../dialog.cpp ../../main.cpp ../../mainwindow.cpp ../../signin.cpp ../../signin2.cpp ../../signup.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../../dialog.ui ../../mainwindow.ui ../../signin.ui ../../signin2.ui ../../signup.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../../dialog.h ../../gameslist.h ../../mainwindow.h ../../signin.h ../../signin2.h ../../signup.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../../aiLogic.cpp ../../dialog.cpp ../../gameslist.cpp ../../main.cpp ../../mainwindow.cpp ../../signin.cpp ../../signin2.cpp ../../signup.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../../dialog.ui ../../gameslist.ui ../../mainwindow.ui ../../signin.ui ../../signin2.ui ../../signup.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -842,6 +851,7 @@ clean: compiler_clean
 
 distclean: clean 
 	-$(DEL_FILE) -r tictactoe.app
+	-$(DEL_FILE) .qmake.stash
 	-$(DEL_FILE) Makefile
 
 
@@ -860,14 +870,21 @@ benchmark: first
 
 compiler_rcc_make_all:
 compiler_rcc_clean:
-compiler_moc_header_make_all: moc_dialog.cpp moc_mainwindow.cpp moc_signin.cpp moc_signin2.cpp moc_signup.cpp
+compiler_moc_header_make_all: moc_dialog.cpp moc_gameslist.cpp moc_mainwindow.cpp moc_signin.cpp moc_signin2.cpp moc_signup.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_dialog.cpp moc_mainwindow.cpp moc_signin.cpp moc_signin2.cpp moc_signup.cpp
+	-$(DEL_FILE) moc_dialog.cpp moc_gameslist.cpp moc_mainwindow.cpp moc_signin.cpp moc_signin2.cpp moc_signup.cpp
 moc_dialog.cpp: ../../dialog.h \
 		../../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QDialog \
 		../../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qdialog.h \
+		../../gameslist.h \
 		../../../../Qt/6.7.0/macos/libexec/moc
 	/Users/marypeko/Developer/Qt/6.7.0/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=15 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/marypeko/Developer/Qt/6.7.0/macos/mkspecs/macx-clang -I/Users/marypeko/Developer/Advanced-Tic-Tac-Toe/tictactoev -I/Users/marypeko/Developer/Qt/6.7.0/macos/lib/QtWidgets.framework/Headers -I/Users/marypeko/Developer/Qt/6.7.0/macos/lib/QtGui.framework/Headers -I/Users/marypeko/Developer/Qt/6.7.0/macos/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/marypeko/Developer/Qt/6.7.0/macos/lib ../../dialog.h -o moc_dialog.cpp
+
+moc_gameslist.cpp: ../../gameslist.h \
+		../../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QDialog \
+		../../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qdialog.h \
+		../../../../Qt/6.7.0/macos/libexec/moc
+	/Users/marypeko/Developer/Qt/6.7.0/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=15 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/marypeko/Developer/Qt/6.7.0/macos/mkspecs/macx-clang -I/Users/marypeko/Developer/Advanced-Tic-Tac-Toe/tictactoev -I/Users/marypeko/Developer/Qt/6.7.0/macos/lib/QtWidgets.framework/Headers -I/Users/marypeko/Developer/Qt/6.7.0/macos/lib/QtGui.framework/Headers -I/Users/marypeko/Developer/Qt/6.7.0/macos/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/marypeko/Developer/Qt/6.7.0/macos/lib ../../gameslist.h -o moc_gameslist.cpp
 
 moc_mainwindow.cpp: ../../mainwindow.h \
 		../../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QMainWindow \
@@ -877,6 +894,7 @@ moc_mainwindow.cpp: ../../mainwindow.h \
 		../../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qdialog.h \
 		../../signin2.h \
 		../../dialog.h \
+		../../gameslist.h \
 		../../signup.h \
 		../../../../Qt/6.7.0/macos/libexec/moc
 	/Users/marypeko/Developer/Qt/6.7.0/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=15 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/marypeko/Developer/Qt/6.7.0/macos/mkspecs/macx-clang -I/Users/marypeko/Developer/Advanced-Tic-Tac-Toe/tictactoev -I/Users/marypeko/Developer/Qt/6.7.0/macos/lib/QtWidgets.framework/Headers -I/Users/marypeko/Developer/Qt/6.7.0/macos/lib/QtGui.framework/Headers -I/Users/marypeko/Developer/Qt/6.7.0/macos/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/marypeko/Developer/Qt/6.7.0/macos/lib ../../mainwindow.h -o moc_mainwindow.cpp
@@ -886,6 +904,7 @@ moc_signin.cpp: ../../signin.h \
 		../../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qdialog.h \
 		../../signin2.h \
 		../../dialog.h \
+		../../gameslist.h \
 		../../signup.h \
 		../../../../Qt/6.7.0/macos/libexec/moc
 	/Users/marypeko/Developer/Qt/6.7.0/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=15 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/marypeko/Developer/Qt/6.7.0/macos/mkspecs/macx-clang -I/Users/marypeko/Developer/Advanced-Tic-Tac-Toe/tictactoev -I/Users/marypeko/Developer/Qt/6.7.0/macos/lib/QtWidgets.framework/Headers -I/Users/marypeko/Developer/Qt/6.7.0/macos/lib/QtGui.framework/Headers -I/Users/marypeko/Developer/Qt/6.7.0/macos/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/marypeko/Developer/Qt/6.7.0/macos/lib ../../signin.h -o moc_signin.cpp
@@ -894,6 +913,7 @@ moc_signin2.cpp: ../../signin2.h \
 		../../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QDialog \
 		../../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qdialog.h \
 		../../dialog.h \
+		../../gameslist.h \
 		../../signup.h \
 		../../../../Qt/6.7.0/macos/libexec/moc
 	/Users/marypeko/Developer/Qt/6.7.0/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=15 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/marypeko/Developer/Qt/6.7.0/macos/mkspecs/macx-clang -I/Users/marypeko/Developer/Advanced-Tic-Tac-Toe/tictactoev -I/Users/marypeko/Developer/Qt/6.7.0/macos/lib/QtWidgets.framework/Headers -I/Users/marypeko/Developer/Qt/6.7.0/macos/lib/QtGui.framework/Headers -I/Users/marypeko/Developer/Qt/6.7.0/macos/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/marypeko/Developer/Qt/6.7.0/macos/lib ../../signin2.h -o moc_signin2.cpp
@@ -908,12 +928,16 @@ compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_dialog.h ui_mainwindow.h ui_signin.h ui_signin2.h ui_signup.h
+compiler_uic_make_all: ui_dialog.h ui_gameslist.h ui_mainwindow.h ui_signin.h ui_signin2.h ui_signup.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_dialog.h ui_mainwindow.h ui_signin.h ui_signin2.h ui_signup.h
+	-$(DEL_FILE) ui_dialog.h ui_gameslist.h ui_mainwindow.h ui_signin.h ui_signin2.h ui_signup.h
 ui_dialog.h: ../../dialog.ui \
 		../../../../Qt/6.7.0/macos/libexec/uic
 	/Users/marypeko/Developer/Qt/6.7.0/macos/libexec/uic ../../dialog.ui -o ui_dialog.h
+
+ui_gameslist.h: ../../gameslist.ui \
+		../../../../Qt/6.7.0/macos/libexec/uic
+	/Users/marypeko/Developer/Qt/6.7.0/macos/libexec/uic ../../gameslist.ui -o ui_gameslist.h
 
 ui_mainwindow.h: ../../mainwindow.ui \
 		../../../../Qt/6.7.0/macos/libexec/uic
@@ -959,12 +983,14 @@ aiLogic.o: ../../aiLogic.cpp ../../../../Qt/6.7.0/macos/lib/QtWidgets.framework/
 		../../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qdialog.h \
 		../../signin2.h \
 		../../dialog.h \
+		../../gameslist.h \
 		../../signup.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o aiLogic.o ../../aiLogic.cpp
 
 dialog.o: ../../dialog.cpp ../../dialog.h \
 		../../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QDialog \
 		../../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qdialog.h \
+		../../gameslist.h \
 		../../ui_dialog.h \
 		../../ui_mainwindow.h \
 		../../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QMessageBox \
@@ -979,6 +1005,12 @@ dialog.o: ../../dialog.cpp ../../dialog.h \
 		../../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qpushbutton.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dialog.o ../../dialog.cpp
 
+gameslist.o: ../../gameslist.cpp ../../gameslist.h \
+		../../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QDialog \
+		../../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qdialog.h \
+		ui_gameslist.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o gameslist.o ../../gameslist.cpp
+
 main.o: ../../main.cpp ../../mainwindow.h \
 		../../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qmainwindow.h \
@@ -987,6 +1019,7 @@ main.o: ../../main.cpp ../../mainwindow.h \
 		../../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qdialog.h \
 		../../signin2.h \
 		../../dialog.h \
+		../../gameslist.h \
 		../../signup.h \
 		../../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QApplication \
 		../../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qapplication.h \
@@ -1002,6 +1035,7 @@ mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
 		../../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qdialog.h \
 		../../signin2.h \
 		../../dialog.h \
+		../../gameslist.h \
 		../../signup.h \
 		../../ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../../mainwindow.cpp
@@ -1011,6 +1045,7 @@ signin.o: ../../signin.cpp ../../signin.h \
 		../../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qdialog.h \
 		../../signin2.h \
 		../../dialog.h \
+		../../gameslist.h \
 		../../signup.h \
 		../../ui_signin.h \
 		../../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QMessageBox \
@@ -1024,6 +1059,7 @@ signin2.o: ../../signin2.cpp ../../signin2.h \
 		../../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QDialog \
 		../../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qdialog.h \
 		../../dialog.h \
+		../../gameslist.h \
 		../../signup.h \
 		../../ui_signin2.h \
 		../../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QMessageBox \
@@ -1044,12 +1080,16 @@ signup.o: ../../signup.cpp ../../signup.h \
 		../../signin.h \
 		../../signin2.h \
 		../../dialog.h \
+		../../gameslist.h \
 		../../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QMessageBox \
 		../../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qmessagebox.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o signup.o ../../signup.cpp
 
 moc_dialog.o: moc_dialog.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_dialog.o moc_dialog.cpp
+
+moc_gameslist.o: moc_gameslist.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_gameslist.o moc_gameslist.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp

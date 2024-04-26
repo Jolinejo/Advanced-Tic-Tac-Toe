@@ -165,8 +165,21 @@ void Dialog::on_pushButton_clicked()
         executeGame();
     else {
         executeAi(player1);
-        std::cout<<"here";
     }
 }
 
+
+
+void Dialog::on_pushButton_display1_clicked()
+{
+    games = new gamesList(this, player1);
+    games->show();
+}
+
+
+void Dialog::on_pushButton_display2_clicked()
+{
+    games = new gamesList(this, player2);
+    games->show();
+}
 

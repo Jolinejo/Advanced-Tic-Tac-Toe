@@ -2,6 +2,8 @@
 #define DIALOG_H
 #include <QDialog>
 #include <string>
+#include "gameslist.h"
+
 using namespace std;
 
 namespace Ui {
@@ -20,11 +22,16 @@ private slots:
     void on_pushButton_clicked();
 
 
+    void on_pushButton_display1_clicked();
+
+    void on_pushButton_display2_clicked();
+
 private:
     Ui::Dialog *ui;
     int gameMode;
     string player1;
     string player2;
+    gamesList *games;
 };
 
 void executeAi(string player);
