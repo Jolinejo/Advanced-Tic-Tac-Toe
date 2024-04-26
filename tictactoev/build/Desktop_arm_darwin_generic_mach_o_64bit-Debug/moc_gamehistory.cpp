@@ -36,7 +36,7 @@ namespace {
 struct qt_meta_stringdata_CLASSgameHistoryENDCLASS_t {};
 constexpr auto qt_meta_stringdata_CLASSgameHistoryENDCLASS = QtMocHelpers::stringData(
     "gameHistory",
-    "on_pushButton_clicked",
+    "on_pushButton_play_clicked",
     ""
 );
 #else  // !QT_MOC_HAS_STRINGDATA
@@ -75,7 +75,7 @@ Q_CONSTINIT const QMetaObject gameHistory::staticMetaObject = { {
     qt_incomplete_metaTypeArray<qt_meta_stringdata_CLASSgameHistoryENDCLASS_t,
         // Q_OBJECT / Q_GADGET
         QtPrivate::TypeAndForceComplete<gameHistory, std::true_type>,
-        // method 'on_pushButton_clicked'
+        // method 'on_pushButton_play_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
@@ -87,7 +87,7 @@ void gameHistory::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         auto *_t = static_cast<gameHistory *>(_o);
         (void)_t;
         switch (_id) {
-        case 0: _t->on_pushButton_clicked(); break;
+        case 0: _t->on_pushButton_play_clicked(); break;
         default: ;
         }
     }

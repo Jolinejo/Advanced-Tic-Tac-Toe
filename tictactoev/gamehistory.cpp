@@ -64,35 +64,35 @@ int moveIndex = 0; // Index of the next move to be displayed
 // Slot function for handling button click
 void gameHistory::on_pushButton_play_clicked()
 {
-    // Check if there are any moves left to display
     if (!moveQueue.empty()) {
-        // Get the next move from the queue
         string move = moveQueue.front();
         moveQueue.pop();
 
-        // Extract the player ("X" or "O") and position (row and column) from the move string
-        QChar player = move[0];  // 'X' or 'O'
-        int row = move[1] - '0'; // Convert char to int for row
-        int col = move[2] - '0'; // Convert char to int for column
+        QChar player = move[0];
+        int row = move[1] - '0';
+        int col = move[2] - '0';
 
-        // Find the label corresponding to the row and column
         QString labelName = QString("label_%1").arg(row * 3 + col + 1);
         QLabel* label = ui->gridOfMoves->findChild<QLabel*>(labelName);
 
-        // Populate the label with "X" or "O"
         if (label) {
             label->setText(player);
+            qDebug() << "Label updated: " << labelName;
+        } else {
+            qDebug() << "Label not found: " << labelName;
         }
 
-        // Check if the queue is empty after popping to disable the button if no more moves are left
         if (moveQueue.empty()) {
             ui->pushButton_play->setEnabled(false);
         }
     } else {
-        // If no moves left, disable the button
         ui->pushButton_play->setEnabled(false);
     }
+
+    // Force a UI refresh
+    QApplication::processEvents();
 }
+
 
 
 
