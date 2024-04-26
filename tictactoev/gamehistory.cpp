@@ -72,14 +72,10 @@ void gameHistory::on_pushButton_play_clicked()
         int row = move[1] - '0';
         int col = move[2] - '0';
 
-        QString labelName = QString("label_%1").arg(row * 3 + col + 1);
-        QLabel* label = ui->gridOfMoves->findChild<QLabel*>(labelName);
-
+        QLayoutItem* layoutItem = ui->gridOfMoves->itemAtPosition(row, col);
+        QLabel* label = qobject_cast<QLabel*>(layoutItem->widget());
         if (label) {
-            label->setText(player);
-            qDebug() << "Label updated: " << labelName;
-        } else {
-            qDebug() << "Label not found: " << labelName;
+           label->setText(player);
         }
 
         if (moveQueue.empty()) {
