@@ -1014,8 +1014,8 @@ dialog.o: ../../dialog.cpp ../../dialog.h \
 		../../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qdialog.h \
 		../../gameslist.h \
 		../../gamehistory.h \
-		../../ui_dialog.h \
-		../../ui_mainwindow.h \
+		ui_dialog.h \
+		ui_mainwindow.h \
 		../../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QMessageBox \
 		../../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qmessagebox.h \
 		../../mainwindow.h \
@@ -1065,7 +1065,7 @@ mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
 		../../gameslist.h \
 		../../gamehistory.h \
 		../../signup.h \
-		../../ui_mainwindow.h
+		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../../mainwindow.cpp
 
 signin.o: ../../signin.cpp ../../signin.h \
@@ -1076,7 +1076,7 @@ signin.o: ../../signin.cpp ../../signin.h \
 		../../gameslist.h \
 		../../gamehistory.h \
 		../../signup.h \
-		../../ui_signin.h \
+		ui_signin.h \
 		../../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QMessageBox \
 		../../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qmessagebox.h \
 		../../mainwindow.h \
@@ -1091,7 +1091,7 @@ signin2.o: ../../signin2.cpp ../../signin2.h \
 		../../gameslist.h \
 		../../gamehistory.h \
 		../../signup.h \
-		../../ui_signin2.h \
+		ui_signin2.h \
 		../../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QMessageBox \
 		../../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qmessagebox.h \
 		../../mainwindow.h \
@@ -1103,7 +1103,7 @@ signin2.o: ../../signin2.cpp ../../signin2.h \
 signup.o: ../../signup.cpp ../../signup.h \
 		../../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QDialog \
 		../../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qdialog.h \
-		../../ui_signup.h \
+		ui_signup.h \
 		../../mainwindow.h \
 		../../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qmainwindow.h \
@@ -1119,7 +1119,7 @@ signup.o: ../../signup.cpp ../../signup.h \
 gamehistory.o: ../../gamehistory.cpp ../../gamehistory.h \
 		../../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QDialog \
 		../../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qdialog.h \
-		../../ui_gamehistory.h \
+		ui_gamehistory.h \
 		../../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QGridLayout \
 		../../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qgridlayout.h \
 		../../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QLabel \

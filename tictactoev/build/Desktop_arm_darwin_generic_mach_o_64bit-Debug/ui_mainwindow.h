@@ -10,11 +10,13 @@
 #define UI_MAINWINDOW_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
+#include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
@@ -35,6 +37,7 @@ public:
     QPushButton *pushButton_playerxplayer;
     QPushButton *pushButton_AI;
     QMenuBar *menubar;
+    QMenu *menuWelcome;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -47,7 +50,8 @@ public:
         centralwidget->setObjectName("centralwidget");
         groupBox = new QGroupBox(centralwidget);
         groupBox->setObjectName("groupBox");
-        groupBox->setGeometry(QRect(100, 0, 331, 191));
+        groupBox->setGeometry(QRect(100, 100, 300, 300));
+        groupBox->setAutoFillBackground(false);
         horizontalLayout = new QHBoxLayout(groupBox);
         horizontalLayout->setObjectName("horizontalLayout");
         verticalLayout = new QVBoxLayout();
@@ -81,10 +85,14 @@ public:
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
         menubar->setGeometry(QRect(0, 0, 800, 24));
+        menuWelcome = new QMenu(menubar);
+        menuWelcome->setObjectName("menuWelcome");
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
         MainWindow->setStatusBar(statusbar);
+
+        menubar->addAction(menuWelcome->menuAction());
 
         retranslateUi(MainWindow);
 
@@ -93,12 +101,13 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
+        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "Welcome", nullptr));
         groupBox->setTitle(QCoreApplication::translate("MainWindow", "Tic Tac Toe", nullptr));
-        label_2->setText(QCoreApplication::translate("MainWindow", "                    welcom !", nullptr));
-        label->setText(QCoreApplication::translate("MainWindow", "    which mode will you choose?", nullptr));
+        label_2->setText(QCoreApplication::translate("MainWindow", "Welcome!", nullptr));
+        label->setText(QCoreApplication::translate("MainWindow", "which mode will you choose?", nullptr));
         pushButton_playerxplayer->setText(QCoreApplication::translate("MainWindow", "player VS player", nullptr));
         pushButton_AI->setText(QCoreApplication::translate("MainWindow", "Player VS AI", nullptr));
+        menuWelcome->setTitle(QCoreApplication::translate("MainWindow", "Welcome", nullptr));
     } // retranslateUi
 
 };

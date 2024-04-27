@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Welcome</string>
   </property>
   <property name="autoFillBackground">
    <bool>false</bool>
@@ -21,10 +21,13 @@
     <property name="geometry">
      <rect>
       <x>100</x>
-      <y>0</y>
-      <width>331</width>
-      <height>191</height>
+      <y>100</y>
+      <width>300</width>
+      <height>300</height>
      </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
     </property>
     <property name="title">
      <string>Tic Tac Toe</string>
@@ -35,7 +38,7 @@
        <item>
         <widget class="QLabel" name="label_2">
          <property name="text">
-          <string>                    welcom !</string>
+          <string>Welcome!</string>
          </property>
         </widget>
        </item>
@@ -45,7 +48,7 @@
           <bool>true</bool>
          </property>
          <property name="text">
-          <string>    which mode will you choose?</string>
+          <string>which mode will you choose?</string>
          </property>
          <property name="scaledContents">
           <bool>false</bool>
@@ -80,6 +83,12 @@
      <height>24</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuWelcome">
+    <property name="title">
+     <string>Welcome</string>
+    </property>
+   </widget>
+   <addaction name="menuWelcome"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

@@ -104,6 +104,7 @@ int main(int argc, char *argv[])
 
     loadUsers();
     MainWindow w;
+    w.resize(500,500);
     w.show();
     return a.exec();
 }
