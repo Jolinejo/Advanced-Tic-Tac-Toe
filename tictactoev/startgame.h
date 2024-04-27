@@ -39,6 +39,11 @@ private:
     pair<int, int> aiMove();
     int minimax(bool isMaximizer, int depth);
     int evaluateBoard();
+    int counter1;
+    int currentRound = 1;
+    static const int MAX_ROUNDS = 3;
+
+    void startNextRound();
 };
 
 #endif // STARTGAME_H

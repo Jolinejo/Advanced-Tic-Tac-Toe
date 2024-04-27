@@ -10,6 +10,7 @@
 
 using namespace std;
 
+
 Startgame::Startgame(QWidget *parent, string p1, string p2, int mode)
     : QDialog(parent),
     ui(new Ui::Startgame),
@@ -18,6 +19,7 @@ Startgame::Startgame(QWidget *parent, string p1, string p2, int mode)
     gameMode(mode)
 {
     ui->setupUi(this);
+    currentRound = 1;
     if (mode == 2) {
         ui->label_p2->setText("AI"); // Hide the whole button
     } else {
@@ -66,18 +68,46 @@ void Startgame::handleButtonClick(int row, int col, QPushButton *button)
     gameMoves.push_back(text + QString::number(row) + QString::number(col));
 
     if (checkWin(currentPlayer)) {
-        QMessageBox::information(nullptr, "Game Over", QString("%1 wins!").arg(text));
         saveGame();
-        QApplication::quit();
+        counter1 = counter1 + 1;
+        if(currentPlayer==Player::X){
+            ui->lcdNumber_p1->display(QString::number(counter1));}
+        else {ui->lcdNumber_p2->display(QString::number(counter1));}
+
+        startNextRound(); // Start the next round
     } else if (checkTie()) {
-        QMessageBox::information(nullptr, "Game Over", "Tie!");
+
         saveGame();
-        QApplication::quit();
+        startNextRound();
     } else {
         // Switch to the other player's turn
         currentPlayer = (currentPlayer == Player::X) ? Player::O : Player::X;
     }
 }
+
+void Startgame::startNextRound()
+{
+    ++currentRound;
+    currentPlayer = Player::X;
+    // Clear the grid and gameMoves vectors
+    for (int i = 0; i < 3; ++i) {
+        for (int j = 0; j < 3; ++j) {
+            grid[i][j] = Player::None;
+        }
+    }
+    gameMoves.clear();
+
+    // Clear the button texts and enable them
+    for (int row = 0; row < 3; ++row) {
+        for (int col = 0; col < 3; ++col) {
+            QPushButton *button = qobject_cast<QPushButton *>(ui->gridLayout_play->itemAtPosition(row, col)->widget());
+            button->setText("");
+            button->setEnabled(true);
+        }
+    }
+}
+
+
 
 void Startgame::handleButtonClick2(int row, int col, QPushButton *button)
 {
