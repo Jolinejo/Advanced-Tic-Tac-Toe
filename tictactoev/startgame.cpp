@@ -71,6 +71,33 @@ void Startgame::handleButtonClick(int row, int col, QPushButton* button)
     }
 }
 
+void Startgame::handleButtonClick2(int row, int col, QPushButton* button, QGridLayout *layout) {
+    if (grid[row][col] != Player::None) {
+        // The button has already been clicked, ignore it
+        return;
+    }
+
+    grid[row][col] = currentPlayer;
+    QString text = (currentPlayer == Player::X) ? "X" : "O";
+    button->setText(text);
+    button->setEnabled(false);
+    gameMoves.push_back(text + QString::number(row) + QString::number(col));
+
+    if (checkWin(currentPlayer)) {
+        QMessageBox::information(nullptr, "Game Over", QString("%1 wins!").arg(text));
+        saveGame();
+        QApplication::quit();
+    } else if (checkTie()) {
+        QMessageBox::information(nullptr, "Game Over", "Tie!");
+        saveGame();
+        QApplication::quit();
+    } else {
+        // Switch to the other player's turn
+        currentPlayer = (currentPlayer == Player::X) ? Player::O : Player::X;
+    }
+}
+
+
 bool Startgame::checkWin(Player player)
 {
     // Check rows and columns

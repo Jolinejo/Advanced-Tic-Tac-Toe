@@ -4,6 +4,7 @@
 #include <QDialog>
 #include <QString>
 #include <string>
+#include<QGridLayout>
 using namespace std;
 
 namespace Ui {
@@ -22,6 +23,7 @@ public:
 
 private slots:
     void handleButtonClick(int row, int col, QPushButton* button);
+    void handleButtonClick2(int row, int col, QPushButton* button, QGridLayout *layout);
     bool checkWin(Player player);
     bool checkTie();
     void saveGame();
