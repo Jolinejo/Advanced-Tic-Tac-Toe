@@ -38,3 +38,4 @@ private:
 
 void executeAi(string player);
 #endif // DIALOG_H
+

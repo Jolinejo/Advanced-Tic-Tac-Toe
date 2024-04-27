@@ -18,21 +18,21 @@
     <rect>
      <x>30</x>
      <y>20</y>
-     <width>41</width>
-     <height>14</height>
+     <width>81</width>
+     <height>16</height>
     </rect>
    </property>
    <property name="text">
     <string>TextLabel</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_2">
+  <widget class="QLabel" name="label_p2">
    <property name="geometry">
     <rect>
-     <x>320</x>
+     <x>300</x>
      <y>20</y>
-     <width>41</width>
-     <height>14</height>
+     <width>71</width>
+     <height>16</height>
     </rect>
    </property>
    <property name="text">
@@ -58,7 +58,7 @@
        </sizepolicy>
       </property>
       <property name="text">
-       <string>PushButton</string>
+       <string/>
       </property>
      </widget>
     </item>
@@ -71,7 +71,7 @@
        </sizepolicy>
       </property>
       <property name="text">
-       <string>PushButton</string>
+       <string/>
       </property>
      </widget>
     </item>
@@ -84,7 +84,7 @@
        </sizepolicy>
       </property>
       <property name="text">
-       <string>PushButton</string>
+       <string/>
       </property>
      </widget>
     </item>
@@ -97,7 +97,7 @@
        </sizepolicy>
       </property>
       <property name="text">
-       <string>PushButton</string>
+       <string/>
       </property>
      </widget>
     </item>
@@ -110,7 +110,7 @@
        </sizepolicy>
       </property>
       <property name="text">
-       <string>PushButton</string>
+       <string/>
       </property>
      </widget>
     </item>
@@ -123,7 +123,7 @@
        </sizepolicy>
       </property>
       <property name="text">
-       <string>PushButton</string>
+       <string/>
       </property>
      </widget>
     </item>
@@ -136,7 +136,7 @@
        </sizepolicy>
       </property>
       <property name="text">
-       <string>PushButton</string>
+       <string/>
       </property>
      </widget>
     </item>
@@ -152,7 +152,7 @@
        <string notr="true"/>
       </property>
       <property name="text">
-       <string>PushButton</string>
+       <string/>
       </property>
      </widget>
     </item>
@@ -168,7 +168,7 @@
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;ابغا&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="text">
-       <string>PushButton</string>
+       <string/>
       </property>
      </widget>
     </item>
