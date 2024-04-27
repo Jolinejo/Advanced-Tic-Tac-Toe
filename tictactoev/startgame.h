@@ -18,12 +18,12 @@ class Startgame : public QDialog
     Q_OBJECT
 
 public:
-    explicit Startgame(QWidget *parent = nullptr, string p1 = "", string p2 = "");
+    explicit Startgame(QWidget *parent = nullptr, string p1 = "", string p2 = "",int mode=1);
     ~Startgame();
 
 private slots:
     void handleButtonClick(int row, int col, QPushButton* button);
-    void handleButtonClick2(int row, int col, QPushButton* button, QGridLayout *layout);
+    void handleButtonClick2(int row, int col, QPushButton* button);
     bool checkWin(Player player);
     bool checkTie();
     void saveGame();
@@ -34,7 +34,11 @@ private:
     Player grid[3][3];
     string player1;
     string player2;
+    int gameMode;
     QVector<QString> gameMoves;
+    pair<int, int> aiMove();
+    int minimax(bool isMaximizer, int depth);
+    int evaluateBoard();
 };
 
 #endif // STARTGAME_H
