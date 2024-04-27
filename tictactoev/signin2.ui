@@ -66,6 +66,13 @@
      </widget>
     </item>
     <item>
+     <widget class="QLabel" name="label_ifthere">
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+    </item>
+    <item>
      <widget class="QCheckBox" name="checkBox_showpassword">
       <property name="text">
        <string>show password</string>

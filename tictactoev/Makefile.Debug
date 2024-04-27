@@ -1962,42 +1962,20 @@ debug/dialog.o: dialog.cpp dialog.h \
 		gameslist.h \
 		gamehistory.h \
 		ui_dialog.h \
-		../../../../qt/6.7.0/mingw_64/include/QtCore/QVariant \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/QApplication \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qapplication.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/QPushButton \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qpushbutton.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qabstractbutton.h \
 		ui_mainwindow.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/QGroupBox \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qgroupbox.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qframe.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/QHBoxLayout \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qboxlayout.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qlayout.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qlayoutitem.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qgridlayout.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/QLabel \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qlabel.h \
-		../../../../qt/6.7.0/mingw_64/include/QtGui/qpicture.h \
-		../../../../qt/6.7.0/mingw_64/include/QtGui/qtextdocument.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/QMainWindow \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qmainwindow.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qtabwidget.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/QMenuBar \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qmenubar.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qmenu.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/QStatusBar \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qstatusbar.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/QVBoxLayout \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/QWidget \
 		../../../../qt/6.7.0/mingw_64/include/QtWidgets/QMessageBox \
 		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qmessagebox.h \
 		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
 		mainwindow.h \
+		../../../../qt/6.7.0/mingw_64/include/QtWidgets/QMainWindow \
+		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qmainwindow.h \
+		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qtabwidget.h \
 		signin.h \
 		signin2.h \
-		signup.h
+		signup.h \
+		../../../../qt/6.7.0/mingw_64/include/QtWidgets/QPushButton \
+		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qpushbutton.h \
+		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qabstractbutton.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\dialog.o dialog.cpp
 
 debug/gameslist.o: gameslist.cpp gameslist.h \
@@ -2596,32 +2574,7 @@ debug/mainwindow.o: mainwindow.cpp mainwindow.h \
 		gameslist.h \
 		gamehistory.h \
 		signup.h \
-		ui_mainwindow.h \
-		../../../../qt/6.7.0/mingw_64/include/QtCore/QVariant \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/QApplication \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qapplication.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/QGroupBox \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qgroupbox.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qframe.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/QHBoxLayout \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qboxlayout.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qlayout.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qlayoutitem.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qgridlayout.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/QLabel \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qlabel.h \
-		../../../../qt/6.7.0/mingw_64/include/QtGui/qpicture.h \
-		../../../../qt/6.7.0/mingw_64/include/QtGui/qtextdocument.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/QMenuBar \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qmenubar.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qmenu.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/QPushButton \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qpushbutton.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qabstractbutton.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/QStatusBar \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qstatusbar.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/QVBoxLayout \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/QWidget
+		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\mainwindow.o mainwindow.cpp
 
 debug/signin.o: signin.cpp signin.h \
@@ -2818,33 +2771,6 @@ debug/signin.o: signin.cpp signin.h \
 		gamehistory.h \
 		signup.h \
 		ui_signin.h \
-		../../../../qt/6.7.0/mingw_64/include/QtCore/QVariant \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/QApplication \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qapplication.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/QCheckBox \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qcheckbox.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qabstractbutton.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/QGroupBox \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qgroupbox.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qframe.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/QHBoxLayout \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qboxlayout.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qlayout.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qlayoutitem.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qgridlayout.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/QLabel \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qlabel.h \
-		../../../../qt/6.7.0/mingw_64/include/QtGui/qpicture.h \
-		../../../../qt/6.7.0/mingw_64/include/QtGui/qtextdocument.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/QLineEdit \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qlineedit.h \
-		../../../../qt/6.7.0/mingw_64/include/QtGui/qtextcursor.h \
-		../../../../qt/6.7.0/mingw_64/include/QtGui/qtextformat.h \
-		../../../../qt/6.7.0/mingw_64/include/QtGui/qpen.h \
-		../../../../qt/6.7.0/mingw_64/include/QtGui/qtextoption.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/QPushButton \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qpushbutton.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/QVBoxLayout \
 		../../../../qt/6.7.0/mingw_64/include/QtWidgets/QMessageBox \
 		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qmessagebox.h \
 		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
@@ -3047,33 +2973,6 @@ debug/signin2.o: signin2.cpp signin2.h \
 		gamehistory.h \
 		signup.h \
 		ui_signin2.h \
-		../../../../qt/6.7.0/mingw_64/include/QtCore/QVariant \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/QApplication \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qapplication.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/QCheckBox \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qcheckbox.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qabstractbutton.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/QGroupBox \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qgroupbox.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qframe.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/QHBoxLayout \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qboxlayout.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qlayout.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qlayoutitem.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qgridlayout.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/QLabel \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qlabel.h \
-		../../../../qt/6.7.0/mingw_64/include/QtGui/qpicture.h \
-		../../../../qt/6.7.0/mingw_64/include/QtGui/qtextdocument.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/QLineEdit \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qlineedit.h \
-		../../../../qt/6.7.0/mingw_64/include/QtGui/qtextcursor.h \
-		../../../../qt/6.7.0/mingw_64/include/QtGui/qtextformat.h \
-		../../../../qt/6.7.0/mingw_64/include/QtGui/qpen.h \
-		../../../../qt/6.7.0/mingw_64/include/QtGui/qtextoption.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/QPushButton \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qpushbutton.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/QVBoxLayout \
 		../../../../qt/6.7.0/mingw_64/include/QtWidgets/QMessageBox \
 		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qmessagebox.h \
 		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
@@ -3273,31 +3172,6 @@ debug/signup.o: signup.cpp signup.h \
 		../../../../qt/6.7.0/mingw_64/include/QtCore/qlocale.h \
 		../../../../qt/6.7.0/mingw_64/include/QtGui/qguiapplication_platform.h \
 		ui_signup.h \
-		../../../../qt/6.7.0/mingw_64/include/QtCore/QVariant \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/QApplication \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qapplication.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/QGroupBox \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qgroupbox.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qframe.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/QHBoxLayout \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qboxlayout.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qlayout.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qlayoutitem.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qgridlayout.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/QLabel \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qlabel.h \
-		../../../../qt/6.7.0/mingw_64/include/QtGui/qpicture.h \
-		../../../../qt/6.7.0/mingw_64/include/QtGui/qtextdocument.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/QLineEdit \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qlineedit.h \
-		../../../../qt/6.7.0/mingw_64/include/QtGui/qtextcursor.h \
-		../../../../qt/6.7.0/mingw_64/include/QtGui/qtextformat.h \
-		../../../../qt/6.7.0/mingw_64/include/QtGui/qpen.h \
-		../../../../qt/6.7.0/mingw_64/include/QtGui/qtextoption.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/QPushButton \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qpushbutton.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qabstractbutton.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/QVBoxLayout \
 		mainwindow.h \
 		../../../../qt/6.7.0/mingw_64/include/QtWidgets/QMainWindow \
 		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qmainwindow.h \
@@ -3501,12 +3375,6 @@ debug/gamehistory.o: gamehistory.cpp gamehistory.h \
 		../../../../qt/6.7.0/mingw_64/include/QtCore/qlocale.h \
 		../../../../qt/6.7.0/mingw_64/include/QtGui/qguiapplication_platform.h \
 		ui_gamehistory.h \
-		../../../../qt/6.7.0/mingw_64/include/QtCore/QVariant \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/QApplication \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qapplication.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/QPushButton \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qpushbutton.h \
-		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qabstractbutton.h \
 		../../../../qt/6.7.0/mingw_64/include/QtWidgets/QGridLayout \
 		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qgridlayout.h \
 		../../../../qt/6.7.0/mingw_64/include/QtWidgets/qlayout.h \

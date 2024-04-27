@@ -1,0 +1,16 @@
+debug/aiLogic.o
+debug/dialog.o
+debug/gameslist.o
+debug/main.o
+debug/mainwindow.o
+debug/signin.o
+debug/signin2.o
+debug/signup.o
+debug/gamehistory.o
+debug/moc_dialog.o
+debug/moc_gameslist.o
+debug/moc_mainwindow.o
+debug/moc_signin.o
+debug/moc_signin2.o
+debug/moc_signup.o
+debug/moc_gamehistory.o
