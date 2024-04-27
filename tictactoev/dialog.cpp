@@ -159,6 +159,8 @@ void executeGame() {
 void Dialog::on_pushButton_clicked()
 {
     hide();
+    startgame = new Startgame(this);
+    startgame->show();
     firstplayer = player1;
     secondplayer = player2;
     if (gameMode == 1)

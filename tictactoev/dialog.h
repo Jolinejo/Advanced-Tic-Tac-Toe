@@ -3,6 +3,7 @@
 #include <QDialog>
 #include <string>
 #include "gameslist.h"
+#include "startgame.h"
 
 using namespace std;
 
@@ -32,6 +33,7 @@ private:
     string player1;
     string player2;
     gamesList *games;
+    Startgame * startgame;
 };
 
 void executeAi(string player);
