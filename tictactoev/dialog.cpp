@@ -34,7 +34,7 @@ Dialog::~Dialog()
 void Dialog::on_pushButton_clicked()
 {
     hide();
-    Startgame *startgame = new Startgame(this);
+    Startgame *startgame = new Startgame(this, player1, player2);
     startgame->show();
 }
 

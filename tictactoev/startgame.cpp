@@ -8,8 +8,11 @@
 #include <ctime>
 #include <fstream>
 #include <QPushButton>
+#include <fstream>
+#include <ctime>
+using namespace std;
 
-Startgame::Startgame(QWidget *parent, const QString &p1, const QString &p2)
+Startgame::Startgame(QWidget *parent, string p1, string p2)
     : QDialog(parent)
     , ui(new Ui::Startgame)
     , player1(p1)
@@ -55,6 +58,7 @@ void Startgame::handleButtonClick(int row, int col, QPushButton* button)
 
     if (checkWin(currentPlayer)) {
         QMessageBox::information(nullptr, "Game Over", QString("%1 wins!").arg(text));
+        cout<<"here";
         saveGame();
         QApplication::quit();
     } else if (checkTie()) {
@@ -97,15 +101,13 @@ bool Startgame::checkTie()
     return true;
 }
 
-#include <fstream>
-#include <ctime>
-
 void Startgame::saveGame() {
     time_t now = time(0);
     tm* timeinfo = localtime(&now);
     char timestamp[80];
     strftime(timestamp, sizeof(timestamp), "%Y-%m-%d %H:%M:%S", timeinfo);
-    std::string concatenatedString = std::string(timestamp) + "*" + player1.toStdString() + "*" + player2.toStdString();
+    std::string concatenatedString = std::string(timestamp) + "*" + player1 + "*" + player2;
+    cout<< player1 <<" "<< player2 <<" ";
     for (const auto& move : gameMoves) {
         concatenatedString = concatenatedString + "*" + move.toStdString();
     }

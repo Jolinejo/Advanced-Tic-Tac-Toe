@@ -3,6 +3,8 @@
 
 #include <QDialog>
 #include <QString>
+#include <string>
+using namespace std;
 
 namespace Ui {
 class Startgame;
@@ -15,7 +17,7 @@ class Startgame : public QDialog
     Q_OBJECT
 
 public:
-    explicit Startgame(QWidget *parent = nullptr, const QString &p1 = "", const QString &p2 = "");
+    explicit Startgame(QWidget *parent = nullptr, string p1 = "", string p2 = "");
     ~Startgame();
 
 private slots:
@@ -28,8 +30,8 @@ private:
     Ui::Startgame *ui;
     Player currentPlayer;
     Player grid[3][3];
-    QString player1;
-    QString player2;
+    string player1;
+    string player2;
     QVector<QString> gameMoves;
 };
 
