@@ -1,0 +1,8 @@
+# Ignore build, release, and debug directories in the tictactoev folder
+tictactoev/build/
+tictactoev/release/
+tictactoev/debug/
+
+# Ignore any files that contain .pro.user anywhere in the filename
+tictactoev/*.pro.user*
+
