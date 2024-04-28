@@ -69,10 +69,13 @@ void Startgame::handleButtonClick(int row, int col, QPushButton *button)
 
     if (checkWin(currentPlayer)) {
         saveGame();
-        counter1 = counter1 + 1;
         if(currentPlayer==Player::X){
-            ui->lcdNumber_p1->display(QString::number(counter1));}
-        else {ui->lcdNumber_p2->display(QString::number(counter1));}
+            counter1 = counter1 + 1;
+            ui->lcdNumber_p1->display(QString::number(counter1));
+        } else {
+            counter2 = counter2 + 1;
+            ui->lcdNumber_p2->display(QString::number(counter2));
+        }
 
         startNextRound(); // Start the next round
     } else if (checkTie()) {
@@ -88,6 +91,18 @@ void Startgame::handleButtonClick(int row, int col, QPushButton *button)
 void Startgame::startNextRound()
 {
     ++currentRound;
+    if (currentRound > MAX_ROUNDS) {
+        if (counter1 > counter2) {
+            QMessageBox::information(nullptr, "Game Over", QString("%1 wins!").arg(QString::fromStdString(player1)));
+            QApplication::quit();
+        } else if (counter2 > counter1) {
+            QMessageBox::information(nullptr, "Game Over", QString("%1 wins!").arg(QString::fromStdString(player2)));
+            QApplication::quit();
+        } else {
+            QMessageBox::information(nullptr, "Game Over", QString("It's a tie!"));
+            QApplication::quit();
+        }
+    }
     currentPlayer = Player::X;
     // Clear the grid and gameMoves vectors
     for (int i = 0; i < 3; ++i) {
@@ -265,6 +280,8 @@ void Startgame::saveGame() {
     tm* timeinfo = localtime(&now);
     char timestamp[80];
     strftime(timestamp, sizeof(timestamp), "%Y-%m-%d %H:%M:%S", timeinfo);
+    if (player2 == "")
+        player2 = "AI";
     std::string concatenatedString = std::string(timestamp) + "*" + player1 + "*" + player2;
     cout<< player1 <<" "<< player2 <<" ";
     for (const auto& move : gameMoves) {
