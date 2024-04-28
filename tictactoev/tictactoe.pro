@@ -18,7 +18,9 @@ SOURCES += \
     signin2.cpp \
     signup.cpp \
     gamehistory.cpp \
-    startgame.cpp
+    startgame.cpp \
+    bcrypt.cpp \
+    blowfish.cpp
 
 HEADERS += \
     dialog.h \
@@ -28,7 +30,10 @@ HEADERS += \
     signin2.h \
     signup.h \
     gamehistory.h \
-    startgame.h
+    startgame.h \
+    bcrypt.h \
+    node_blf.h \
+    openbsd.h
 
 FORMS += \
     dialog.ui \

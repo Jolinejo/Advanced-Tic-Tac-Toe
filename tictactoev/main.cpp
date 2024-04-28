@@ -1,5 +1,5 @@
 #include "mainwindow.h"
-
+#include "bcrypt.h"
 #include <QApplication>
 
 #include <iostream>
@@ -41,9 +41,10 @@ int registerUser(const string username, const string password) {
             return 0; // Username already exists
         }
     }
+    string hash = bcrypt::generateHash(password);
 
     // Create a new user and add to vector
-    User newUser(username, password);
+    User newUser(username, hash);
     users.push_back(newUser);
 
     // Save users to file
@@ -77,7 +78,7 @@ void loadUsers() {
 
 int checkValid(const string username, const string password) {
     for (const auto& user : users) {
-        if (username == user.getUsername() && password == user.getPassword()) {
+        if (username == user.getUsername() && bcrypt::validatePassword(password,user.getPassword())) {
             if (player1 == nullptr)
                 player1 = new User(username, password);
             else if (username == player1->getUsername())
