@@ -328,6 +328,6 @@ void Startgame::saveGame() {
 
 void Startgame::on_checkBox_stateChanged(int arg1)
 {
-    save=1;
+    save=true;
 }
 
