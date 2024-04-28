@@ -18,6 +18,7 @@ void MainWindow::on_pushButton_playerxplayer_clicked()
     hide();
     sign = new signin(this, "1");
     sign ->show();
+
 }
 
 

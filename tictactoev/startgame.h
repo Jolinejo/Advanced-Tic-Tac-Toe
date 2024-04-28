@@ -5,6 +5,7 @@
 #include <QString>
 #include <string>
 #include<QGridLayout>
+#include<QtMultimedia>
 using namespace std;
 
 namespace Ui {
@@ -48,6 +49,7 @@ private:
     bool save;
 
     void startNextRound();
+    QMediaPlayer * music;
 };
 
 #endif // STARTGAME_H

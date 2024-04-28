@@ -7,6 +7,12 @@
 #include <fstream>
 #include <ctime>
 #include <iostream>
+#include<QMediaPlayer>
+#include <QAudioOutput>
+
+
+
+
 
 using namespace std;
 
@@ -19,6 +25,9 @@ Startgame::Startgame(QWidget *parent, string p1, string p2, int mode)
     gameMode(mode)
 {
     ui->setupUi(this);
+    music = new QMediaPlayer();
+
+
     ui->label_round->setText("Round " + QString::number(currentRound));
     if (mode == 2) {
         ui->label_p2->setText("AI"); // Hide the whole button
@@ -94,6 +103,11 @@ void Startgame::startNextRound()
     ++currentRound;
     if (currentRound > MAX_ROUNDS) {
         if (counter1 > counter2) {
+
+
+            // Inside your function or constructor where you want to play the media
+            music->setSource(QUrl::fromLocalFile("D:/Git/codes tic tac toe/Advanced-Tic-Tac-Toe/tictactoev/forx.mp3"));
+            music->play();
             QMessageBox::information(nullptr, "Game Over", QString("%1 wins!").arg(QString::fromStdString(player1)));
             QApplication::quit();
         } else if (counter2 > counter1) {
