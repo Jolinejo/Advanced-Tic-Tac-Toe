@@ -76,6 +76,7 @@ void gameHistory::on_pushButton_play_clicked()
         QLabel* label = qobject_cast<QLabel*>(layoutItem->widget());
         if (label) {
            label->setText(player);
+           label->setAlignment(Qt::AlignCenter);
         }
 
         if (moveQueue.empty()) {
