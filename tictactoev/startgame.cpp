@@ -19,7 +19,7 @@ Startgame::Startgame(QWidget *parent, string p1, string p2, int mode)
     gameMode(mode)
 {
     ui->setupUi(this);
-    currentRound = 1;
+    ui->label_round->setText("Round " + QString::number(currentRound));
     if (mode == 2) {
         ui->label_p2->setText("AI"); // Hide the whole button
     } else {
@@ -103,6 +103,7 @@ void Startgame::startNextRound()
             QApplication::quit();
         }
     }
+    ui->label_round->setText("Round " + QString::number(currentRound));
     currentPlayer = Player::X;
     // Clear the grid and gameMoves vectors
     for (int i = 0; i < 3; ++i) {
