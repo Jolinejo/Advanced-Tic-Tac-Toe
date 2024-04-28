@@ -52,6 +52,7 @@ gameHistory::gameHistory(QWidget *parent, string moves) :
 {
     ui->setupUi(this);
     moveQueue = splitAndEnqueue(moves);
+    ui->pushButton_play->setStyleSheet("QPushButton:disabled { background-color: #87CEFA; }");
 }
 
 gameHistory::~gameHistory()
