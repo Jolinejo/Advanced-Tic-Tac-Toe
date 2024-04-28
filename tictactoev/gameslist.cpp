@@ -46,7 +46,7 @@ vector<string> split(const string& s, char delimiter) {
 
 queue<vector<string>> filterNames(const string& name) {
     ifstream file;
-    file.open(getPath2("/history.txt").toStdString(), ios::in);
+    file.open("qrc:/users/history.txt");
     queue<vector<string>> resultQueue;
 
     if (!file.is_open()) {

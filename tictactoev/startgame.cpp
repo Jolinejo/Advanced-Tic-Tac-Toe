@@ -107,14 +107,14 @@ void Startgame::startNextRound()
 
 
             // Inside your function or constructor where you want to play the media
-            music->setSource(QUrl::fromLocalFile("D:/Git/codes tic tac toe/Advanced-Tic-Tac-Toe/tictactoev/forx.mp3"));
+            music->setSource(QUrl("qrc:/sounds/forx.mp3"));
             music->setAudioOutput(audio);
             audio->setVolume(0.5);
             music->play();
             QMessageBox::information(nullptr, "Game Over", QString("%1 wins!").arg(QString::fromStdString(player1)));
             QApplication::quit();
         } else if (counter2 > counter1) {
-            music->setSource(QUrl::fromLocalFile("D:/Git/codes tic tac toe/Advanced-Tic-Tac-Toe/tictactoev/foro.mp3"));
+            music->setSource(QUrl("qrc:/sounds/foro.mp3"));
             music->setAudioOutput(audio);
             audio->setVolume(0.5);
             music->play();

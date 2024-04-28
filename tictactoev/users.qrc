@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/users">
+        <file>history.txt</file>
+        <file>register.txt</file>
+        <file>Wstartpage.qss</file>
+    </qresource>
+</RCC>
