@@ -75,7 +75,12 @@ gamesList::gamesList(QWidget *parent, string playerName)
     , player(playerName)
 {
     ui->setupUi(this);
+    ui->pushButton->setStyleSheet("QPushButton:disabled { background-color: #87CEFA; }");
     queue<vector<string>> results = filterNames(playerName);
+    if (results.empty()) {
+        ui->pushButton->setText("No history available");
+        ui->pushButton->setEnabled(false);
+    }
 
     // Display the results
     while (!results.empty()) {
