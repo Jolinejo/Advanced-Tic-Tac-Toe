@@ -46,25 +46,22 @@ vector<string> split(const string& s, char delimiter) {
 
 queue<vector<string>> filterNames(const string& name) {
     ifstream file;
-    file.open("qrc:/users/history.txt");
+    file.open(getPath2("/history.txt").toStdString(), ios::in);
     queue<vector<string>> resultQueue;
 
     if (!file.is_open()) {
         cerr << "Failed to open file: " << endl;
         return resultQueue;
     }
-
     string line;
     while (getline(file, line)) {
         vector<string> parts = split(line, '*');
         string text = parts[0] + ": " + parts[1] + " VS " + parts[2];
         mapOfGames[text] = parts[3];
-
         if (name == parts[1] || name == parts[2]) {
             resultQueue.push(parts);
         }
     }
-
     file.close();
     return resultQueue;
 }

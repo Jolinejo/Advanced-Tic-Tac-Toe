@@ -94,7 +94,7 @@ int checkValid(const string username, const string password) {
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    QFile file(getPath("/Wstartpage.qss"));
+    QFile file(":/users/Wstartpage.qss");
 
     if (!file.open(QFile::ReadOnly)) {
         qDebug() << "Failed to open file:" << file.errorString();
