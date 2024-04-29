@@ -67,8 +67,11 @@
     </item>
     <item>
      <widget class="QLabel" name="label_ifthere">
+      <property name="styleSheet">
+       <string notr="true">color: #f9f02e;</string>
+      </property>
       <property name="text">
-       <string>TextLabel</string>
+       <string/>
       </property>
      </widget>
     </item>

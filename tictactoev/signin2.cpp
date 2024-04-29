@@ -28,9 +28,9 @@ void signin2::on_pushButton_login2_clicked()
         dialog= new Dialog(this, 1, firstplayer, username2.toStdString());
         dialog->show();
     } else if (checkValid(username2.toStdString(), password2.toStdString()) == 0) {
-        QMessageBox ::warning(this, "login", "username or password is invalid");
+        ui->label_ifthere->setText("Username or password is invalid");
     } else {
-        QMessageBox ::warning(this, "login", "user already logged in");
+        ui->label_ifthere->setText("user already logged in");
     }
 }
 

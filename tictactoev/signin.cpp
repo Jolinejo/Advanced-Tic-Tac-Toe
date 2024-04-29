@@ -36,7 +36,7 @@ void signin::on_pushButton_login_clicked()
             dialog->show();
         }
     } else {
-        QMessageBox ::warning(this, "login", "username or password is invalid");
+        ui->label_4->setText("Username or password is invalid");
     }
 
 

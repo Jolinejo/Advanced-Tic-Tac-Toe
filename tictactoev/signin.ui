@@ -19,7 +19,7 @@
      <x>120</x>
      <y>40</y>
      <width>231</width>
-     <height>211</height>
+     <height>241</height>
     </rect>
    </property>
    <property name="title">
@@ -66,6 +66,16 @@
      <widget class="QPushButton" name="pushButton_login">
       <property name="text">
        <string>Login</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_4">
+      <property name="styleSheet">
+       <string notr="true">color: #f9f02e;</string>
+      </property>
+      <property name="text">
+       <string/>
       </property>
      </widget>
     </item>
