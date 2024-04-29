@@ -205,24 +205,23 @@ void Startgame::handleButtonClick2(int row, int col, QPushButton *button)
     }
 }
 
-pair<int, int> Startgame::aiMove()
-{
+pair<int, int> Startgame::aiMove() {
     int bestScore = INT_MIN;
-    pair<int, int> move;
+    pair<int, int> bestMove = make_pair(-1, -1);
     for (int i = 0; i < 3; ++i) {
         for (int j = 0; j < 3; ++j) {
             if (grid[i][j] == Player::None) {
-                grid[i][j] = currentPlayer;
-                int score = minimax(false, 0);
+                grid[i][j] = currentPlayer;  // Assume AI is always 'O' for minimization in this example
+                int score = minimax(0, false);
                 grid[i][j] = Player::None;
                 if (score > bestScore) {
                     bestScore = score;
-                    move = make_pair(i, j);
+                    bestMove = make_pair(i, j);
                 }
             }
         }
     }
-    return move;
+    return bestMove;
 }
 
 bool Startgame::checkWin(Player player)
@@ -255,38 +254,31 @@ bool Startgame::checkTie()
     return true;
 }
 
-int Startgame::minimax(bool isMaximizer, int depth)
-{
-    // Base cases
+int Startgame::minimax(int depth, bool isMaximizingPlayer) {
     int score = evaluateBoard();
-    if (score == 10)
-        return score - depth; // If PLAYER_X wins
-    if (score == -10)
-        return score + depth; // If PLAYER_O wins
-    if (checkTie())
-        return 0; // If it's a draw
 
-    // If it's the maximizer's turn
-    if (isMaximizer) {
+    if (score != 0) return score;
+    if (checkTie()) return 0;
+
+    if (isMaximizingPlayer) {
         int bestScore = INT_MIN;
-        for (int i = 0; i < 3; ++i) {
-            for (int j = 0; j < 3; ++j) {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
                 if (grid[i][j] == Player::None) {
-                    grid[i][j] = Player::X;
-                    bestScore = max(bestScore, minimax(false, depth + 1));
+                    grid[i][j] = Player::O;
+                    bestScore = max(bestScore, minimax(depth + 1, false));
                     grid[i][j] = Player::None;
                 }
             }
         }
         return bestScore;
     } else {
-        // If it's the minimizer's turn
         int bestScore = INT_MAX;
-        for (int i = 0; i < 3; ++i) {
-            for (int j = 0; j < 3; ++j) {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
                 if (grid[i][j] == Player::None) {
-                    grid[i][j] = Player::O;
-                    bestScore = min(bestScore, minimax(true, depth + 1));
+                    grid[i][j] = Player::X;
+                    bestScore = min(bestScore, minimax(depth + 1, true));
                     grid[i][j] = Player::None;
                 }
             }
@@ -297,9 +289,9 @@ int Startgame::minimax(bool isMaximizer, int depth)
 
 int Startgame::evaluateBoard()
 {
-    if (checkWin(Player::X)) {
+    if (checkWin(Player::O)) {
         return 10; // PLAYER_X wins
-    } else if (checkWin(Player::O)) {
+    } else if (checkWin(Player::X)) {
         return -10; // PLAYER_O wins
     } else {
         return 0; // Game not over

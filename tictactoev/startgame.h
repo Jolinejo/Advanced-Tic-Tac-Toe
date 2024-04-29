@@ -41,7 +41,7 @@ private:
     int gameMode;
     QVector<QString> gameMoves;
     pair<int, int> aiMove();
-    int minimax(bool isMaximizer, int depth);
+    int minimax(int depth, bool isMaximizer);
     int evaluateBoard();
     int counter1 = 0;
     int counter2 = 0;
