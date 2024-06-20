@@ -15,7 +15,7 @@
 
 
 using namespace std;
-
+string winner;
 
 Startgame::Startgame(QWidget *parent, string p1, string p2, int mode)
     : QDialog(parent),
@@ -32,6 +32,7 @@ Startgame::Startgame(QWidget *parent, string p1, string p2, int mode)
     ui->label_round->setText("Round " + QString::number(currentRound));
     if (mode == 2) {
         ui->label_p2->setText("AI"); // Hide the whole button
+        player2 = "AI";
     } else {
         ui->label_p2->setText(QString::fromStdString(player2) + " is O");
     }
@@ -79,18 +80,20 @@ void Startgame::handleButtonClick(int row, int col, QPushButton *button)
         gameMoves.push_back(text + QString::number(row) + QString::number(col));}
 
     if (checkWin(currentPlayer)) {
-        if (save) saveGame();
+
         if(currentPlayer==Player::X){
             counter1 = counter1 + 1;
+            winner = player1;
             ui->lcdNumber_p1->display(QString::number(counter1));
         } else {
             counter2 = counter2 + 1;
+            winner = player2;
             ui->lcdNumber_p2->display(QString::number(counter2));
         }
-
+        if (save) saveGame();
         startNextRound(); // Start the next round
     } else if (checkTie()) {
-
+        winner = "tie";
         if (save) saveGame();
         startNextRound();
     } else {
@@ -162,18 +165,21 @@ void Startgame::handleButtonClick2(int row, int col, QPushButton *button)
     gameMoves.push_back(text + QString::number(row) + QString::number(col));
 
     if (checkWin(currentPlayer)) {
-        if(save) saveGame();
+
         if(currentPlayer==Player::X){
             counter1 = counter1 + 1;
+            winner = player1;
             ui->lcdNumber_p1->display(QString::number(counter1));
         } else {
             counter2 = counter2 + 1;
+            winner = player2;
             ui->lcdNumber_p2->display(QString::number(counter2));
         }
 
+        if(save) saveGame();
         startNextRound(); // Start the next round
     } else if (checkTie()) {
-
+        winner = "tie";
         if(save) saveGame();
         startNextRound();
     } else {
@@ -191,13 +197,22 @@ void Startgame::handleButtonClick2(int row, int col, QPushButton *button)
         if(save) gameMoves.push_back(aiButton->text() + QString::number(aiMoveCoords.first) + QString::number(aiMoveCoords.second));
 
         if (checkWin(currentPlayer)) {
-            QMessageBox::information(nullptr, "Game Over", QString("%1 wins!").arg(aiButton->text()));
+
+            if(currentPlayer==Player::X){
+                counter1 = counter1 + 1;
+                winner = player1;
+                ui->lcdNumber_p1->display(QString::number(counter1));
+            } else {
+                counter2 = counter2 + 1;
+                winner = player2;
+                ui->lcdNumber_p2->display(QString::number(counter2));
+            }
             if(save) saveGame();
-            QApplication::quit();
+            startNextRound(); // Start the next round
         } else if (checkTie()) {
-            QMessageBox::information(nullptr, "Game Over", "Tie!");
+            winner = "tie";
             if(save) saveGame();
-            QApplication::quit();
+            startNextRound();
         } else {
             // Switch to the other player's turn
             currentPlayer = (currentPlayer == Player::X) ? Player::O : Player::X;
@@ -303,9 +318,7 @@ void Startgame::saveGame() {
     tm* timeinfo = localtime(&now);
     char timestamp[80];
     strftime(timestamp, sizeof(timestamp), "%Y-%m-%d %H:%M:%S", timeinfo);
-    if (player2 == "")
-        player2 = "AI";
-    std::string concatenatedString = std::string(timestamp) + "*" + player1 + "*" + player2;
+    std::string concatenatedString = std::string(timestamp) + "*" + player1 + "*" + player2 + "*" + winner;
     for (const auto& move : gameMoves) {
         concatenatedString = concatenatedString + "*" + move.toStdString();
     }

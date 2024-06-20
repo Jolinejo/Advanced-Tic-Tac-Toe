@@ -11,6 +11,7 @@
 
 
 map<string, string> mapOfGames;
+string winnerToDisplay;
 // Function to split string by delimiter
 
 QString getPath2(QString filePath) {
@@ -34,7 +35,7 @@ vector<string> split(const string& s, char delimiter) {
         count++; // Increment the split count
 
         // After collecting the first three elements, stop splitting and take the rest as one token
-        if (count == 3) {
+        if (count == 4) {
             break;
         }
     }
@@ -57,7 +58,8 @@ queue<vector<string>> filterNames(const string& name) {
     while (getline(file, line)) {
         vector<string> parts = split(line, '*');
         string text = parts[0] + ": " + parts[1] + " VS " + parts[2];
-        mapOfGames[text] = parts[3];
+        winnerToDisplay = parts[3];
+        mapOfGames[text] = parts[4];
         if (name == parts[1] || name == parts[2]) {
             resultQueue.push(parts);
         }
@@ -98,7 +100,7 @@ gamesList::~gamesList()
 void gamesList::on_pushButton_clicked()
 {
     string key = ui->listWidget->currentItem()->text().toStdString();
-    gamehis = new gameHistory(this, mapOfGames[key]);
+    gamehis = new gameHistory(this, mapOfGames[key], winnerToDisplay);
     gamehis->show();
 }
 

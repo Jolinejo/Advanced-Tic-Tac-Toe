@@ -14,7 +14,7 @@ class gameHistory : public QDialog
     Q_OBJECT
 
 public:
-    explicit gameHistory(QWidget *parent = nullptr, string moves = "");
+    explicit gameHistory(QWidget *parent = nullptr, string moves = "", string playerWhoWon = "");
     ~gameHistory();
 
 private slots:

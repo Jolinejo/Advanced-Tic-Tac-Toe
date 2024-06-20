@@ -46,13 +46,19 @@ queue<string> splitAndEnqueue(string& str) {
 
 
 
-gameHistory::gameHistory(QWidget *parent, string moves) :
+gameHistory::gameHistory(QWidget *parent, string moves, string player) :
     QDialog(parent),
     ui(new Ui::gameHistory)
 {
     ui->setupUi(this);
     moveQueue = splitAndEnqueue(moves);
     ui->pushButton_play->setStyleSheet("QPushButton:disabled { background-color: #87CEFA; }");
+    string labelText;
+    if (player != "tie")
+        labelText = "The winner is " + player;
+    else
+        labelText = "It's a tie!";
+    ui->label_of_winner->setText(QString::fromStdString(labelText));
 }
 
 gameHistory::~gameHistory()
