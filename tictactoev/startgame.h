@@ -47,7 +47,7 @@ private:
     int counter2 = 0;
     int currentRound = 1;
     static const int MAX_ROUNDS = 3;
-    bool save=false;
+    bool save = false;
 
     void startNextRound();
     QMediaPlayer * music;
