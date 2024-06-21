@@ -1,2 +1,2 @@
-user1*$2b$10$SXlZI1CRseoxWwb8P/1LhuDqguGQgQFUutdQETwJWOeO2ZfCqPU9u
-user2*$2b$10$8GozTdRZieh0qaBRyd8.zu8Ov2TmEjM.37LHurWrzOdinZDI33rNe
+user1*$2b$10$xEpTg1GlYi4Im6iDqiMnC.eZ8pUM9T2kjxAZcpPqn3vbue9uYF4g.
+user2*$2b$10$xEpTg1GlYi4Im6iDqiMnC.7Cg3byR9ZZ6uTSmcMT3EJWVBCvne71u
