@@ -3,5 +3,6 @@
         <file>history.txt</file>
         <file>register.txt</file>
         <file>Wstartpage.qss</file>
+        <file>xoxo.ico</file>
     </qresource>
 </RCC>
