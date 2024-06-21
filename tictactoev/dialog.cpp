@@ -9,6 +9,8 @@
 #include <ctime>
 #include <fstream>
 #include <QPushButton>
+#include "mainwindow.h"
+#include "signin.h"
 
 Dialog::Dialog(QWidget *parent, int mode, string p1, string p2)
     : QDialog(parent)
@@ -50,5 +52,15 @@ void Dialog::on_pushButton_display2_clicked()
 {
     gamesList *games = new gamesList(this, player2);
     games->show();
+}
+
+
+void Dialog::on_pushButton_2_clicked()
+{
+    player1.clear();
+    player2.clear();
+    close();
+    mainWindow = new MainWindow(this);
+    mainWindow->show();
 }
 

@@ -9,7 +9,6 @@
 #include <QFile>
 using namespace std;
 
-
 vector<User> users; // Vector to store registered users
 
 User *player1 = nullptr;
