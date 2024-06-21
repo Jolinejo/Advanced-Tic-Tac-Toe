@@ -21,33 +21,34 @@ class Startgame : public QDialog
 
 public:
     explicit Startgame(QWidget *parent = nullptr, string p1 = "", string p2 = "",int mode=1);
+    bool checkWin(Player player);
+    bool checkTie();
+    Player grid[3][3];
+    pair<int, int> aiMove();
+    int minimax(int depth, bool isMaximizer);
+    void saveGame();
+    bool save=false;
+    QVector<QString> gameMoves;
+    string winner;
     ~Startgame();
 
 private slots:
     void handleButtonClick(int row, int col, QPushButton* button);
     void handleButtonClick2(int row, int col, QPushButton* button);
-    bool checkWin(Player player);
-    bool checkTie();
-    void saveGame();
 
     void on_checkBox_stateChanged(int arg1);
 
 private:
     Ui::Startgame *ui;
     Player currentPlayer;
-    Player grid[3][3];
     string player1;
     string player2;
     int gameMode;
-    QVector<QString> gameMoves;
-    pair<int, int> aiMove();
-    int minimax(int depth, bool isMaximizer);
     int evaluateBoard();
     int counter1 = 0;
     int counter2 = 0;
     int currentRound = 1;
     static const int MAX_ROUNDS = 3;
-    bool save=false;
 
     void startNextRound();
     QMediaPlayer * music;

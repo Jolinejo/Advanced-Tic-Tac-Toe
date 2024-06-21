@@ -24,7 +24,9 @@ SOURCES += \
     startgame.cpp \
     bcrypt.cpp \
     blowfish.cpp \
+    tst_gamehistory.cpp \
     tst_gamelist.cpp \
+    tst_startgame.cpp \
     tst_userc.cpp \
     usermanager.cpp
 

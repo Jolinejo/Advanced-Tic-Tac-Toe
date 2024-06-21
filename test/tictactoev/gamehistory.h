@@ -25,4 +25,7 @@ private:
     queue<string> moveQueue;
 };
 
+bool isValidString(const string& inputString);
+queue<string> splitAndEnqueue(string& str);
+
 #endif // GAMEHISTORY_H

@@ -9,21 +9,13 @@
 #include <iostream>
 #include<QMediaPlayer>
 #include <QAudioOutput>
-
+#include "usermanager.h"
 
 
 
 
 using namespace std;
-string winner;
 
-QString getPath2(const QString& filePath) {
-    QString basePath = QApplication::applicationDirPath();
-    int buildIndex = basePath.indexOf("/tictactoev");
-    QString truncatedPath = basePath.left(buildIndex);
-    QString path = truncatedPath + "/tictactoev" + filePath;
-    return path;
-}
 
 Startgame::Startgame(QWidget *parent, string p1, string p2, int mode)
     : QDialog(parent),
@@ -322,6 +314,7 @@ int Startgame::evaluateBoard()
 }
 
 void Startgame::saveGame() {
+    UserManager userManager;
     time_t now = time(0);
     tm* timeinfo = localtime(&now);
     char timestamp[80];
@@ -330,7 +323,7 @@ void Startgame::saveGame() {
     for (const auto& move : gameMoves) {
         concatenatedString = concatenatedString + "*" + move.toStdString();
     }
-    std::ofstream file(getPath2("/history.txt").toStdString(), std::ios::app);
+    std::ofstream file(userManager.getPath("/history.txt").toStdString(), std::ios::app);
     if (file.is_open()) {
         file << concatenatedString << std::endl;
         file.close();
