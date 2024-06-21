@@ -1,6 +1,6 @@
 #include "gameslist.h"
 #include "ui_gameslist.h"
-
+#include "usermanager.h"
 #include <QFile>
 #include <iostream>
 #include <fstream>
@@ -13,14 +13,6 @@
 map<string, string> mapOfGames;
 string winnerToDisplay;
 // Function to split string by delimiter
-
-QString getPath2(QString filePath) {
-    QString basePath = QApplication::applicationDirPath();
-    int buildIndex = basePath.indexOf("/tictactoev");
-    QString truncatedPath = basePath.left(buildIndex);
-    QString path = truncatedPath + "/tictactoev" + filePath;
-    return path;
-}
 
 vector<string> split(const string& s, char delimiter) {
     vector<string> tokens;
@@ -46,8 +38,10 @@ vector<string> split(const string& s, char delimiter) {
 }
 
 queue<vector<string>> filterNames(const string& name) {
+    UserManager userManager;
+
     ifstream file;
-    file.open(getPath2("/history.txt").toStdString(), ios::in);
+    file.open(userManager.getPath("/history.txt").toStdString(), ios::in);
     queue<vector<string>> resultQueue;
 
     if (!file.is_open()) {
