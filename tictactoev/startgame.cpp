@@ -114,20 +114,22 @@ void Startgame::startNextRound()
             music->setAudioOutput(audio);
             audio->setVolume(0.5);
             music->play();
-            QMessageBox::information(nullptr, "Game Over", QString("%1 wins!").arg(QString::fromStdString(player1)));
-            QApplication::quit();
+            QMessageBox::information(this, "Game Over", QString("%1 wins!").arg(QString::fromStdString(player1)));
+            close();
         } else if (counter2 > counter1) {
             music->setSource(QUrl("qrc:/sounds/foro.mp3"));
             music->setAudioOutput(audio);
             audio->setVolume(0.5);
             music->play();
-            QMessageBox::information(nullptr, "Game Over", QString("%1 wins!").arg(QString::fromStdString(player2)));
-            QApplication::quit();
+            QMessageBox::information(this, "Game Over", QString("%1 wins!").arg(QString::fromStdString(player2)));
+            close();
         } else {
-            QMessageBox::information(nullptr, "Game Over", QString("It's a tie!"));
-            QApplication::quit();
+            QMessageBox::information(this, "Game Over", QString("It's a tie!"));
+            close();
+
         }
     }
+
     ui->label_round->setText("Round " + QString::number(currentRound));
     currentPlayer = Player::X;
     // Clear the grid and gameMoves vectors
