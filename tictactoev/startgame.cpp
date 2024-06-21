@@ -333,6 +333,10 @@ void Startgame::saveGame() {
 
 void Startgame::on_checkBox_stateChanged(int arg1)
 {
-    save=true;
+    if (arg1 == Qt::Checked) {
+        save = true;
+    } else {
+        save = false;
+    }
 }
 
