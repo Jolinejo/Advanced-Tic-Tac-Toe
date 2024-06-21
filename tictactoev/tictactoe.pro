@@ -27,6 +27,7 @@ SOURCES += \
 HEADERS += \
     dialog.h \
     gameslist.h \
+    globals.h \
     mainwindow.h \
     signin.h \
     signin2.h \

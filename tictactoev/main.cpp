@@ -1,7 +1,7 @@
 #include "mainwindow.h"
 #include "bcrypt.h"
 #include <QApplication>
-
+#include "globals.h"
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -10,7 +10,6 @@
 using namespace std;
 
 vector<User> users; // Vector to store registered users
-
 User *player1 = nullptr;
 User *player2 = nullptr;
 

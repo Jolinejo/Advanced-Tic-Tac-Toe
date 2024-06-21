@@ -34,8 +34,8 @@ private slots:
 private:
     Ui::Dialog *ui;
     int gameMode;
-    string player1;
-    string player2;
+    string player01;
+    string player02;
     gamesList *games;
     Startgame * startgame;
     MainWindow *mainWindow;
