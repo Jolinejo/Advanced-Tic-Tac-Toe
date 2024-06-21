@@ -4,8 +4,9 @@
 #include <string>
 #include "gameslist.h"
 #include "startgame.h"
-
 using namespace std;
+
+class MainWindow;
 
 namespace Ui {
 class Dialog;
@@ -27,13 +28,17 @@ private slots:
 
     void on_pushButton_display2_clicked();
 
+    void on_pushButton_2_clicked();
+
+
 private:
     Ui::Dialog *ui;
     int gameMode;
-    string player1;
-    string player2;
+    string player01;
+    string player02;
     gamesList *games;
     Startgame * startgame;
+    MainWindow *mainWindow;
 };
 
 void executeAi(string player);
