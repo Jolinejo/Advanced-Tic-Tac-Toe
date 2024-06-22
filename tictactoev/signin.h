@@ -2,10 +2,11 @@
 #define SIGNIN_H
 
 #include <QDialog>
-#include"signin2.h"
-#include "signup.h"
 #include <string>
-#include"dialog.h"
+
+#include "dialog.h"
+#include "signin2.h"
+#include "signup.h"
 
 using namespace std;
 
@@ -13,27 +14,27 @@ namespace Ui {
 class signin;
 }
 
-class signin : public QDialog
-{
-    Q_OBJECT
+class signin : public QDialog {
+  Q_OBJECT
 
-public:
-    explicit signin(QWidget *parent = nullptr, string variable = "");
-    ~signin();
+ public:
+  explicit signin(QWidget *parent = nullptr, std::string variable = "");
+  ~signin();
 
-private slots:
-    void on_pushButton_login_clicked();
+ private slots:
+  void on_pushButton_login_clicked();
 
-    void on_pushButton_signup1_clicked();
+  void on_pushButton_signup1_clicked();
 
-    void on_checkBox_showpassword_stateChanged(int arg1);
+  void on_checkBox_showpassword_stateChanged(int arg1);
 
-private:
-    string m_variable;
-    Ui::signin *ui;
-    signin2 * sign2;
-    Signup* signup;
-    Dialog* dialog;
+ private:
+  std::string variable_;
+  Ui::signin *ui;
+  signin2 *sign2_;
+  Signup *signup_;
+  Dialog *dialog_;
+  bool signup_clicked_ = false;
 };
 
-#endif // SIGNIN_H
+#endif  // SIGNIN_H

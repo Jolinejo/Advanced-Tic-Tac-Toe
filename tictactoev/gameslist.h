@@ -1,30 +1,28 @@
 #ifndef GAMESLIST_H
 #define GAMESLIST_H
-#include "gamehistory.h"
 #include <QDialog>
 #include <string>
 
-using namespace std;
+#include "gamehistory.h"
 
 namespace Ui {
 class gamesList;
 }
 
-class gamesList : public QDialog
-{
-    Q_OBJECT
+class gamesList : public QDialog {
+  Q_OBJECT
 
-public:
-    explicit gamesList(QWidget *parent = nullptr, string player = "");
-    ~gamesList();
+ public:
+  explicit gamesList(QWidget *parent = nullptr, std::string player = "");
+  ~gamesList();
 
-private slots:
-    void on_pushButton_clicked();
+ private slots:
+  void on_pushButton_clicked();
 
-private:
-    Ui::gamesList *ui;
-    string player;
-    gameHistory *gamehis;
+ private:
+  Ui::gamesList *ui;
+  std::string player_;
+  gameHistory *gamehis_;
 };
 
-#endif // GAMESLIST_H
+#endif  // GAMESLIST_H

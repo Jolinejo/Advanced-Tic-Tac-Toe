@@ -2,35 +2,36 @@
 #define SIGNIN2_H
 
 #include <QDialog>
-#include"dialog.h"
-#include"signup.h"
 #include <string>
+
+#include "dialog.h"
+#include "signup.h"
 using namespace std;
 
 namespace Ui {
 class signin2;
 }
 
-class signin2 : public QDialog
-{
-    Q_OBJECT
+class signin2 : public QDialog {
+  Q_OBJECT
 
-public:
-    explicit signin2(QWidget *parent = nullptr, string firstplayer = "");
-    ~signin2();
+ public:
+  explicit signin2(QWidget *parent = nullptr, string firstـplayer = "");
+  ~signin2();
 
-private slots:
-    void on_pushButton_login2_clicked();
+ private slots:
+  void on_pushButton_login2_clicked();
 
-    void on_pushButton_signup2_clicked();
+  void on_pushButton_signup2_clicked();
 
-    void on_checkBox_showpassword_stateChanged(int arg1);
+  void on_checkBox_showpassword_stateChanged(int arg1);
 
-private:
-    Ui::signin2 *ui;
-    Dialog* dialog;
-    Signup* signup;
-    string firstplayer;
+ private:
+  Ui::signin2 *ui;
+  Dialog *dialog_;
+  Signup *signup_;
+  string first_player_;
+  bool signup_clicked_ = false;
 };
 
-#endif // SIGNIN2_H
+#endif  // SIGNIN2_H

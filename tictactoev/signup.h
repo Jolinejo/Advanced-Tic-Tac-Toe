@@ -7,19 +7,18 @@ namespace Ui {
 class Signup;
 }
 
-class Signup : public QDialog
-{
-    Q_OBJECT
+class Signup : public QDialog {
+  Q_OBJECT
 
-public:
-    explicit Signup(QWidget *parent = nullptr);
-    ~Signup();
+ public:
+  explicit Signup(QWidget *parent = nullptr);
+  ~Signup();
 
-private slots:
-    void on_pushButton_sign_clicked();
+ private slots:
+  void on_pushButton_sign_clicked();
 
-private:
-    Ui::Signup *ui;
+ private:
+  Ui::Signup *ui;
 };
 
-#endif // SIGNUP_H
+#endif  // SIGNUP_H

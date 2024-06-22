@@ -4,25 +4,24 @@
 #include <QDialog>
 #include <queue>
 
-using namespace std;
 namespace Ui {
 class gameHistory;
 }
 
-class gameHistory : public QDialog
-{
-    Q_OBJECT
+class gameHistory : public QDialog {
+  Q_OBJECT
 
-public:
-    explicit gameHistory(QWidget *parent = nullptr, string moves = "", string playerWhoWon = "");
-    ~gameHistory();
+ public:
+  explicit gameHistory(QWidget *parent = nullptr, std::string moves = "",
+                       std::string player_who_won = "");
+  ~gameHistory();
 
-private slots:
-    void on_pushButton_play_clicked();
+ private slots:
+  void on_pushButton_play_clicked();
 
-private:
-    Ui::gameHistory *ui;
-    queue<string> moveQueue;
+ private:
+  Ui::gameHistory *ui;
+  std::queue<std::string> move_queue_;
 };
 
-#endif // GAMEHISTORY_H
+#endif  // GAMEHISTORY_H

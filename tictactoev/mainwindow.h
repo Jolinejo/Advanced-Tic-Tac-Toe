@@ -2,9 +2,10 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include"signin.h"
+
 #include "dialog.h"
-using namespace  std;
+#include "signin.h"
+using namespace std;
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -12,46 +13,38 @@ class MainWindow;
 }
 QT_END_NAMESPACE
 
-class MainWindow : public QMainWindow
-{
-    Q_OBJECT
+class MainWindow : public QMainWindow {
+  Q_OBJECT
 
-public:
-    MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
+ public:
+  MainWindow(QWidget *parent = nullptr);
+  ~MainWindow();
 
-private slots:
-    void on_pushButton_playerxplayer_clicked();
+ private slots:
+  void on_pushButton_playerxplayer_clicked();
 
-    void on_pushButton_AI_clicked();
+  void on_pushButton_AI_clicked();
 
-private:
-    Ui::MainWindow *ui;
-    signin * sign;
-    Dialog * dialog;
-
-
+ private:
+  Ui::MainWindow *ui;
+  signin *sign_;
+  Dialog *dialog_;
 };
 
 class User {
-private:
-    string username;
-    string password;
+ private:
+  string username;
+  string password;
 
-public:
-    User(const string name, const string pass) : username(name), password(pass) {}
+ public:
+  User(const string name, const string pass) : username(name), password(pass) {}
 
-    string getUsername() const {
-        return username;
-    }
+  string GetUsername() const { return username; }
 
-    string getPassword() const {
-        return password;
-    }
-
+  string GetPassword() const { return password; }
 };
 
-int checkValid(string username, string password);
-int registerUser(string username, string password);
-QString getPath(QString filePath);
-#endif // MAINWINDOW_H
+int CheckValid(string username, string password);
+int RegisterUser(string username, string password);
+QString GetPath(QString filePath);
+#endif  // MAINWINDOW_H
