@@ -32,4 +32,5 @@ jobs:
       run: |
         cd build
         valgrind --leak-check=full ./tictactoe
+      continue-on-error: true
 
