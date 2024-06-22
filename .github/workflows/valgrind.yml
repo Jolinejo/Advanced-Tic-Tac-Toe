@@ -25,7 +25,7 @@ jobs:
       run: |
         mkdir -p build
         cd build
-        qmake ../tictactoev/tictactoev.pro
+        qmake ../tictactoev/tictactoe.pro
         make
 
     - name: Run Valgrind
