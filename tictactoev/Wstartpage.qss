@@ -39,44 +39,17 @@ QLabel
 }
 
 
-/*-----QPushButton-----*/
 QPushButton
 {
-        background-color: rgb(0, 128, 255); /* Blue color */
-	color: #fff;
-	border-width: 1px;
-	border-radius: 2px;
-        border-color: #c196ff;
-        padding: 2px;
-	font-weight: bold;
-
-}
-
-
-
-QPushButton::hover {
-    background-color: rgb(162, 207, 254); /* Baby blue color */
-    color: #fff;
+    background-color: #ffffff; /* White background */
+    color: #3c0384; /* Text color */
     border-width: 1px;
     border-radius: 2px;
     border-color: #c196ff;
     padding: 2px;
     font-weight: bold;
-}
-
-
-
-
-QPushButton::pressed
-{
-	background-color: qlineargradient(spread:repeat, x1:1, y1:0, x2:1, y2:1, stop:0 rgba(102, 26, 255, 255),stop:1 rgba(98, 98, 255, 255));
-	color: #fff;
-	border-width: 1px;
-	border-radius: 2px;
-        border-color: #c196ff;
-	padding: 2px;
-	font-weight: bold;
-
+    font-size: 30px;
+    font-family: "Rubik"; /* Assuming you have the Rubik font installed */
 }
 
 /*-----QCheckBox-----*/

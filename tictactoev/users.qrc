@@ -4,5 +4,8 @@
         <file>register.txt</file>
         <file>Wstartpage.qss</file>
         <file>xoxo.ico</file>
+        <file>mainwindow.png</file>
+        <file>signin.png</file>
+        <file>background.png</file>
     </qresource>
 </RCC>

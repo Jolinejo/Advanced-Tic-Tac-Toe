@@ -55,6 +55,9 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     Soundeffects.qrc \
+    build/img.qrc \
+    image.qrc \
+    res.qrc \
     users.qrc
 
 RC_ICONS = xoxo.ico
