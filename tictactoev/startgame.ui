@@ -240,7 +240,7 @@
     <bool>false</bool>
    </property>
    <property name="text">
-    <string>Do you want to save these rounds? </string>
+    <string>Do you want to save the current round? </string>
    </property>
    <property name="checked">
     <bool>false</bool>

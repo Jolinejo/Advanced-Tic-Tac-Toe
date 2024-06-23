@@ -2,18 +2,12 @@
 
 #include <QMessageBox>
 #include <QPushButton>
-#include <ctime>
-#include <fstream>
-#include <iostream>
-#include <vector>
 
 #include "gameslist.h"  // Assuming gamesList is used here
 #include "globals.h"
 #include "mainwindow.h"
-#include "signin.h"
 #include "startgame.h"
 #include "ui_dialog.h"
-#include "ui_mainwindow.h"
 
 Dialog::Dialog(QWidget *parent, int mode, std::string p1, std::string p2)
     : QDialog(parent),
@@ -58,10 +52,10 @@ void Dialog::on_pushButton_display2_clicked() {
 }
 
 void Dialog::on_pushButton_2_clicked() {
-  player1 = nullptr;
-  player2 = nullptr;
-  close();
-  sign_out_clicked_ = true;
-  main_window_ = new MainWindow(this);
-  main_window_->show();
+    player1 = nullptr;
+    player2 = nullptr;
+    close();
+    sign_out_clicked_ = true;
+    main_window_ = new MainWindow(this);
+    main_window_->show();
 }
