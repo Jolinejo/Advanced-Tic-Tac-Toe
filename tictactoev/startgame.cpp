@@ -61,6 +61,7 @@ Startgame::~Startgame() { delete ui; }
 
 void Startgame::handleButtonClick(int row, int col, QPushButton *button) {
     // Handle player's move
+    ui->checkBox->setVisible(false);
     if (grid_[row][col] != Player::None) {
         // The button has already been clicked, ignore it
         return;
@@ -98,6 +99,7 @@ void Startgame::handleButtonClick(int row, int col, QPushButton *button) {
 
 void Startgame::StartNextRound() {
     ++current_round_;
+    ui->checkBox->setVisible(true);
     if (current_round_ > max_rounds_) {
         if (counter1_ > counter2_) {
             // Inside your function or constructor where you want to play the media
@@ -146,6 +148,7 @@ void Startgame::StartNextRound() {
 }
 
 void Startgame::handleButtonClick2(int row, int col, QPushButton *button) {
+    ui->checkBox->setVisible(false);
     // Handle player's move
     if (grid_[row][col] != Player::None) {
         // The button has already been clicked, ignore it
