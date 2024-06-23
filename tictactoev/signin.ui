@@ -19,10 +19,10 @@
   <widget class="QWidget" name="widget" native="true">
    <property name="geometry">
     <rect>
-     <x>8</x>
-     <y>70</y>
-     <width>211</width>
-     <height>301</height>
+     <x>10</x>
+     <y>90</y>
+     <width>201</width>
+     <height>271</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -78,18 +78,13 @@ background-color:transparent</string>
     </item>
     <item>
      <widget class="QPushButton" name="pushButton_login">
+      <property name="styleSheet">
+       <string notr="true">font: 700 10pt &quot;Segoe UI&quot;;
+background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
+      </property>
       <property name="text">
        <string>Login</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="label_4">
-      <property name="styleSheet">
-       <string notr="true">color: #f9f02e;</string>
-      </property>
-      <property name="text">
-       <string/>
       </property>
      </widget>
     </item>
@@ -97,6 +92,16 @@ background-color:transparent</string>
      <widget class="QCheckBox" name="checkBox_showpassword">
       <property name="text">
        <string>show password</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_4">
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string/>
       </property>
      </widget>
     </item>
@@ -109,6 +114,11 @@ background-color:transparent</string>
     </item>
     <item>
      <widget class="QPushButton" name="pushButton_signup1">
+      <property name="styleSheet">
+       <string notr="true">font: 700 10pt &quot;Segoe UI&quot;;
+background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
+      </property>
       <property name="text">
        <string>Sign up</string>
       </property>

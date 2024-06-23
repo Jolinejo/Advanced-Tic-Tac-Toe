@@ -61,7 +61,9 @@
     <item>
      <widget class="QPushButton" name="pushButton_login2">
       <property name="styleSheet">
-       <string notr="true">color:#ffffff;</string>
+       <string notr="true">font: 700 10pt &quot;Segoe UI&quot;;
+background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
       </property>
       <property name="text">
        <string>Login</string>
@@ -78,7 +80,7 @@
     <item>
      <widget class="QLabel" name="label_ifthere">
       <property name="styleSheet">
-       <string notr="true">color: #f9f02e;</string>
+       <string notr="true">color:rgb(255, 0, 0)</string>
       </property>
       <property name="text">
        <string/>
@@ -95,7 +97,9 @@
     <item>
      <widget class="QPushButton" name="pushButton_signup2">
       <property name="styleSheet">
-       <string notr="true">color:#ffffff</string>
+       <string notr="true">font: 700 10pt &quot;Segoe UI&quot;;
+background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
       </property>
       <property name="text">
        <string>Sign up</string>

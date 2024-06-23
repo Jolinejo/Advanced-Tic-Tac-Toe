@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>410</width>
-    <height>321</height>
+    <width>436</width>
+    <height>405</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,8 +16,8 @@
   <widget class="QLabel" name="label_p1">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>9</y>
+     <x>0</x>
+     <y>50</y>
      <width>91</width>
      <height>31</height>
     </rect>
@@ -32,9 +32,9 @@
   <widget class="QLabel" name="label_p2">
    <property name="geometry">
     <rect>
-     <x>320</x>
-     <y>20</y>
-     <width>71</width>
+     <x>310</x>
+     <y>60</y>
+     <width>101</width>
      <height>16</height>
     </rect>
    </property>
@@ -48,8 +48,8 @@
   <widget class="QWidget" name="gridLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>70</x>
-     <y>50</y>
+     <x>80</x>
+     <y>91</y>
      <width>252</width>
      <height>231</height>
     </rect>
@@ -183,8 +183,8 @@
   <widget class="QLCDNumber" name="lcdNumber_p1">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>50</y>
+     <x>10</x>
+     <y>90</y>
      <width>64</width>
      <height>23</height>
     </rect>
@@ -193,8 +193,8 @@
   <widget class="QLCDNumber" name="lcdNumber_p2">
    <property name="geometry">
     <rect>
-     <x>330</x>
-     <y>50</y>
+     <x>340</x>
+     <y>91</y>
      <width>64</width>
      <height>23</height>
     </rect>
@@ -203,8 +203,8 @@
   <widget class="QLabel" name="label_round">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>10</y>
+     <x>160</x>
+     <y>51</y>
      <width>111</width>
      <height>20</height>
     </rect>
@@ -227,8 +227,8 @@
   <widget class="QCheckBox" name="checkBox">
    <property name="geometry">
     <rect>
-     <x>70</x>
-     <y>290</y>
+     <x>80</x>
+     <y>331</y>
      <width>251</width>
      <height>20</height>
     </rect>
