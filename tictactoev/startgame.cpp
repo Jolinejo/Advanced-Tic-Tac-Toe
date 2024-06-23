@@ -148,6 +148,7 @@ void Startgame::StartNextRound() {
 }
 
 void Startgame::handleButtonClick2(int row, int col, QPushButton *button) {
+    ui->checkBox->setVisible(false);
     // Handle player's move
     if (grid_[row][col] != Player::None) {
         // The button has already been clicked, ignore it
