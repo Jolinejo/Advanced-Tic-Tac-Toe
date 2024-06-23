@@ -95,4 +95,5 @@ void gamesList::on_pushButton_clicked() {
   std::string key = ui->listWidget->currentItem()->text().toStdString();
   gamehis_ = new gameHistory(this, map_of_games[key], winner_to_display[key]);
   gamehis_->show();
+  close();
 }

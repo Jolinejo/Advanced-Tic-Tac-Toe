@@ -55,8 +55,8 @@ void Dialog::on_pushButton_display2_clicked() {
 void Dialog::on_pushButton_2_clicked() {
     player1 = nullptr;
     player2 = nullptr;
-    close();
     sign_out_clicked_ = true;
+    hide();
     main_window_ = new MainWindow(this);
     main_window_->show();
 }
