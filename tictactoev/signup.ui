@@ -63,7 +63,8 @@
     <item>
      <widget class="QPushButton" name="pushButton_sign">
       <property name="styleSheet">
-       <string notr="true">color:#ffffff</string>
+       <string notr="true">color:#ffffff;
+font-size: 15px;</string>
       </property>
       <property name="text">
        <string>Sign up</string>

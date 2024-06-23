@@ -31,6 +31,7 @@ Dialog::~Dialog() {
   if (history_clicked_) delete games_;
   if (sign_out_clicked_) delete main_window_;
   delete ui;
+
 }
 
 void Dialog::on_pushButton_clicked() {

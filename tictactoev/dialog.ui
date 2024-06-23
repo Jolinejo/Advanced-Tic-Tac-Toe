@@ -72,8 +72,7 @@ font: 700 15pt &quot;Segoe UI&quot;;</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">
-font: 700 9pt &quot;Segoe UI&quot;;</string>
+    <string notr="true"/>
    </property>
    <property name="text">
     <string>Sign out</string>

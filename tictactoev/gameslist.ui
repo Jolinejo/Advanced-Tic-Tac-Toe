@@ -33,8 +33,7 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">
-font: 700 5pt &quot;Segoe UI&quot;;</string>
+    <string notr="true"/>
    </property>
    <property name="text">
     <string>Reply Game</string>

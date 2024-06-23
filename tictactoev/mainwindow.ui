@@ -49,6 +49,9 @@
       <height>51</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">font-size: 30px;</string>
+    </property>
     <property name="text">
      <string>Player VS Player</string>
     </property>
@@ -62,6 +65,9 @@
       <height>41</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">font-size: 30px;</string>
+    </property>
     <property name="text">
      <string>Player VS AI</string>
     </property>
@@ -73,7 +79,7 @@
      <x>0</x>
      <y>0</y>
      <width>821</width>
-     <height>26</height>
+     <height>24</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuWelcome">
