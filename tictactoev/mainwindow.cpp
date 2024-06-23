@@ -22,3 +22,7 @@ void MainWindow::on_pushButton_AI_clicked() {
     sign_ = new signin(this, "2");
     sign_->show();
 }
+
+void MainWindow::closeEvent(QCloseEvent *event) {
+    QApplication::quit();
+}

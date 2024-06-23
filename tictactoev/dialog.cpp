@@ -60,3 +60,8 @@ void Dialog::on_pushButton_2_clicked() {
     main_window_ = new MainWindow(this);
     main_window_->show();
 }
+
+void Dialog::closeEvent(QCloseEvent *event) {
+    QApplication::quit();
+}
+
