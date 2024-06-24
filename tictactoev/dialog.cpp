@@ -16,6 +16,7 @@ Dialog::Dialog(QWidget *parent, int mode, std::string p1, std::string p2)
       player_1_(p1),
       player_2_(p2) {
   ui->setupUi(this);
+  setWindowTitle("Tic Tac Toe");
   if (mode == 2) {
     ui->pushButton_display2->hide();  // Hide the whole button
   } else {

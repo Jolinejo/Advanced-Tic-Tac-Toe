@@ -4,3 +4,4 @@ nardin*$2b$10$EpCFlxssJPjIRRAr7ynwfuvfn7pwtNU5MlrCpKvUQM3Bi2LwhL/ym
 yara*$2b$10$Whz3SDp6gVaZUbQuWcue7uN46fC49hQe079bE7lNET19jqhljZPVq
 yara magdy*$2b$10$HjwZHs.V5sJNE4sNU.v0j.wZYGCwGjYl.tA/HZt8uUi9qw.EL.Bvu
 yara magdy2*$2b$10$fkw2Pd4mV2s93zVKzzKwBeVsNnDQexPjMT1/1BMkujIxLmRglZa8.
+test*$2b$10$M2ttdwWa1LfXqM994CM5Hu7Psp1k1B5LIvvguSVreXbcecIZ79ADW

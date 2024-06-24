@@ -12,6 +12,7 @@ signin::signin(QWidget *parent, string variable)
   ui->lineEdit_password->setEchoMode(QLineEdit::Password);
   connect(ui->checkBox_showpassword, &QCheckBox::stateChanged, this,
           &signin::on_checkBox_showpassword_stateChanged);
+  setWindowTitle("Player1 Signin");
 }
 
 signin::~signin() {
