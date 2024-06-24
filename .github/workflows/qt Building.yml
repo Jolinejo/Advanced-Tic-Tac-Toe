@@ -17,8 +17,14 @@ jobs:
     - name: Install Qt
       uses: jurplel/install-qt-action@v3
       with:
-        version: '5.15.2' # Specify the Qt version you need
+        version: '6.7.0' # Specify the Qt version you need
+    
+    - name: Add Qt to PATH
+      run: echo "$HOME/Qt/6.7.0/gcc_64/bin" >> $GITHUB_PATH
 
-    - name: Find and Build all Qt Projects
+    - name: Build application
       run: |
-        find . -name '*.pro' -execdir sh -c 'mkdir -p build && cd build && qmake ../*.pro && make -j$(nproc)' \;
+        mkdir -p build
+        cd build
+        qmake ../tictactoev/tictactoe.pro
+        make
