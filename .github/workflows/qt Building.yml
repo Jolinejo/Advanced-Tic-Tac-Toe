@@ -18,7 +18,7 @@ jobs:
       uses: jurplel/install-qt-action@v3
       with:
         version: '6.7.0' # Specify the Qt version you need
-        modules: 'qtbase qttools qtmultimedia' # Specify the Qt modules you need
+        modules: 'qtmultimedia' # Specify the Qt modules you need
 
     - name: Add Qt to PATH
       run: echo "$HOME/Qt/6.7.0/gcc_64/bin" >> $GITHUB_PATH
