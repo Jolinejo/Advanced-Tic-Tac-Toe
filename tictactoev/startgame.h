@@ -2,10 +2,10 @@
 #define STARTGAME_H
 
 #include <QAudioOutput>
+#include <QtMultimedia>
 #include <QDialog>
 #include <QGridLayout>
 #include <QString>
-#include <QtMultimedia>
 #include <string>
 using namespace std;
 

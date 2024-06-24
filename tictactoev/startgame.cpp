@@ -1,8 +1,8 @@
 #include "startgame.h"
 
 #include <QApplication>
-#include <QAudioOutput>
 #include <QMediaPlayer>
+#include <QAudioOutput>
 #include <QMessageBox>
 #include <QPushButton>
 #include <ctime>
@@ -108,18 +108,14 @@ void Startgame::StartNextRound() {
             music_->setAudioOutput(audio_);
             audio_->setVolume(0.5);
             music_->play();
-            QMessageBox::information(
-                this, "Game Over",
-                QString("%1 wins!").arg(QString::fromStdString(player1_)));
+            QMessageBox::information(this, "Game Over",QString("%1 wins!").arg(QString::fromStdString(player1_)));
             close();
         } else if (counter2_ > counter1_) {
             music_->setSource(QUrl("qrc:/sounds/foro.mp3"));
             music_->setAudioOutput(audio_);
             audio_->setVolume(0.5);
             music_->play();
-            QMessageBox::information(
-                this, "Game Over",
-                QString("%1 wins!").arg(QString::fromStdString(player2_)));
+            QMessageBox::information(this, "Game Over",QString("%1 wins!").arg(QString::fromStdString(player2_)));
             close();
         } else {
             QMessageBox::information(this, "Game Over", QString("It's a tie!"));
