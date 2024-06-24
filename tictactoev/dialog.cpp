@@ -16,6 +16,7 @@ Dialog::Dialog(QWidget *parent, int mode, std::string p1, std::string p2)
       player_1_(p1),
       player_2_(p2) {
   ui->setupUi(this);
+  setWindowTitle("Tic Tac Toe");
   if (mode == 2) {
     ui->pushButton_display2->hide();  // Hide the whole button
   } else {
@@ -31,6 +32,7 @@ Dialog::~Dialog() {
   if (history_clicked_) delete games_;
   if (sign_out_clicked_) delete main_window_;
   delete ui;
+
 }
 
 void Dialog::on_pushButton_clicked() {
@@ -52,10 +54,22 @@ void Dialog::on_pushButton_display2_clicked() {
 }
 
 void Dialog::on_pushButton_2_clicked() {
+    delete player1;
+    if (player2 != nullptr)
+        delete player2;
     player1 = nullptr;
     player2 = nullptr;
-    close();
     sign_out_clicked_ = true;
+    hide();
     main_window_ = new MainWindow(this);
     main_window_->show();
 }
+
+void Dialog::closeEvent(QCloseEvent *event) {
+    if (player1  != nullptr)
+        delete player1;
+    if (player2 != nullptr)
+        delete player2;
+    QApplication::quit();
+}
+

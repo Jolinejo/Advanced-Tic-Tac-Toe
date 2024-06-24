@@ -52,6 +52,7 @@ gameHistory::gameHistory(QWidget *parent, std::string moves, std::string player)
   else
     labelText = "It's a tie!";
   ui->label_of_winner->setText(QString::fromStdString(labelText));
+  setWindowTitle("Replay");
 }
 
 gameHistory::~gameHistory() { delete ui; }
