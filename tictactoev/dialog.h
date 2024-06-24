@@ -40,6 +40,9 @@ class Dialog : public QDialog {
   bool start_clicked_ = false;
   bool history_clicked_ = false;
   bool sign_out_clicked_ = false;
+
+protected:
+  void closeEvent(QCloseEvent *event) override;
 };
 
 #endif  // DIALOG_H

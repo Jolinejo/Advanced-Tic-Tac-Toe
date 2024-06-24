@@ -55,6 +55,7 @@ Startgame::Startgame(QWidget *parent, std::string p1, string p2, int mode)
             }
         }
     }
+    setWindowTitle("Tic Tac Toe");
 }
 
 Startgame::~Startgame() { delete ui; }

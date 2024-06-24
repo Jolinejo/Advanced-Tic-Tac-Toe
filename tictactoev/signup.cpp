@@ -7,6 +7,7 @@
 Signup::Signup(QWidget *parent) : QDialog(parent), ui(new Ui::Signup) {
   ui->setupUi(this);
   ui->lineEdit_3->setEchoMode(QLineEdit::Password);
+  setWindowTitle("Signup");
 }
 
 Signup::~Signup() { delete ui; }

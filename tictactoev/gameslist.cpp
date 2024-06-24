@@ -7,6 +7,7 @@
 #include <queue>
 #include <string>
 #include <vector>
+#include <stdlib.h>
 
 #include "ui_gameslist.h"
 
@@ -46,7 +47,7 @@ std::vector<std::string> split(const std::string &s, char delimiter) {
   return tokens;
 }
 
-std::queue<std::vector<std::string>> FilterNames(const std::string &name) {
+std::queue<std::vector<std::string>> FilterNames(const std::string &name, int &losses, int &wins) {
   std::ifstream file;
   file.open(GetPath2("/history.txt").toStdString(), std::ios::in);
   std::queue<std::vector<std::string>> result_queue;
@@ -63,6 +64,10 @@ std::queue<std::vector<std::string>> FilterNames(const std::string &name) {
     map_of_games[text] = parts[4];
     if (name == parts[1] || name == parts[2]) {
       result_queue.push(parts);
+      if (parts[3] == name)
+        wins++;
+      else if (parts[3] != "tie")
+        losses++;
     }
   }
   file.close();
@@ -74,10 +79,20 @@ gamesList::gamesList(QWidget *parent, std::string player_name)
   ui->setupUi(this);
   ui->pushButton->setStyleSheet(
       "QPushButton:disabled { background-color: #87CEFA; }");
-  std::queue<std::vector<std::string>> results = FilterNames(player_name);
+  int losses = 0;
+  int wins = 0;
+  std::queue<std::vector<std::string>> results = FilterNames(player_name, losses, wins);
   if (results.empty()) {
     ui->pushButton->setText("No history available");
+    ui->label->setText("Won: 0");
+    ui->label_2->setText("Lost: 0");
     ui->pushButton->setEnabled(false);
+  }
+  else {
+    std::string text1 = "Won: " + std::to_string(wins);
+    std::string text2 = "Lost: " + std::to_string(losses);
+    ui->label->setText(QString::fromStdString(text1));
+    ui->label_2->setText(QString::fromStdString(text2));
   }
 
   // Display the results
@@ -87,12 +102,17 @@ gamesList::gamesList(QWidget *parent, std::string player_name)
     ui->listWidget->addItem(QString::fromStdString(text));
     results.pop();
   }
+  setWindowTitle("History");
 }
 
 gamesList::~gamesList() { delete ui; }
 
 void gamesList::on_pushButton_clicked() {
-  std::string key = ui->listWidget->currentItem()->text().toStdString();
-  gamehis_ = new gameHistory(this, map_of_games[key], winner_to_display[key]);
-  gamehis_->show();
+  if (ui->listWidget->currentItem() != nullptr){
+
+    std::string key = ui->listWidget->currentItem()->text().toStdString();
+    gamehis_ = new gameHistory(this, map_of_games[key], winner_to_display[key]);
+    gamehis_->show();
+    close();
+  }
 }

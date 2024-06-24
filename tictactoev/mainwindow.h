@@ -29,6 +29,9 @@ class MainWindow : public QMainWindow {
   Ui::MainWindow *ui;
   signin *sign_;
   Dialog *dialog_;
+
+protected:
+  void closeEvent(QCloseEvent *event) override;
 };
 
 class User {
