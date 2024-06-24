@@ -21,9 +21,7 @@ class signin2 : public QDialog {
 
  private slots:
   void on_pushButton_login2_clicked();
-
   void on_pushButton_signup2_clicked();
-
   void on_checkBox_showpassword_stateChanged(int arg1);
 
  private:

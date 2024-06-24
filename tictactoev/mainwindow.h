@@ -3,7 +3,6 @@
 
 #include <QMainWindow>
 
-#include "dialog.h"
 #include "signin.h"
 using namespace std;
 
@@ -22,13 +21,11 @@ class MainWindow : public QMainWindow {
 
  private slots:
   void on_pushButton_playerxplayer_clicked();
-
   void on_pushButton_AI_clicked();
 
  private:
   Ui::MainWindow *ui;
   signin *sign_;
-  Dialog *dialog_;
 };
 
 class User {

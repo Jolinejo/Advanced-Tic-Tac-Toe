@@ -3,10 +3,7 @@
 #include <QGridLayout>
 #include <QLabel>
 #include <QTimer>
-#include <chrono>
-#include <iostream>
 #include <string>
-#include <thread>
 
 #include "ui_gamehistory.h"
 
