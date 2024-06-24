@@ -26,13 +26,10 @@ class MainWindow : public QMainWindow {
  private:
   Ui::MainWindow *ui;
   signin *sign_;
-<<<<<<< HEAD
-=======
   Dialog *dialog_;
 
 protected:
   void closeEvent(QCloseEvent *event) override;
->>>>>>> 1449bd2d8b5542aad870900830a75a50287d0852
 };
 
 class User {
