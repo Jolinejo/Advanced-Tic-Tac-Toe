@@ -54,6 +54,9 @@ void Dialog::on_pushButton_display2_clicked() {
 }
 
 void Dialog::on_pushButton_2_clicked() {
+    delete player1;
+    if (player2 != nullptr)
+        delete player2;
     player1 = nullptr;
     player2 = nullptr;
     sign_out_clicked_ = true;
@@ -63,6 +66,10 @@ void Dialog::on_pushButton_2_clicked() {
 }
 
 void Dialog::closeEvent(QCloseEvent *event) {
+    if (player1  != nullptr)
+        delete player1;
+    if (player2 != nullptr)
+        delete player2;
     QApplication::quit();
 }
 
