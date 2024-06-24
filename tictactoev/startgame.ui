@@ -32,7 +32,7 @@
   <widget class="QLabel" name="label_p2">
    <property name="geometry">
     <rect>
-     <x>310</x>
+     <x>330</x>
      <y>60</y>
      <width>101</width>
      <height>16</height>
@@ -193,11 +193,33 @@
   <widget class="QLCDNumber" name="lcdNumber_p2">
    <property name="geometry">
     <rect>
-     <x>340</x>
-     <y>91</y>
+     <x>350</x>
+     <y>90</y>
      <width>64</width>
      <height>23</height>
     </rect>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>331</y>
+     <width>271</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Do you want to save the current round? </string>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
    </property>
   </widget>
   <widget class="QLabel" name="label_round">
@@ -222,28 +244,6 @@
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
-   </property>
-  </widget>
-  <widget class="QCheckBox" name="checkBox">
-   <property name="geometry">
-    <rect>
-     <x>80</x>
-     <y>331</y>
-     <width>251</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="layoutDirection">
-    <enum>Qt::LeftToRight</enum>
-   </property>
-   <property name="autoFillBackground">
-    <bool>false</bool>
-   </property>
-   <property name="text">
-    <string>Do you want to save the current round? </string>
-   </property>
-   <property name="checked">
-    <bool>false</bool>
    </property>
   </widget>
  </widget>
