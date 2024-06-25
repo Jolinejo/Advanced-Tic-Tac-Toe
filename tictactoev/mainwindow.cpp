@@ -1,8 +1,11 @@
+#include<QCoreApplication>
 #include "mainwindow.h"
 #include "globals.h"
 #include "ui_mainwindow.h"
 MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWindow) {
     ui->setupUi(this);
+    musicPlayer = new QMediaPlayer(this);
+    audioOutput = new QAudioOutput(this);
     musicPlayer->setSource(QUrl("qrc:/sounds/Sneaky.mp3"));
     musicPlayer->setAudioOutput(audioOutput);
     audioOutput->setVolume(0.5);

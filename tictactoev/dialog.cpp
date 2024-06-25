@@ -39,6 +39,7 @@ void Dialog::on_pushButton_clicked() {
   Startgame *startgame_ = new Startgame(this, player_1_, player_2_, game_mode_);
   start_clicked_ = true;
   startgame_->show();
+  musicPlayer->pause();
 }
 
 void Dialog::on_pushButton_display1_clicked() {
@@ -63,6 +64,7 @@ void Dialog::on_pushButton_2_clicked() {
     hide();
     main_window_ = new MainWindow(this);
     main_window_->show();
+    musicPlayer->play();
 }
 
 void Dialog::closeEvent(QCloseEvent *event) {
