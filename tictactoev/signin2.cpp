@@ -44,7 +44,7 @@ void signin2::on_pushButton_signup2_clicked() {
 
 void signin2::on_checkBox_showpassword_stateChanged(int arg1) {
   if (arg1 == Qt::Checked) {
-    ui->lineEdit_password2->setEchoMode(QLineEdit::Normal);  // Show password
+    ui->lineEdit_password2->setEchoMode(QLineEdit::Normal);
   } else {
     ui->lineEdit_password2->setEchoMode(QLineEdit::Password);  // Hide password
   }

@@ -5,4 +5,5 @@
 
 extern User *player1;
 extern User *player2;
+
 #endif  // GLOBALS_H

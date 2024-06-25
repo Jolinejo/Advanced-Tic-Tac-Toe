@@ -45,15 +45,15 @@ void signin::on_pushButton_login_clicked() {
 }
 
 void signin::on_pushButton_signup1_clicked() {
-  signup_ = new Signup(this);
-  signup_clicked_ = true;
-  signup_->show();
+    signup_ = new Signup(this);
+    signup_clicked_ = true;
+    signup_->show();
 }
 
 void signin::on_checkBox_showpassword_stateChanged(int arg1) {
-  if (arg1 == Qt::Checked) {
-    ui->lineEdit_password->setEchoMode(QLineEdit::Normal);  // Show password
-  } else {
-    ui->lineEdit_password->setEchoMode(QLineEdit::Password);  // Hide password
-  }
+    if (arg1 == Qt::Checked) {
+        ui->lineEdit_password->setEchoMode(QLineEdit::Normal);
+    } else {
+        ui->lineEdit_password->setEchoMode(QLineEdit::Password);  // Hide password
+    }
 }

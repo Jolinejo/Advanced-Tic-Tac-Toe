@@ -29,7 +29,6 @@ private slots:
     bool CheckWin(Player player);
     bool CheckTie();
     void SaveGame();
-
     void on_checkBox_stateChanged(int arg1);
 
 private:
