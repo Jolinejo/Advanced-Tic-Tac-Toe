@@ -26,7 +26,6 @@ class MainWindow : public QMainWindow {
  private:
   Ui::MainWindow *ui;
   signin *sign_;
-  Dialog *dialog_;
 
 protected:
   void closeEvent(QCloseEvent *event) override;
