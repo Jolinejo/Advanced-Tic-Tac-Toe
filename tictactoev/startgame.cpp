@@ -21,8 +21,8 @@ Startgame::Startgame(QWidget *parent, std::string p1, string p2, int mode)
     player2_(p2),
     game_mode_(mode) {
     ui->setupUi(this);
-    music_ = new QMediaPlayer();
-    audio_ = new QAudioOutput();
+    music_ = new QMediaPlayer(this);
+    audio_ = new QAudioOutput(this);
 
     ui->label_round->setText("Round " + QString::number(current_round_));
     if (mode == 2) {
@@ -58,7 +58,12 @@ Startgame::Startgame(QWidget *parent, std::string p1, string p2, int mode)
     setWindowTitle("Tic Tac Toe");
 }
 
-Startgame::~Startgame() { delete ui; }
+Startgame::~Startgame() {
+    delete ui;
+    delete music_;
+    delete audio_;
+
+}
 
 void Startgame::handleButtonClick(int row, int col, QPushButton *button) {
     // Handle player's move

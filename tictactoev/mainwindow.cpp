@@ -4,8 +4,11 @@
 #include "ui_mainwindow.h"
 MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWindow) {
     ui->setupUi(this);
-    musicPlayer = new QMediaPlayer(this);
-    audioOutput = new QAudioOutput(this);
+    sign_=nullptr;
+    if (musicPlayer == nullptr)
+        musicPlayer = new QMediaPlayer;
+    if (audioOutput == nullptr)
+        audioOutput = new QAudioOutput;
     musicPlayer->setSource(QUrl("qrc:/sounds/Sneaky.mp3"));
     musicPlayer->setAudioOutput(audioOutput);
     audioOutput->setVolume(0.5);
@@ -15,8 +18,14 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWin
 MainWindow::~MainWindow() {
     delete sign_;
     delete ui;
-    delete musicPlayer;
-    delete audioOutput;
+    if (musicPlayer != nullptr){
+        delete musicPlayer;
+        musicPlayer = nullptr;
+    }
+    if (audioOutput != nullptr){
+        delete audioOutput;
+        audioOutput = nullptr;
+    }
 }
 
 void MainWindow::on_pushButton_playerxplayer_clicked() {
@@ -33,9 +42,13 @@ void MainWindow::on_pushButton_AI_clicked() {
 }
 
 void MainWindow::closeEvent(QCloseEvent *event) {
-    if (player1 != nullptr)
+    if (player1 != nullptr){
         delete player1;
-    if (player2 != nullptr)
+        player1 = nullptr;
+    }
+    if (player2 != nullptr){
         delete player2;
+        player2 = nullptr;
+    }
     QApplication::quit();
 }

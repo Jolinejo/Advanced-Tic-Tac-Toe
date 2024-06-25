@@ -8,7 +8,7 @@
 extern User *player1;
 extern User *player2;
 
-inline QMediaPlayer *musicPlayer ;
-inline QAudioOutput *audioOutput ;
+inline QMediaPlayer *musicPlayer = nullptr;
+inline QAudioOutput *audioOutput = nullptr;
 
 #endif  // GLOBALS_H
