@@ -1,6 +1,0 @@
-<RCC>
-    <qresource prefix="/sounds">
-        <file>foro.mp3</file>
-        <file>forx.mp3</file>
-    </qresource>
-</RCC>
