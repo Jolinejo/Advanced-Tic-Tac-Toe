@@ -135,4 +135,4 @@ We welcome contributions! Follow these steps to contribute:
 
 
 ## Acknowledgements
-This project was developed by Vivianne Emad, Mariam Ibrahim, Noor Ashraf, Yara Magdy and Yara Osama as part of their coursework at Cairo University. Special thanks to the professors and mentors who guided us throughout the project.
+This project was developed by [Vivianne Emad](https://github.com/ViviannEmad), [Mariam Ibrahim](https://github.com/Jolinejo), [Noor Ashraf](https://github.com/NoorAshraff), [Yara Magdy](https://github.com/Yaraamaggdy) and [Yara Osama](https://github.com/Yarausama) as part of their coursework at Cairo University. Special thanks to the professors and mentors who guided us throughout the project.
