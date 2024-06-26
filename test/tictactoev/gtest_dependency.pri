@@ -10,9 +10,8 @@ isEmpty(GOOGLETEST_DIR) {
 
 !isEmpty(GOOGLETEST_DIR): {
     INCLUDEPATH *= "$$GOOGLETEST_DIR/include"
-    INCLUDEPATH += "$$GOOGLETEST_DIR/googlemock/include"
 
-    LIBS *= -L"$$GOOGLETEST_DIR/lib" -lgtest -lgmock
+    LIBS *= -L"$$GOOGLETEST_DIR/lib" -lgtest
 } else {
-    LIBS *= -lgtest -lgmock
+    LIBS *= -lgtest
 }
