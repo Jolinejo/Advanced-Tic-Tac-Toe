@@ -54,6 +54,9 @@ private:
     void StartNextRound();
     QMediaPlayer *music_;
     QAudioOutput *audio_;
+
+protected:
+    void closeEvent(QCloseEvent *event) override;
 };
 
 #endif  // STARTGAME_H

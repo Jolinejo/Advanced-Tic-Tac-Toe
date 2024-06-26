@@ -29,10 +29,9 @@ Dialog::Dialog(QWidget *parent, int mode, std::string p1, std::string p2)
 }
 
 Dialog::~Dialog() {
-  if (start_clicked_) delete startgame_;
-  if (history_clicked_) delete games_;
-  if (sign_out_clicked_) delete main_window_;
-  delete ui;
+    if (history_clicked_) delete games_;
+    if (sign_out_clicked_) delete main_window_;
+    delete ui;
 
 }
 
@@ -65,7 +64,6 @@ void Dialog::on_pushButton_2_clicked() {
     hide();
     main_window_ = new MainWindow(this);
     main_window_->show();
-    musicPlayer->play();
 }
 
 void Dialog::closeEvent(QCloseEvent *event) {

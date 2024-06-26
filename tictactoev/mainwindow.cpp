@@ -19,6 +19,7 @@ MainWindow::~MainWindow() {
     delete sign_;
     delete ui;
     if (musicPlayer != nullptr){
+        musicPlayer->stop();
         delete musicPlayer;
         musicPlayer = nullptr;
     }
@@ -61,4 +62,3 @@ void MainWindow::on_checkBox_stateChanged(int arg1)
         audioOutput->setVolume(0.5);
     }
 }
-

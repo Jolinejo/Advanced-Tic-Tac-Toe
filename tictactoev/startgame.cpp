@@ -9,6 +9,7 @@
 #include <fstream>
 #include <iostream>
 
+#include "globals.h"
 #include "mainwindow.h"
 #include "ui_startgame.h"
 
@@ -377,4 +378,8 @@ void Startgame::on_checkBox_stateChanged(int arg1) {
     } else {
         save_ = false;
     }
+}
+void Startgame::closeEvent(QCloseEvent *event) {
+    musicPlayer->play();
+    event->accept();
 }
