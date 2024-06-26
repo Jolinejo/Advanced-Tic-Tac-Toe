@@ -43,6 +43,8 @@ jobs:
     - name: Run
       run: |
         cd build
+        touch ./tictactoev/register.txt
+        touch ./tictactoev/history.txt
         ./tictactoe.app/Contents/MacOS/tictactoe
 
 
