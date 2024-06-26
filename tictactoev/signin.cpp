@@ -16,11 +16,17 @@ signin::signin(QWidget *parent, string variable)
 }
 
 signin::~signin() {
-  if (variable_ == "1")
-    delete sign2_;
-  else
-    delete dialog_;
-  if (signup_clicked_) delete signup_;
+    if (sign2_ != nullptr){
+        delete sign2_;
+            sign2_ = nullptr;
+    }
+    if (dialog_ != nullptr){
+        delete dialog_;
+        dialog_ = nullptr;
+    }
+    if (signup_ != nullptr) {delete signup_;
+        signup_ = nullptr;
+    }
   delete ui;
 }
 

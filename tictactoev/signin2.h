@@ -26,8 +26,8 @@ class signin2 : public QDialog {
 
  private:
   Ui::signin2 *ui;
-  Dialog *dialog_;
-  Signup *signup_;
+  Dialog *dialog_ = nullptr;
+  Signup *signup_ = nullptr;
   string first_player_;
   bool signup_clicked_ = false;
 

@@ -29,9 +29,9 @@ class signin : public QDialog {
  private:
   std::string variable_;
   Ui::signin *ui;
-  signin2 *sign2_;
-  Signup *signup_;
-  Dialog *dialog_;
+  signin2 *sign2_ = nullptr;
+  Signup *signup_ = nullptr;
+  Dialog *dialog_ = nullptr;
   bool signup_clicked_ = false;
 
  protected:
