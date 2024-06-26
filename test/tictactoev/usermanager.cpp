@@ -12,7 +12,7 @@ void UserManager::loadUsers() {
     // Check if the file exists, if not create it
     std::ofstream checkFile(filePath, std::ios::app);
     if (!checkFile.is_open()) {
-        std::cout << "Unable to create file." << std::endl;
+        std::cerr << "Error: Unable to create file: " << filePath << std::endl;
         return;
     }
     checkFile.close();
