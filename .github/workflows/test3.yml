@@ -42,10 +42,10 @@ jobs:
 
     - name: Run
       run: |
-        cd build
         mkdir tictactoev
         touch ./tictactoev/register.txt
         touch ./tictactoev/history.txt
+        cd build
         ./tictactoe.app/Contents/MacOS/tictactoe
 
 
