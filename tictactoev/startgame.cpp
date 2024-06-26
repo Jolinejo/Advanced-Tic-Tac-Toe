@@ -279,8 +279,7 @@ pair<int, int> Startgame::AIMove() {
   for (int i = 0; i < 3; ++i) {
     for (int j = 0; j < 3; ++j) {
       if (grid_[i][j] == Player::None) {
-        grid_[i][j] = current_player_;  // Assume AI is always 'O' for
-                                        // minimization in this example
+        grid_[i][j] = current_player_;
         int score = MiniMax(0, false);
         grid_[i][j] = Player::None;
         if (score > best_score) {
@@ -356,9 +355,9 @@ int Startgame::MiniMax(int depth, bool is_maximizing_player) {
 
 int Startgame::EvaluateBoard() {
   if (CheckWin(ai_choice_)) {
-    return 20;  // PLAYER_X wins
+    return 20;  // AI wins
   } else if (CheckWin(human_choice_)) {
-    return -20;  // PLAYER_O wins
+    return -20;  // Human wins
   } else {
     return 0;  // Game not over
   }
