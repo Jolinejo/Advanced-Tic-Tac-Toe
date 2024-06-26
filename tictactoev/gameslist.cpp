@@ -1,5 +1,7 @@
 #include "gameslist.h"
 
+#include <stdlib.h>
+
 #include <QFile>
 #include <fstream>
 #include <iostream>
@@ -7,7 +9,6 @@
 #include <queue>
 #include <string>
 #include <vector>
-#include <stdlib.h>
 
 #include "ui_gameslist.h"
 
@@ -47,7 +48,8 @@ std::vector<std::string> split(const std::string &s, char delimiter) {
   return tokens;
 }
 
-std::queue<std::vector<std::string>> FilterNames(const std::string &name, int &losses, int &wins) {
+std::queue<std::vector<std::string>> FilterNames(const std::string &name,
+                                                 int &losses, int &wins) {
   std::ifstream file;
   file.open(GetPath2("/history.txt").toStdString(), std::ios::in);
   std::queue<std::vector<std::string>> result_queue;
@@ -81,14 +83,14 @@ gamesList::gamesList(QWidget *parent, std::string player_name)
       "QPushButton:disabled { background-color: #87CEFA; }");
   int losses = 0;
   int wins = 0;
-  std::queue<std::vector<std::string>> results = FilterNames(player_name, losses, wins);
+  std::queue<std::vector<std::string>> results =
+      FilterNames(player_name, losses, wins);
   if (results.empty()) {
     ui->pushButton->setText("No history available");
     ui->label->setText("Won: 0");
     ui->label_2->setText("Lost: 0");
     ui->pushButton->setEnabled(false);
-  }
-  else {
+  } else {
     std::string text1 = "Won: " + std::to_string(wins);
     std::string text2 = "Lost: " + std::to_string(losses);
     ui->label->setText(QString::fromStdString(text1));
@@ -108,8 +110,7 @@ gamesList::gamesList(QWidget *parent, std::string player_name)
 gamesList::~gamesList() { delete ui; }
 
 void gamesList::on_pushButton_clicked() {
-  if (ui->listWidget->currentItem() != nullptr){
-
+  if (ui->listWidget->currentItem() != nullptr) {
     std::string key = ui->listWidget->currentItem()->text().toStdString();
     gamehis_ = new gameHistory(this, map_of_games[key], winner_to_display[key]);
     gamehis_->show();

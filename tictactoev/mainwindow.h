@@ -1,8 +1,8 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include <QCoreApplication>
 #include <QMainWindow>
-#include<QCoreApplication>
 
 #include "signin.h"
 using namespace std;
@@ -26,11 +26,11 @@ class MainWindow : public QMainWindow {
 
   void on_checkBox_stateChanged(int arg1);
 
-  private:
+ private:
   Ui::MainWindow *ui;
   signin *sign_;
 
-protected:
+ protected:
   void closeEvent(QCloseEvent *event) override;
 };
 

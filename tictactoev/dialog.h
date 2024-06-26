@@ -41,7 +41,7 @@ class Dialog : public QDialog {
   bool history_clicked_ = false;
   bool sign_out_clicked_ = false;
 
-protected:
+ protected:
   void closeEvent(QCloseEvent *event) override;
 };
 

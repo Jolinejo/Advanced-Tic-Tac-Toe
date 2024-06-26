@@ -29,14 +29,14 @@ Dialog::Dialog(QWidget *parent, int mode, std::string p1, std::string p2)
 }
 
 Dialog::~Dialog() {
-    if (history_clicked_) delete games_;
-    if (sign_out_clicked_) delete main_window_;
-    delete ui;
-
+  if (history_clicked_) delete games_;
+  if (sign_out_clicked_) delete main_window_;
+  delete ui;
 }
 
 void Dialog::on_pushButton_clicked() {
-    Startgame *startgame_ = new Startgame(this, player_1_, player_2_, game_mode_, ui->AiFirst->isChecked());
+  Startgame *startgame_ = new Startgame(this, player_1_, player_2_, game_mode_,
+                                        ui->AiFirst->isChecked());
   start_clicked_ = true;
   startgame_->show();
   musicPlayer->pause();
@@ -55,26 +55,24 @@ void Dialog::on_pushButton_display2_clicked() {
 }
 
 void Dialog::on_pushButton_2_clicked() {
-    delete player1;
-    if (player2 != nullptr)
-        delete player2;
-    player1 = nullptr;
-    player2 = nullptr;
-    sign_out_clicked_ = true;
-    hide();
-    main_window_ = new MainWindow(this);
-    main_window_->show();
+  delete player1;
+  if (player2 != nullptr) delete player2;
+  player1 = nullptr;
+  player2 = nullptr;
+  sign_out_clicked_ = true;
+  hide();
+  main_window_ = new MainWindow(this);
+  main_window_->show();
 }
 
 void Dialog::closeEvent(QCloseEvent *event) {
-    if (player1  != nullptr){
-        delete player1;
-        player1 = nullptr;
-    }
-    if (player2 != nullptr){
-        delete player2;
-        player2 = nullptr;
-    }
-    QApplication::quit();
+  if (player1 != nullptr) {
+    delete player1;
+    player1 = nullptr;
+  }
+  if (player2 != nullptr) {
+    delete player2;
+    player2 = nullptr;
+  }
+  QApplication::quit();
 }
-
