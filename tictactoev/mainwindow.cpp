@@ -58,9 +58,7 @@ void MainWindow::on_checkBox_stateChanged(int arg1)
 {
     if (arg1 == Qt::Checked) {
         audioOutput->setVolume(0);  // Mute
-        audioOutput1->setVolume(0);
     } else {
         audioOutput->setVolume(0.5);
-        audioOutput1->setVolume(0.5);
     }
 }

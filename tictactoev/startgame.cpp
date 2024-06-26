@@ -400,3 +400,13 @@ void Startgame::closeEvent(QCloseEvent *event) {
     musicPlayer->play();
     event->accept();
 }
+
+void Startgame::on_checkBox_2_stateChanged(int arg1)
+{
+    if (arg1 == Qt::Checked) {
+        audioOutput1->setVolume(0);  // Mute
+    } else {
+        audioOutput1->setVolume(0.5);
+    }
+}
+
