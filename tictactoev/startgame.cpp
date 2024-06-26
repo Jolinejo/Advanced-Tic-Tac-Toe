@@ -31,6 +31,9 @@ Startgame::Startgame(QWidget *parent, std::string p1, string p2, int mode,
   musicPlayer1->play();
   music_ = new QMediaPlayer(this);
   audio_ = new QAudioOutput(this);
+  music_->setSource(QUrl("qrc:/sounds/Curb_.mp3"));
+  music_->setAudioOutput(audio_);
+  audio_->setVolume(0.5);
   ui->label_round->setText("Round " + QString::number(current_round_));
   if (mode == 2) {
     ui->label_p2->setText("AI");  // Hide the whole button
@@ -149,32 +152,26 @@ void Startgame::StartNextRound() {
   ui->checkBox->setVisible(true);
   if (current_round_ > max_rounds_) {
     if (counter1_ > counter2_) {
-      // Inside your function or constructor where you want to play the media
-      if (game_mode_ == 2 && ai_choice_ == Player::X)
-        music_->setSource(QUrl("qrc:/sounds/foro.mp3"));
-      else
-        music_->setSource(QUrl("qrc:/sounds/foro.mp3"));
-      music_->setAudioOutput(audio_);
-      audio_->setVolume(0.5);
-      music_->play();
+          musicPlayer1->stop();
+          music_->play();
       QMessageBox::information(
           this, "Game Over",
           QString("%1 wins!").arg(QString::fromStdString(player1_)));
+          music_->stop();
       close();
     } else if (counter2_ > counter1_) {
-      if (game_mode_ == 2 && ai_choice_ == Player::X)
-        music_->setSource(QUrl("qrc:/sounds/forx.mp3"));
-      else
-        music_->setSource(QUrl("qrc:/sounds/foro.mp3"));
-      music_->setAudioOutput(audio_);
-      audio_->setVolume(0.5);
-      music_->play();
+        musicPlayer1->stop();
+        music_->play();
       QMessageBox::information(
           this, "Game Over",
           QString("%1 wins!").arg(QString::fromStdString(player2_)));
+        music_->stop();
       close();
     } else {
+        musicPlayer1->stop();
+        music_->play();
       QMessageBox::information(this, "Game Over", QString("It's a tie!"));
+        music_->stop();
       close();
     }
   }
