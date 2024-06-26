@@ -43,7 +43,6 @@ jobs:
     - name: Run
       run: |
         cd build
-        open ./tictactoe.app
-        ./tictactoe.app
+        ./tictactoe.app/Contents/MacOS/tictactoe
 
 
