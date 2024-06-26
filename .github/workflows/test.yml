@@ -42,6 +42,5 @@ jobs:
     - name: Run
       run: |
         cd build
-        ./tictactoe
         xvfb-run -a ./tictactoe  # Run the tests
 
