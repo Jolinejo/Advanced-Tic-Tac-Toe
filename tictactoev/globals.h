@@ -10,5 +10,6 @@ extern User *player2;
 
 inline QMediaPlayer *musicPlayer = nullptr;
 inline QAudioOutput *audioOutput = nullptr;
-
+inline QMediaPlayer *musicPlayer1 = nullptr;
+inline QAudioOutput *audioOutput1 = nullptr;
 #endif  // GLOBALS_H

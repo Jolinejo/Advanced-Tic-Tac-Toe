@@ -22,9 +22,16 @@ Startgame::Startgame(QWidget *parent, std::string p1, string p2, int mode, bool 
     player2_(p2),
     game_mode_(mode) {
     ui->setupUi(this);
+    if (musicPlayer1 == nullptr)
+        musicPlayer1 = new QMediaPlayer(this);
+    if (audioOutput1 == nullptr)
+        audioOutput1 = new QAudioOutput(this);
+    musicPlayer1->setSource(QUrl("qrc:/sounds/Monkeys.mp3"));
+    musicPlayer1->setAudioOutput(audioOutput1);
+    audioOutput1->setVolume(0.5);
+    musicPlayer1->play();
     music_ = new QMediaPlayer(this);
     audio_ = new QAudioOutput(this);
-
     ui->label_round->setText("Round " + QString::number(current_round_));
     if (mode == 2) {
         ui->label_p2->setText("AI");  // Hide the whole button
@@ -72,6 +79,15 @@ Startgame::~Startgame() {
     delete ui;
     delete music_;
     delete audio_;
+    if (musicPlayer1 != nullptr){
+        musicPlayer1->stop();
+        delete musicPlayer1;
+        musicPlayer1 = nullptr;
+    }
+    if (audioOutput1 != nullptr){
+        delete audioOutput1;
+        audioOutput1 = nullptr;
+    }
 
 }
 
@@ -380,6 +396,7 @@ void Startgame::on_checkBox_stateChanged(int arg1) {
     }
 }
 void Startgame::closeEvent(QCloseEvent *event) {
+    musicPlayer1->stop();
     musicPlayer->play();
     event->accept();
 }
