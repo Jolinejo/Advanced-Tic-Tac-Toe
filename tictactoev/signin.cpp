@@ -16,17 +16,18 @@ signin::signin(QWidget *parent, string variable)
 }
 
 signin::~signin() {
-    if (sign2_ != nullptr){
-        delete sign2_;
-            sign2_ = nullptr;
-    }
-    if (dialog_ != nullptr){
-        delete dialog_;
-        dialog_ = nullptr;
-    }
-    if (signup_ != nullptr) {delete signup_;
-        signup_ = nullptr;
-    }
+  if (sign2_ != nullptr) {
+    delete sign2_;
+    sign2_ = nullptr;
+  }
+  if (dialog_ != nullptr) {
+    delete dialog_;
+    dialog_ = nullptr;
+  }
+  if (signup_ != nullptr) {
+    delete signup_;
+    signup_ = nullptr;
+  }
   delete ui;
 }
 
@@ -64,6 +65,4 @@ void signin::on_checkBox_showpassword_stateChanged(int arg1) {
   }
 }
 
-void signin::closeEvent(QCloseEvent *event) {
-    QApplication::quit();
-}
+void signin::closeEvent(QCloseEvent *event) { QApplication::quit(); }

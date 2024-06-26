@@ -2,6 +2,7 @@
 
 #include <QMessageBox>
 
+#include "globals.h"
 #include "mainwindow.h"
 #include "ui_signup.h"
 Signup::Signup(QWidget *parent) : QDialog(parent), ui(new Ui::Signup) {

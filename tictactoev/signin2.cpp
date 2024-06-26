@@ -1,6 +1,7 @@
 #include "signin2.h"
-#include "globals.h"
+
 #include "QMessageBox"
+#include "globals.h"
 #include "mainwindow.h"
 #include "ui_signin2.h"
 
@@ -14,13 +15,15 @@ signin2::signin2(QWidget *parent, string name)
 }
 
 signin2::~signin2() {
-    if (dialog_ != nullptr){
-        delete dialog_;
-        dialog_ = nullptr;
-    }
+  if (dialog_ != nullptr) {
+    delete dialog_;
+    dialog_ = nullptr;
+  }
 
-    if (signup_ != nullptr) {delete signup_;
-        signup_ = nullptr;}
+  if (signup_ != nullptr) {
+    delete signup_;
+    signup_ = nullptr;
+  }
   delete ui;
 }
 
@@ -54,6 +57,4 @@ void signin2::on_checkBox_showpassword_stateChanged(int arg1) {
     ui->lineEdit_password2->setEchoMode(QLineEdit::Password);  // Hide password
   }
 }
-void signin2::closeEvent(QCloseEvent *event) {
-  QApplication::quit();
-}
+void signin2::closeEvent(QCloseEvent *event) { QApplication::quit(); }
