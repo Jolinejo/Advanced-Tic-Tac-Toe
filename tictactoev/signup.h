@@ -19,6 +19,7 @@ class Signup : public QDialog {
 
  private:
   Ui::Signup *ui;
+
 };
 
 #endif  // SIGNUP_H

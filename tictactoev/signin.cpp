@@ -57,3 +57,7 @@ void signin::on_checkBox_showpassword_stateChanged(int arg1) {
     ui->lineEdit_password->setEchoMode(QLineEdit::Password);  // Hide password
   }
 }
+
+void signin::closeEvent(QCloseEvent *event) {
+    QApplication::quit();
+}

@@ -50,13 +50,5 @@ void signin2::on_checkBox_showpassword_stateChanged(int arg1) {
   }
 }
 void signin2::closeEvent(QCloseEvent *event) {
-    if (player1 != nullptr) {
-        delete player1;
-        player1 = nullptr;
-    }
-    if (player2 != nullptr) {
-        delete player2;
-        player2 = nullptr;
-    }
-    QApplication::quit();
+  QApplication::quit();
 }

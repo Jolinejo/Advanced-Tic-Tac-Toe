@@ -33,6 +33,9 @@ class signin : public QDialog {
   Signup *signup_;
   Dialog *dialog_;
   bool signup_clicked_ = false;
+
+ protected:
+  void closeEvent(QCloseEvent *event) override;
 };
 
 #endif  // SIGNIN_H

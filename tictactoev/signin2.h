@@ -31,7 +31,7 @@ class signin2 : public QDialog {
   string first_player_;
   bool signup_clicked_ = false;
 
-protected:
+ protected:
   void closeEvent(QCloseEvent *event) override;
 };
 
