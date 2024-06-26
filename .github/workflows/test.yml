@@ -1,4 +1,4 @@
-name: Qt C++ CI
+name: Run test cases
 
 on: [push, pull_request]
 
