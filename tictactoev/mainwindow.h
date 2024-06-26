@@ -24,7 +24,9 @@ class MainWindow : public QMainWindow {
   void on_pushButton_playerxplayer_clicked();
   void on_pushButton_AI_clicked();
 
- private:
+  void on_checkBox_stateChanged(int arg1);
+
+  private:
   Ui::MainWindow *ui;
   signin *sign_;
 

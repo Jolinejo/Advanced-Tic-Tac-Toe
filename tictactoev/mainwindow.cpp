@@ -52,3 +52,13 @@ void MainWindow::closeEvent(QCloseEvent *event) {
     }
     QApplication::quit();
 }
+
+void MainWindow::on_checkBox_stateChanged(int arg1)
+{
+    if (arg1 == Qt::Checked) {
+        audioOutput->setVolume(0);  // Mute
+    } else {
+        audioOutput->setVolume(0.5);
+    }
+}
+
