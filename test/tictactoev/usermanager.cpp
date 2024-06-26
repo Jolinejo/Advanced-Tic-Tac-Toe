@@ -7,8 +7,16 @@ UserManager::UserManager() : player1(nullptr), player2(nullptr) {}
 
 void UserManager::loadUsers() {
     std::ifstream myfile;
-    myfile.open(getPath("/register.txt").toStdString(), std::ios::in);
+    std::string filePath = getPath("/register.txt").toStdString();
 
+    // Check if the file exists, if not create it
+    std::ofstream checkFile(filePath, std::ios::app);
+    if (!checkFile.is_open()) {
+        std::cout << "Unable to create file." << std::endl;
+        return;
+    }
+    checkFile.close();
+    myfile.open(filePath, std::ios::in);
     if (myfile.is_open()) {
         std::string line;
         while (getline(myfile, line)) {
