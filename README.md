@@ -76,18 +76,8 @@ Advanced Tic Tac Toe is an enhanced version of the classic Tic Tac Toe game. Thi
    ```bash
    cd test/tictactoev
    ```
-3. **Configure GoogleTest Directory**:
-   Navigate to the testing directory
-   Open the `gtest_dependency` file and change the line:
-   ```makefile
-   GOOGLETEST_DIR = "$$PWD/googletest/googletest"
-   ```
-   to the directory where you have downloaded GoogleTest, for example:
-   ```makefile
-   GOOGLETEST_DIR = "/path/to/your/googletest"
-   ```
 
-4. **Run Tests**:
+3. **Run Tests**:
    Build and run the tests to ensure everything is working correctly:
    ```bash
    mkdir -p build
