@@ -1,0 +1,52 @@
+name: Run test cases
+
+on: [push, pull_request]
+
+jobs:
+  build-and-test:
+    runs-on: macos-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Install Qt
+      uses: jurplel/install-qt-action@v3
+      with:
+        version: '6.7.0'  # Specify the Qt version you need
+        host: 'mac'
+        modules: 'qtmultimedia'  # Specify the Qt modules you need
+
+    - name: Add Qt to PATH
+      run: echo "$HOME/Qt/6.7.0/clang_64/bin" >> $GITHUB_PATH
+
+    - name: Install dependencies
+      run: brew install cmake
+
+    - name: Download and build Google Test
+      run: |
+        git clone https://github.com/google/googletest.git
+        cd googletest
+        mkdir build
+        cd build
+        cmake ..
+        make
+        sudo make install
+
+    - name: Build
+      run: |
+        mkdir -p build
+        cd build
+        qmake ../test/tictactoev/tictactoe.pro
+        make
+
+    - name: Setup tictactoev directory
+      run: |
+        mkdir -p inclus/tictactoev
+        cp -r build inclus/tictactoev/
+        touch inclus/tictactoev/register.txt inclus/tictactoev/history.txt
+
+    - name: Run tictactoe
+      run: |
+        ./inclus/tictactoev/build/tictactoe.app/Contents/MacOS/tictactoe
+
