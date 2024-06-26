@@ -152,26 +152,26 @@ void Startgame::StartNextRound() {
   ui->checkBox->setVisible(true);
   if (current_round_ > max_rounds_) {
     if (counter1_ > counter2_) {
-          musicPlayer1->stop();
-          music_->play();
+      musicPlayer1->stop();
+      music_->play();
       QMessageBox::information(
           this, "Game Over",
           QString("%1 wins!").arg(QString::fromStdString(player1_)));
-          music_->stop();
+      music_->stop();
       close();
     } else if (counter2_ > counter1_) {
-        musicPlayer1->stop();
-        music_->play();
+      musicPlayer1->stop();
+      music_->play();
       QMessageBox::information(
           this, "Game Over",
           QString("%1 wins!").arg(QString::fromStdString(player2_)));
-        music_->stop();
+      music_->stop();
       close();
     } else {
-        musicPlayer1->stop();
-        music_->play();
+      musicPlayer1->stop();
+      music_->play();
       QMessageBox::information(this, "Game Over", QString("It's a tie!"));
-        music_->stop();
+      music_->stop();
       close();
     }
   }

@@ -7,7 +7,6 @@
 #include <QString>
 #include <QtMultimedia>
 #include <string>
-using namespace std;
 
 namespace Ui {
 class Startgame;
@@ -19,8 +18,8 @@ class Startgame : public QDialog {
   Q_OBJECT
 
  public:
-  explicit Startgame(QWidget *parent = nullptr, string p1 = "", string p2 = "",
-                     int mode = 1, bool checked = false);
+  explicit Startgame(QWidget *parent = nullptr, std::string p1 = "",
+                     std::string p2 = "", int mode = 1, bool checked = false);
   ~Startgame();
 
  private slots:
@@ -39,11 +38,11 @@ class Startgame : public QDialog {
   Player grid_[3][3];
   Player ai_choice_ = Player::O;
   Player human_choice_ = Player::X;
-  string player1_;
-  string player2_;
+  std::string player1_;
+  std::string player2_;
   int game_mode_;
   QVector<QString> game_moves_;
-  pair<int, int> AIMove();
+  std::pair<int, int> AIMove();
   void AIFirst();
   int MiniMax(int depth, bool is_maximizer);
   int EvaluateBoard();
