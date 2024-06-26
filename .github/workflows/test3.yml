@@ -40,13 +40,13 @@ jobs:
         qmake ../test/tictactoev/tictactoe.pro
         make
 
-    - name: Run
+    - name: Setup tictactoev directory
       run: |
-        mkdir inclus
-        cd inclus
-        mkdir tictactoev
-        cd tictactoev
-        cp -r ../../build/ .
-        ./build/tictactoe.app/Contents/MacOS/tictactoe
+        mkdir -p inclus/tictactoev
+        cp -r build inclus/tictactoev/
+        touch inclus/tictactoev/register.txt inclus/tictactoev/history.txt
 
+    - name: Run tictactoe
+      run: |
+        ./inclus/tictactoev/build/tictactoe.app/Contents/MacOS/tictactoe
 
