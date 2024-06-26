@@ -14,7 +14,7 @@
 
 std::string winner;
 
-Startgame::Startgame(QWidget *parent, std::string p1, string p2, int mode)
+Startgame::Startgame(QWidget *parent, std::string p1, string p2, int mode, bool checked)
     : QDialog(parent),
     ui(new Ui::Startgame),
     player1_(p1),
@@ -28,10 +28,15 @@ Startgame::Startgame(QWidget *parent, std::string p1, string p2, int mode)
     if (mode == 2) {
         ui->label_p2->setText("AI");  // Hide the whole button
         player2_ = "AI";
+        if (checked) {
+        ai_choice_ = Player::X;
+        human_choice_ = Player::O;
+        }
+        ui->label_p1->setText(QString::fromStdString(player1_));
     } else {
         ui->label_p2->setText(QString::fromStdString(player2_) + " is O");
+        ui->label_p1->setText(QString::fromStdString(player1_) + " is X");
     }
-    ui->label_p1->setText(QString::fromStdString(player1_) + " is X");
 
     // Initialize grid_ and currentPlayer
     current_player_ = Player::X;
@@ -55,6 +60,10 @@ Startgame::Startgame(QWidget *parent, std::string p1, string p2, int mode)
             }
         }
     }
+    if (mode == 2 && ai_choice_ ==  Player::X){
+        AIFirst();
+    }
+
     setWindowTitle("Tic Tac Toe");
 }
 
@@ -103,20 +112,42 @@ void Startgame::handleButtonClick(int row, int col, QPushButton *button) {
     }
 }
 
+void Startgame::AIFirst() {
+    pair<int, int> ai_move_coords = AIMove();
+    grid_[ai_move_coords.first][ai_move_coords.second] = current_player_;
+    QPushButton *aiButton = qobject_cast<QPushButton *>(
+        ui->gridLayout_play
+            ->itemAtPosition(ai_move_coords.first, ai_move_coords.second)
+            ->widget());
+
+    aiButton->setText((current_player_ == Player::X) ? "X" : "O");
+    aiButton->setEnabled(false);
+    game_moves_.push_back(aiButton->text() +
+                          QString::number(ai_move_coords.first) +
+                          QString::number(ai_move_coords.second));
+    current_player_ = (current_player_ == ai_choice_) ? human_choice_ : ai_choice_;
+}
+
 void Startgame::StartNextRound() {
     ++current_round_;
     ui->checkBox->setVisible(true);
     if (current_round_ > max_rounds_) {
         if (counter1_ > counter2_) {
             // Inside your function or constructor where you want to play the media
-            music_->setSource(QUrl("qrc:/sounds/forx.mp3"));
+            if (game_mode_ == 2 && ai_choice_ ==  Player::X)
+                music_->setSource(QUrl("qrc:/sounds/foro.mp3"));
+            else
+                music_->setSource(QUrl("qrc:/sounds/foro.mp3"));
             music_->setAudioOutput(audio_);
             audio_->setVolume(0.5);
             music_->play();
             QMessageBox::information(this, "Game Over",QString("%1 wins!").arg(QString::fromStdString(player1_)));
             close();
         } else if (counter2_ > counter1_) {
-            music_->setSource(QUrl("qrc:/sounds/foro.mp3"));
+            if (game_mode_ == 2 && ai_choice_ ==  Player::X)
+                music_->setSource(QUrl("qrc:/sounds/forx.mp3"));
+            else
+                music_->setSource(QUrl("qrc:/sounds/foro.mp3"));
             music_->setAudioOutput(audio_);
             audio_->setVolume(0.5);
             music_->play();
@@ -147,6 +178,8 @@ void Startgame::StartNextRound() {
             button->setEnabled(true);
         }
     }
+    if (game_mode_ == 2 && ai_choice_ ==  Player::X)
+    Startgame::AIFirst();
 }
 
 void Startgame::handleButtonClick2(int row, int col, QPushButton *button) {
@@ -164,7 +197,7 @@ void Startgame::handleButtonClick2(int row, int col, QPushButton *button) {
     game_moves_.push_back(text + QString::number(row) + QString::number(col));
 
     if (CheckWin(current_player_)) {
-        if (current_player_ == Player::X) {
+        if (current_player_ == human_choice_) {
             counter1_ = counter1_ + 1;
             winner = player1_;
             ui->lcdNumber_p1->display(QString::number(counter1_));
@@ -182,7 +215,7 @@ void Startgame::handleButtonClick2(int row, int col, QPushButton *button) {
         StartNextRound();
     } else {
         // Switch to the other player's turn
-        current_player_ = (current_player_ == Player::X) ? Player::O : Player::X;
+        current_player_ = (current_player_ == ai_choice_) ? human_choice_ : ai_choice_;
 
         // AI's move
         pair<int, int> ai_move_coords = AIMove();
@@ -200,7 +233,7 @@ void Startgame::handleButtonClick2(int row, int col, QPushButton *button) {
                                   QString::number(ai_move_coords.second));
 
         if (CheckWin(current_player_)) {
-            if (current_player_ == Player::X) {
+            if (current_player_ == human_choice_) {
                 counter1_ = counter1_ + 1;
                 winner = player1_;
                 ui->lcdNumber_p1->display(QString::number(counter1_));
@@ -217,7 +250,7 @@ void Startgame::handleButtonClick2(int row, int col, QPushButton *button) {
             StartNextRound();
         } else {
             // Switch to the other player's turn
-            current_player_ = (current_player_ == Player::X) ? Player::O : Player::X;
+            current_player_ = (current_player_ == ai_choice_) ? human_choice_ : ai_choice_;
         }
     }
 }
@@ -281,7 +314,7 @@ int Startgame::MiniMax(int depth, bool is_maximizing_player) {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 if (grid_[i][j] == Player::None) {
-                    grid_[i][j] = Player::O;
+                    grid_[i][j] = ai_choice_;
                     best_score = max(best_score, MiniMax(depth + 1, false));
                     grid_[i][j] = Player::None;
                 }
@@ -293,7 +326,7 @@ int Startgame::MiniMax(int depth, bool is_maximizing_player) {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 if (grid_[i][j] == Player::None) {
-                    grid_[i][j] = Player::X;
+                    grid_[i][j] = human_choice_;
                     best_score = min(best_score, MiniMax(depth + 1, true));
                     grid_[i][j] = Player::None;
                 }
@@ -304,10 +337,10 @@ int Startgame::MiniMax(int depth, bool is_maximizing_player) {
 }
 
 int Startgame::EvaluateBoard() {
-    if (CheckWin(Player::O)) {
-        return 10;  // PLAYER_X wins
-    } else if (CheckWin(Player::X)) {
-        return -10;  // PLAYER_O wins
+    if (CheckWin(ai_choice_)) {
+        return 20;  // PLAYER_X wins
+    } else if (CheckWin(human_choice_)) {
+        return -20;  // PLAYER_O wins
     } else {
         return 0;  // Game not over
     }
@@ -318,8 +351,14 @@ void Startgame::SaveGame() {
     tm *timeinfo = localtime(&now);
     char timestamp[80];
     strftime(timestamp, sizeof(timestamp), "%Y-%m-%d %H:%M:%S", timeinfo);
-    std::string concatenatedString =
-        std::string(timestamp) + "*" + player1_ + "*" + player2_ + "*" + winner;
+    std::string concatenatedString;
+    if (game_mode_ == 2 && ai_choice_ ==  Player::X) {
+        concatenatedString =
+            std::string(timestamp) + "*" + player2_ + "*" + player1_ + "*" + winner;
+    }
+    else {
+    concatenatedString =
+            std::string(timestamp) + "*" + player1_ + "*" + player2_ + "*" + winner;}
     for (const auto &move : game_moves_) {
         concatenatedString = concatenatedString + "*" + move.toStdString();
     }

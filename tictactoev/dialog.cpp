@@ -20,6 +20,7 @@ Dialog::Dialog(QWidget *parent, int mode, std::string p1, std::string p2)
   if (mode == 2) {
     ui->pushButton_display2->hide();  // Hide the whole button
   } else {
+    ui->AiFirst->setVisible(false);
     ui->pushButton_display2->setText(QString::fromStdString(player_2_) +
                                      "'s history");
   }
@@ -36,7 +37,7 @@ Dialog::~Dialog() {
 }
 
 void Dialog::on_pushButton_clicked() {
-  Startgame *startgame_ = new Startgame(this, player_1_, player_2_, game_mode_);
+    Startgame *startgame_ = new Startgame(this, player_1_, player_2_, game_mode_, ui->AiFirst->isChecked());
   start_clicked_ = true;
   startgame_->show();
   musicPlayer->pause();
@@ -68,10 +69,14 @@ void Dialog::on_pushButton_2_clicked() {
 }
 
 void Dialog::closeEvent(QCloseEvent *event) {
-    if (player1  != nullptr)
+    if (player1  != nullptr){
         delete player1;
-    if (player2 != nullptr)
+        player1 = nullptr;
+    }
+    if (player2 != nullptr){
         delete player2;
+        player2 = nullptr;
+    }
     QApplication::quit();
 }
 
