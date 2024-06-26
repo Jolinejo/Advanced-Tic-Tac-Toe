@@ -1,0 +1,48 @@
+name: Run Tests with Google Test
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      # Install Qt
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v3
+        with:
+          version: '6.7.0'  # Specify the Qt version you need
+          modules: 'qtmultimedia'  # Specify the Qt modules you need
+
+      # Install dependencies for building and testing
+      - name: Install build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential
+
+      # Install Google Test
+      - name: Install Google Test
+        run: |
+          sudo apt-get install -y libgtest-dev
+          sudo apt-get install -y cmake # install cmake
+
+      # Build your project
+      - name: Build project
+        run: |
+          cd test/tictactoev
+          qmake tictactoe.pro
+          make
+
+      # Run tests using ctest (assuming tests are configured with CMake)
+      - name: Run tests
+        run: |
+          cd test/tictactoev
+          ctest --output-on-failure
+
