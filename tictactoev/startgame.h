@@ -20,7 +20,7 @@ class Startgame : public QDialog {
 
 public:
     explicit Startgame(QWidget *parent = nullptr, string p1 = "", string p2 = "",
-                       int mode = 1);
+                       int mode = 1, bool checked = false);
     ~Startgame();
 
 private slots:
@@ -35,11 +35,14 @@ private:
     Ui::Startgame *ui;
     Player current_player_;
     Player grid_[3][3];
+    Player ai_choice_ = Player::O;
+    Player human_choice_ = Player::X;
     string player1_;
     string player2_;
     int game_mode_;
     QVector<QString> game_moves_;
     pair<int, int> AIMove();
+    void AIFirst();
     int MiniMax(int depth, bool is_maximizer);
     int EvaluateBoard();
     int counter1_ = 0;

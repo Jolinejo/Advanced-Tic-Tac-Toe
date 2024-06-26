@@ -78,6 +78,19 @@ font: 700 15pt &quot;Segoe UI&quot;;</string>
     <string>Sign out</string>
    </property>
   </widget>
+  <widget class="QCheckBox" name="AiFirst">
+   <property name="geometry">
+    <rect>
+     <x>177</x>
+     <y>200</y>
+     <width>71</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Ai First?</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>
