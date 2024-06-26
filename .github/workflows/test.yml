@@ -1,44 +1,46 @@
-name: Run Tests with Google Test
+name: Qt C++ CI
 
-on: [push, pull_request]
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+    - name: Checkout repository
+      uses: actions/checkout@v3
 
-      # Install Qt
-      - name: Install Qt
-        uses: jurplel/install-qt-action@v3
-        with:
-          version: '6.7.0'  # Specify the Qt version you need
-          modules: 'qtmultimedia'  # Specify the Qt modules you need
+    - name: Install Qt
+      uses: jurplel/install-qt-action@v3
+      with:
+        version: '6.7.0'  # Specify the Qt version you need
+        modules: 'qtmultimedia'  # Specify the Qt modules you need
 
-      # Install dependencies for building and testing
-      - name: Install build dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y build-essential
+    - name: Add Qt to PATH
+      run: echo "$HOME/Qt/6.7.0/gcc_64/bin" >> $GITHUB_PATH
 
-      # Install Google Test
-      - name: Install Google Test
-        run: |
-          sudo apt-get install -y libgtest-dev
-          sudo apt-get install -y cmake # install cmake
+    - name: Install dependencies
+      run: sudo apt-get update && sudo apt-get install -y build-essential cmake qt6-base-dev
 
-      # Build your project
-      - name: Build project
-        run: |
-          cd test/tictactoev
-          qmake tictactoe.pro
-          make
+    - name: Download and build Google Test
+      run: |
+        git clone https://github.com/google/googletest.git
+        cd googletest
+        mkdir build
+        cd build
+        cmake ..
+        make
+        sudo make install
 
-      # Run tests using ctest (assuming tests are configured with CMake)
-      - name: Run tests
-        run: |
-          cd test/tictactoev
-          ctest --output-on-failure
+    - name: Build and Run Tests
+      run: |
+        mkdir -p build
+        cd build
+        qmake ../test/tictactoev/tictactoe.pro
+        make
+        ./tictactoe  # Run the tests
 

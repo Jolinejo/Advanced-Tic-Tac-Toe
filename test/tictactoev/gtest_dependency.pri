@@ -1,17 +1,6 @@
-isEmpty(GOOGLETEST_DIR):GOOGLETEST_DIR=$$(GOOGLETEST_DIR)
+# Include Google Test headers
+INCLUDEPATH += /usr/local/include
 
-isEmpty(GOOGLETEST_DIR) {
-    GOOGLETEST_DIR = "$$PWD/googletest/googletest"
-    !isEmpty(GOOGLETEST_DIR) {
-        warning("Using googletest src dir specified at Qt Creator wizard")
-        message("set GOOGLETEST_DIR as environment variable or qmake variable to get rid of this message")
-    }
-}
+# Link against Google Test libraries
+LIBS += -L/usr/local/lib -lgtest -lgtest_main
 
-!isEmpty(GOOGLETEST_DIR): {
-    INCLUDEPATH *= "$$GOOGLETEST_DIR/include"
-
-    LIBS *= -L"$$GOOGLETEST_DIR/lib" -lgtest
-} else {
-    LIBS *= -lgtest
-}
