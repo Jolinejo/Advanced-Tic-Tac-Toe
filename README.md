@@ -29,7 +29,7 @@ Advanced Tic Tac Toe is an enhanced version of the classic Tic Tac Toe game. Thi
 ## Installation
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/yourusername/advanced-tic-tac-toe.git
+   git clone https://github.com/Jolinejo/advanced-tic-tac-toe.git
    cd advanced-tic-tac-toe
    cd tictactoev
    ```
